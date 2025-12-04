@@ -14,9 +14,9 @@ class LandingController extends Controller
 			->first() ?? Property::with('rates')->first();
 
 		$heroVideos = [
-			'hero/hero-video1.mp4',
-			'hero/hero-video2.mp4',
-			'hero/hero-video3.mp4',
+			'hero/hero-video1.MP4',
+			'hero/hero-video2.MP4',
+			'hero/hero-video3.MP4',
 		];
 		$heroVideo = $heroVideos[array_rand($heroVideos)];
 
