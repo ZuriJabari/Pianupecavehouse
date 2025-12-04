@@ -1,0 +1,109 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+.hero-video {
+    animation: hero-video-fade 1800ms ease-out forwards;
+}
+
+@keyframes hero-video-fade {
+    0% {
+        opacity: 0;
+        transform: scale(1.08);
+    }
+    100% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@layer base {
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-family: 'Cormorant Garamond', ui-serif, Georgia, 'Times New Roman', serif;
+        letter-spacing: 0.02em;
+    }
+}
+
+.section-fade-in {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 700ms ease-out, transform 700ms ease-out;
+}
+
+.section-fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@layer components {
+    .lux-nav-link {
+        @apply relative inline-flex items-center transition-colors duration-300 ease-soft-out;
+    }
+
+    .lux-nav-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -0.35rem;
+        width: 100%;
+        height: 1px;
+        background-color: currentColor;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .lux-nav-link:hover::after {
+        transform: scaleX(1);
+    }
+
+    .lux-cta {
+        @apply transition-transform duration-300 ease-soft-out;
+    }
+
+    .lux-cta:hover {
+        transform: translateY(-2px);
+    }
+
+    .header-logo {
+        transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .header-logo span {
+        transition: color 260ms cubic-bezier(0.22, 1, 0.36, 1), letter-spacing 260ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .header-logo:hover {
+        transform: translateY(-1px);
+    }
+
+    .header-logo:hover span:first-child {
+        letter-spacing: 0.6em;
+        color: #18130f;
+    }
+
+    .header-logo:hover span:last-child {
+        color: #241b16;
+    }
+
+    .hero-heading {
+        text-shadow: 0 14px 40px rgba(0, 0, 0, 0.85);
+        letter-spacing: -0.035em;
+        line-height: 1.08;
+    }
+}
