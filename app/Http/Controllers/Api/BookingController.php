@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\BookingInvoiceMail;
 use App\Services\BookingService;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class BookingController extends Controller
 {
@@ -67,6 +69,18 @@ class BookingController extends Controller
 			return response()->json([
 				'message' => $e->getMessage(),
 			], 422);
+		}
+
+		try {
+			$mail = Mail::to($booking->guest_email);
+
+			if (config('mail.from.address')) {
+				$mail->bcc(config('mail.from.address'));
+			}
+
+			$mail->send(new BookingInvoiceMail($booking));
+		} catch (\Throwable $mailException) {
+			report($mailException);
 		}
 
 		return response()->json([
