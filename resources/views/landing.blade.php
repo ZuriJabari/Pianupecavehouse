@@ -17,7 +17,7 @@
 <body class="bg-[#f7f0e6] text-[#241b16] antialiased font-sans text-body md:text-body-lg leading-relaxed">
     <div class="relative min-h-screen">
         <!-- Sticky Nav -->
-        <header class="fixed inset-x-0 top-0 z-40 border-b border-black/5 bg-[#f7f0e6]/90 backdrop-blur-sm">
+        <header id="site-header" class="site-header site-header--at-top fixed inset-x-0 top-0 z-40 border-b border-black/5 bg-[#f7f0e6]/90 backdrop-blur-sm">
             <div class="mx-auto max-w-6xl px-4 py-4 lg:px-6">
                 <!-- Mobile: logo left, menu button right -->
                 <div class="flex items-center justify-between lg:hidden">
@@ -267,9 +267,6 @@
                                 </p>
                             </figcaption>
                         </div>
-                    </figure>
-                </div>
-            </div>
         </section>
 
         <!-- Parallax Interlude: The Landscape -->
@@ -280,7 +277,7 @@
                 style="background-image: url('{{ asset('camera/backgrounds/bg-interlude-01.jpg') }}');"
             ></div>
             <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/60"></div>
-            <div class="relative mx-auto flex max-w-6xl items-center px-4 py-28 md:py-36 lg:px-6">
+            <div class="relative mx-auto flex max-w-6xl items-center px-4 py-24 md:py-32 lg:px-6">
                 <div class="max-w-xl text-[#f5f2ea]">
                     <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/70">
                         The Pian Upe horizon
@@ -295,160 +292,6 @@
             </div>
         </section>
 
-        <!-- Gallery -->
-        <section id="gallery" class="bg-[#f7f0e6] section-fade-in">
-            @php
-                $galleryImages = [
-                    ['path' => 'camera/gallery/gallery-01.jpg', 'alt' => 'Balcony with blue chairs overlooking the plains and distant ridges.'],
-                    ['path' => 'camera/gallery/gallery-02.jpg', 'alt' => 'Cave room interior with four-poster bed and exposed rock wall.'],
-                    ['path' => 'camera/gallery/gallery-03.jpg', 'alt' => 'Glass pendant lights above the cave house bed.'],
-                    ['path' => 'camera/gallery/gallery-04.jpg', 'alt' => 'Cave bedroom with rock wall, brick, and wide window views.'],
-                    ['path' => 'camera/gallery/gallery-05.jpg', 'alt' => 'Stone steps leading up to the cave house entrance framed by flowers.'],
-                    ['path' => 'camera/gallery/gallery-06.jpg', 'alt' => 'Exterior rock face and garden around the cave house.'],
-                    ['path' => 'camera/gallery/gallery-07.jpg', 'alt' => 'Breakfast table set on the rocks with views over the savannah.'],
-                    ['path' => 'camera/gallery/gallery-08.jpg', 'alt' => 'Cave house glowing at dusk behind the trees.'],
-                ];
-            @endphp
-            <div class="mx-auto max-w-6xl px-4 py-20 lg:px-6">
-                <header class="max-w-3xl">
-                    <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#8d6b4a]/70">Gallery</p>
-                    <p class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl text-[#241b16]">Inside and around the cave house.</p>
-                    <p class="mt-3 font-sans text-2xl md:text-3xl text-[#4b3b2f]/85">
-                        Rooms carved into rock, terraces over the plains, and small details that make the cave house feel quietly lived‑in.
-                    </p>
-                </header>
-                <div class="mt-8 columns-1 gap-4 sm:columns-2 lg:columns-3">
-                    @foreach($galleryImages as $image)
-                        <figure class="mb-4 overflow-hidden rounded-2xl border border-[#e3d4c4] bg-[#fdf7f0] transition-transform duration-700 ease-out will-change-transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20">
-                            <div class="relative aspect-[4/5] overflow-hidden bg-gradient-to-b from-white/10 to-black/80">
-                                <img
-                                    class="h-full w-full object-cover js-gallery-image cursor-zoom-in"
-                                    src="{{ asset($image['path']) }}"
-                                    alt="{{ $image['alt'] }}"
-                                    data-full="{{ asset($image['path']) }}"
-                                    data-caption="{{ $image['alt'] }}"
-                                    loading="lazy"
-                                    decoding="async"
-                                />
-                                <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/60"></div>
-                            </div>
-                        </figure>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience & Amenities -->
-        <section id="experiences" class="border-y border-[#e3d4c4] bg-[#f7f0e6] section-fade-in">
-            <div class="mx-auto grid max-w-6xl gap-14 px-4 py-20 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:px-6">
-                <div>
-                    <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#8d6b4a]/70">Experience</h2>
-                    <p class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl text-[#241b16]">Days that move slowly, in a landscape that feels endless.</p>
-                    <p class="mt-4 max-w-xl font-sans text-lg md:text-xl leading-relaxed text-[#4b3b2f]/85">
-                        Game drives at first light, rock ridges at dusk, long firelit evenings, and quiet hours with nothing on the calendar.
-                    </p>
-                    <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-rows-[auto_auto]">
-                        <article class="relative overflow-hidden rounded-3xl border border-[#e3d4c4] bg-[#070708]/80 p-5 text-[#f5f2ea]/90 shadow-soft group transform transition-transform duration-700 ease-out hover:-translate-y-1">
-                            <div class="absolute inset-0 bg-cover bg-center opacity-60 transform transition-transform duration-700 ease-out will-change-transform group-hover:scale-105 group-hover:-translate-y-1" style="background-image: url('{{ asset('camera/gallery/gallery-07.jpg') }}');"></div>
-                            <div class="relative z-10 flex h-full flex-col justify-between">
-                                <header>
-                                    <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.26em] text-[#f5f2ea]/80">Dawn on the plains</p>
-                                    <h3 class="mt-2 font-display text-heading-md text-[#fefaf4]">Sunrise game drives.</h3>
-                                </header>
-                                <p class="mt-3 font-sans text-lg md:text-xl leading-relaxed text-[#f5f2ea]/80">
-                                    Soft light, cool air, and the savannah waking up around you — giraffes, eland, zebras, and wild ostriches in the distance.
-                                </p>
-                            </div>
-                        </article>
-
-                        <article class="relative overflow-hidden rounded-3xl border border-[#e3d4c4] bg-[#070708]/80 p-5 text-[#f5f2ea]/90 shadow-soft group transform transition-transform duration-700 ease-out hover:-translate-y-1">
-                            <div class="absolute inset-0 bg-cover bg-center opacity-60 transform transition-transform duration-700 ease-out will-change-transform group-hover:scale-105 group-hover:-translate-y-1" style="background-image: url('{{ asset('camera/gallery/gallery-05.jpg') }}');"></div>
-                            <div class="relative z-10 flex h-full flex-col justify-between">
-                                <header>
-                                    <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.26em] text-[#f5f2ea]/80">Rock ridge rituals</p>
-                                    <h3 class="mt-2 font-display text-heading-md text-[#fefaf4]">Sunrise on the rocks.</h3>
-                                </header>
-                                <p class="mt-3 font-sans text-lg md:text-xl leading-relaxed text-[#f5f2ea]/80">
-                                    Light hikes to rocky viewpoints for sunrise coffee, slow photographs, and wide-open silence.
-                                </p>
-                            </div>
-                        </article>
-
-                        <article class="relative overflow-hidden rounded-3xl border border-[#e3d4c4] bg-[#070708]/80 p-5 text-[#f5f2ea]/90 shadow-soft group transform transition-transform duration-700 ease-out hover:-translate-y-1">
-                            <div class="absolute inset-0 bg-cover bg-center opacity-60 transform transition-transform duration-700 ease-out will-change-transform group-hover:scale-105 group-hover:-translate-y-1" style="background-image: url('{{ asset('camera/gallery/gallery-08.jpg') }}');"></div>
-                            <div class="relative z-10 flex h-full flex-col justify-between">
-                                <header>
-                                    <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.26em] text-[#f5f2ea]/80">Night fire &amp; stars</p>
-                                    <h3 class="mt-2 font-display text-heading-md text-[#fefaf4]">Firelit evenings.</h3>
-                                </header>
-                                <p class="mt-3 font-sans text-lg md:text-xl leading-relaxed text-[#f5f2ea]/80">
-                                    A crackling fire, Karamoja’s big sky, and nothing but the sounds of the wild as the reserve settles into night.
-                                </p>
-                            </div>
-                        </article>
-
-                        <article class="relative overflow-hidden rounded-3xl border border-[#e3d4c4] bg-[#070708]/80 p-5 text-[#f5f2ea]/90 shadow-soft group transform transition-transform duration-700 ease-out hover:-translate-y-1">
-                            <div class="absolute inset-0 bg-cover bg-center opacity-60 transform transition-transform duration-700 ease-out will-change-transform group-hover:scale-105 group-hover:-translate-y-1" style="background-image: url('{{ asset('camera/gallery/gallery-01.jpg') }}');"></div>
-                            <div class="relative z-10 flex h-full flex-col justify-between">
-                                <header>
-                                    <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.26em] text-[#f5f2ea]/80">Quiet, unstructured days</p>
-                                    <h3 class="mt-2 font-display text-heading-md text-[#fefaf4]">Time to simply be.</h3>
-                                </header>
-                                <p class="mt-3 font-sans text-lg md:text-xl leading-relaxed text-[#f5f2ea]/80">
-                                    Time to read, sleep, journal, or simply watch the light move across the plains — a retreat for your mind, not your schedule.
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                <div>
-                    <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#8d6b4a]/70">Amenities</h2>
-                    <div class="mt-4 grid gap-4 font-sans text-body-sm text-[#4b3b2f]/85 sm:grid-cols-2">
-                        <div class="flex gap-3 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/90 p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-[#fff8ec]">
-                            <span class="mt-2 h-2 w-2 rounded-full bg-[#8d6b4a]/80"></span>
-                            <p>3 rooms · cave house architecture</p>
-                        </div>
-                        <div class="flex gap-3 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/90 p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-[#fff8ec]">
-                            <span class="mt-2 h-2 w-2 rounded-full bg-[#8d6b4a]/80"></span>
-                            <p>Full-board meals</p>
-                        </div>
-                        <div class="flex gap-3 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/90 p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-[#fff8ec]">
-                            <span class="mt-2 h-2 w-2 rounded-full bg-[#8d6b4a]/80"></span>
-                            <p>Private chef & attendant</p>
-                        </div>
-                        <div class="flex gap-3 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/90 p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-[#fff8ec]">
-                            <span class="mt-2 h-2 w-2 rounded-full bg-[#8d6b4a]/80"></span>
-                            <p>Fireplace & outdoor fire pit</p>
-                        </div>
-                        <div class="flex gap-3 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/90 p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-[#fff8ec]">
-                            <span class="mt-2 h-2 w-2 rounded-full bg-[#8d6b4a]/80"></span>
-                            <p>Wildlife & savannah views</p>
-                        </div>
-                        <div class="flex gap-3 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/90 p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-[#fff8ec]">
-                            <span class="mt-2 h-2 w-2 rounded-full bg-[#8d6b4a]/80"></span>
-                            <p>Stargazing setup</p>
-                        </div>
-                        <div class="flex gap-3 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/90 p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-[#fff8ec]">
-                            <span class="mt-2 h-2 w-2 rounded-full bg-[#8d6b4a]/80"></span>
-                            <p>Guided drives & walks</p>
-                        </div>
-                        <div class="flex gap-3 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/90 p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-[#fff8ec]">
-                            <span class="mt-2 h-2 w-2 rounded-full bg-[#8d6b4a]/80"></span>
-                            <p>Solar power & hot water</p>
-                        </div>
-                        <div class="flex gap-3 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/90 p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-[#fff8ec]">
-                            <span class="mt-2 h-2 w-2 rounded-full bg-[#8d6b4a]/80"></span>
-                            <p>Outdoor seating & lounge areas</p>
-                        </div>
-                        <div class="flex gap-3 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/90 p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-[#fff8ec]">
-                            <span class="mt-2 h-2 w-2 rounded-full bg-[#8d6b4a]/80"></span>
-                            <p>Board games & slow evenings</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Parallax Interlude: At the Cave House -->
         <section class="relative overflow-hidden section-fade-in parallax-section min-h-[420px] md:min-h-[540px]">
             <div
@@ -457,7 +300,7 @@
                 style="background-image: url('{{ asset('camera/backgrounds/bg-interlude-02.jpg') }}');"
             ></div>
             <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/65"></div>
-            <div class="relative mx-auto flex max-w-6xl items-center px-4 py-28 md:py-36 lg:px-6">
+            <div class="relative mx-auto flex max-w-6xl items-center px-4 py-24 md:py-32 lg:px-6">
                 <div class="max-w-xl text-[#f5f2ea]">
                     <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/70">
                         Life at the cave house

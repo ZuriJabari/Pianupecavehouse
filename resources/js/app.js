@@ -63,6 +63,40 @@ document.addEventListener('DOMContentLoaded', () => {
         requestParallaxUpdate();
     }
 
+    const header = document.getElementById('site-header');
+    const hero = document.getElementById('hero');
+
+    if (header && hero) {
+        const updateHeaderState = () => {
+            const rect = hero.getBoundingClientRect();
+            const threshold = 72;
+
+            if (rect.bottom <= threshold) {
+                header.classList.remove('site-header--at-top');
+                header.classList.add('site-header--scrolled');
+            } else {
+                header.classList.add('site-header--at-top');
+                header.classList.remove('site-header--scrolled');
+            }
+        };
+
+        let tickingHeader = false;
+
+        const requestHeaderUpdate = () => {
+            if (!tickingHeader) {
+                tickingHeader = true;
+                window.requestAnimationFrame(() => {
+                    updateHeaderState();
+                    tickingHeader = false;
+                });
+            }
+        };
+
+        window.addEventListener('scroll', requestHeaderUpdate, { passive: true });
+        window.addEventListener('resize', requestHeaderUpdate);
+        updateHeaderState();
+    }
+
     // Gallery lightbox
     const galleryImages = Array.from(document.querySelectorAll('.js-gallery-image'));
     const lightbox = document.getElementById('gallery-lightbox');
