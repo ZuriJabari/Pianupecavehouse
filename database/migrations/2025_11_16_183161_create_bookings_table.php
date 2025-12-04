@@ -31,7 +31,7 @@ return new class extends Migration
             $table->json('add_ons')->nullable();
             $table->text('notes')->nullable();
             $table->foreignId('coupon_id')->nullable()->constrained()->nullOnDelete();
-            $table->foreignId('payment_id')->nullable()->constrained()->nullOnDelete();
+            $table->unsignedBigInteger('payment_id')->nullable();
             $table->timestamps();
         });
     }
