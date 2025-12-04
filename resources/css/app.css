@@ -52,7 +52,7 @@ html {
 
 @layer components {
     .lux-nav-link {
-        @apply relative inline-flex items-center transition-colors duration-300 ease-soft-out;
+        @apply relative inline-flex items-center transition-colors duration-300 ease-out;
     }
 
     .lux-nav-link::after {
@@ -73,7 +73,7 @@ html {
     }
 
     .lux-cta {
-        @apply transition-transform duration-300 ease-soft-out;
+        @apply transition-transform duration-300 ease-out;
     }
 
     .lux-cta:hover {
