@@ -143,4 +143,14 @@ html {
         background-size: cover;
         background-position: center;
     }
+
+    .parallax-section {
+        min-height: 400px;
+    }
+
+    @media (min-width: 768px) {
+        .parallax-section {
+            min-height: 700px;
+        }
+    }
 }
