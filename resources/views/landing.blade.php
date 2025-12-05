@@ -296,7 +296,7 @@
         </section>
 
         <!-- Gallery -->
-        <section id="gallery" class="bg-[#f7f0e6] section-fade-in">
+        <section id="gallery" class="bg-[#f7f0e6] section-fade-in is-visible">
             @php
                 $galleryImages = [
                     ['path' => 'camera/gallery/gallery-01.jpg', 'alt' => 'Balcony with blue chairs overlooking the plains and distant ridges.'],
@@ -309,7 +309,7 @@
                     ['path' => 'camera/gallery/gallery-08.jpg', 'alt' => 'Cave house glowing at dusk behind the trees.'],
                 ];
             @endphp
-            <div class="mx-auto max-w-6xl px-4 py-20 lg:px-6">
+            <div class="mx-auto max-w-6xl px-4 py-16 md:py-20 lg:px-6">
                 <header class="max-w-3xl">
                     <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#8d6b4a]/70">Gallery</p>
                     <p class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl text-[#241b16]">Inside and around the cave house.</p>
@@ -476,7 +476,7 @@
 
         <!-- Rates & Booking -->
         <section id="rates" class="bg-[#f7f0e6] section-fade-in">
-            <div class="mx-auto max-w-6xl px-4 py-20 lg:px-6">
+            <div class="mx-auto max-w-6xl px-4 py-16 md:py-20 lg:px-6">
                 <div class="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
                     <div>
                         <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#8d6b4a]/70">Rates & Availability</h2>

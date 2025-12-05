@@ -144,10 +144,12 @@ html {
         background-position: center;
     }
 
+    /* Let mobile heights be driven by content + padding */
     .parallax-section {
-        min-height: 320px;
+        min-height: auto;
     }
 
+    /* On tablet/desktop, give the parallax sections more presence */
     @media (min-width: 768px) {
         .parallax-section {
             min-height: 560px;
