@@ -27,7 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Parallax backgrounds (respect reduced motion preferences)
     const parallaxSections = document.querySelectorAll('.parallax-section .parallax-bg');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (parallaxSections.length && !prefersReducedMotion) {
+    const isSmallScreen = window.matchMedia('(max-width: 767px)').matches;
+
+    // Only run parallax on larger screens with motion allowed
+    if (parallaxSections.length && !prefersReducedMotion && !isSmallScreen) {
         let ticking = false;
 
         const updateParallax = () => {
@@ -43,9 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const viewportCenter = scrollY + viewportHeight / 2;
                 const distance = viewportCenter - elementCenter;
 
-                // Adjust background position instead of moving the element to avoid gaps
+                // Adjust background position instead of moving the element, and clamp to avoid exposing empty space
+                const maxOffset = elementHeight * 0.25;
                 const offset = distance * speed;
-                el.style.backgroundPosition = `center calc(50% + ${-offset}px)`;
+                const clampedOffset = Math.max(-maxOffset, Math.min(maxOffset, offset));
+                el.style.backgroundPosition = `center calc(50% + ${-clampedOffset}px)`;
             });
 
             ticking = false;
