@@ -280,7 +280,7 @@
                 style="background-image: url('{{ asset('camera/backgrounds/bg-interlude-01.jpg') }}');">
             </div>
             <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/60"></div>
-            <div class="relative mx-auto flex max-w-6xl items-center px-4 py-24 md:py-32 lg:px-6">
+            <div class="relative mx-auto flex max-w-6xl items-center px-4 py-16 md:py-32 lg:px-6">
                 <div class="max-w-xl text-[#f5f2ea]">
                     <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/70">
                         The Pian Upe horizon
@@ -459,7 +459,7 @@
                 style="background-image: url('{{ asset('camera/backgrounds/bg-interlude-02.jpg') }}');"
             ></div>
             <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/65"></div>
-            <div class="relative mx-auto flex max-w-6xl items-center px-4 py-24 md:py-32 lg:px-6">
+            <div class="relative mx-auto flex max-w-6xl items-center px-4 py-16 md:py-32 lg:px-6">
                 <div class="max-w-xl text-[#f5f2ea]">
                     <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/70">
                         Life at the cave house
