@@ -267,36 +267,29 @@
                                 </p>
                             </figcaption>
                         </div>
-                </section>
+                    </figure>
+                </div>
+            </div>
+        </section>
 
-                <!-- Parallax Interlude: The Landscape -->
-                <section class="relative overflow-hidden section-fade-in parallax-section min-h-[420px] md:min-h-[540px]">
-                    <div
-                        class="absolute inset-0 bg-fixed bg-cover bg-center parallax-bg"
-                        data-parallax-speed="0.4"
-                        style="background-image: url('{{ asset('camera/backgrounds/bg-interlude-01.jpg') }}');"
-                    ></div>
-                    <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/60"></div>
-                    <div class="relative mx-auto flex max-w-6xl items-center px-4 py-24 md:py-32 lg:px-6">
-                        <div class="max-w-xl text-[#f5f2ea]">
-                            <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/70">
-                                The Pian Upe horizon
-                            </p>
-                            <p class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl leading-tight">
-                                A horizon that refuses to end.
-                            </p>
-                            <p class="mt-3 font-sans text-lg md:text-xl leading-relaxed text-[#f5f2ea]/85">
-                                Savannah plains, rock ridges, and a sky without edges — from first light to starlight, this is the backdrop to every stay.
-                            </p>
+        <!-- Parallax Interlude: The Landscape -->
+        <section class="relative overflow-hidden section-fade-in parallax-section min-h-[420px] md:min-h-[540px]">
+            <div
+                class="absolute inset-0 bg-fixed bg-cover bg-center parallax-bg"
+                data-parallax-speed="0.4"
+                style="background-image: url('{{ asset('camera/backgrounds/bg-interlude-01.jpg') }}');">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/60"></div>
+            <div class="relative mx-auto flex max-w-6xl items-center px-4 py-24 md:py-32 lg:px-6">
                 <div class="max-w-xl text-[#f5f2ea]">
                     <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/70">
-                        Life at the cave house
+                        The Pian Upe horizon
                     </p>
                     <p class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl leading-tight">
-                        Slow rituals from sunrise to embers.
+                        A horizon that refuses to end.
                     </p>
                     <p class="mt-3 font-sans text-lg md:text-xl leading-relaxed text-[#f5f2ea]/85">
-                        Coffee on the rocks, unhurried meals, warm light on stone walls, and the quiet of Pian Upe just beyond the balcony.
+                        Savannah plains, rock ridges, and a sky without edges — from first light to starlight, this is the backdrop to every stay.
                     </p>
                 </div>
             </div>
