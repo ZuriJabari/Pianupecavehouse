@@ -273,7 +273,7 @@
         </section>
 
         <!-- Parallax Interlude: The Landscape -->
-        <section class="relative overflow-hidden section-fade-in parallax-section min-h-[420px] md:min-h-[540px]">
+        <section class="relative overflow-hidden section-fade-in parallax-section min-h-[600px] md:min-h-[800px]">
             <div
                 class="absolute inset-0 bg-fixed bg-cover bg-center parallax-bg"
                 data-parallax-speed="0.4"
@@ -452,7 +452,7 @@
         </section>
 
         <!-- Parallax Interlude: At the Cave House -->
-        <section class="relative overflow-hidden section-fade-in parallax-section min-h-[420px] md:min-h-[540px]">
+        <section class="relative overflow-hidden section-fade-in parallax-section min-h-[600px] md:min-h-[800px]">
             <div
                 class="absolute inset-0 bg-fixed bg-cover bg-center parallax-bg"
                 data-parallax-speed="0.3"

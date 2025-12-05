@@ -67,20 +67,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const hero = document.getElementById('hero');
 
     if (header && hero) {
-        const updateHeaderState = () => {
-            const rect = hero.getBoundingClientRect();
-            const threshold = 72;
-
-            if (rect.bottom <= threshold) {
-                header.classList.remove('site-header--at-top');
-                header.classList.add('site-header--scrolled');
-            } else {
-                header.classList.add('site-header--at-top');
-                header.classList.remove('site-header--scrolled');
-            }
-        };
-
+        let lastScrollY = window.scrollY;
         let tickingHeader = false;
+
+        const updateHeaderState = () => {
+            const currentScrollY = window.scrollY;
+            const heroRect = hero.getBoundingClientRect();
+            const scrollingDown = currentScrollY > lastScrollY;
+            const scrollingUp = currentScrollY < lastScrollY;
+
+            // At the very top (over hero)
+            if (currentScrollY < 100) {
+                header.classList.add('site-header--at-top');
+                header.classList.remove('site-header--scrolled', 'site-header--hidden');
+            }
+            // Scrolling down and past hero - hide header
+            else if (scrollingDown && currentScrollY > 200) {
+                header.classList.remove('site-header--at-top');
+                header.classList.add('site-header--scrolled', 'site-header--hidden');
+            }
+            // Scrolling up - show header with scrolled style
+            else if (scrollingUp) {
+                header.classList.remove('site-header--at-top', 'site-header--hidden');
+                header.classList.add('site-header--scrolled');
+            }
+
+            lastScrollY = currentScrollY;
+        };
 
         const requestHeaderUpdate = () => {
             if (!tickingHeader) {
