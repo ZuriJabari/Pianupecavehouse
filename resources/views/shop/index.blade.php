@@ -208,7 +208,131 @@
                 </div>
             </div>
         </section>
-    </main>
+
+        <!-- Footer (same as landing page) -->
+        <footer class="relative border-t border-black/40 bg-black">
+			<div
+				class="pointer-events-none absolute inset-0 bg-cover bg-center opacity-70"
+				style="background-image: url('{{ asset('camera/backgrounds/footer-bg.jpg') }}');"
+			></div>
+			<div class="relative mx-auto max-w-6xl px-4 py-16 text-[#f5f2ea] lg:px-6 lg:py-20">
+				<div class="grid gap-10 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1.1fr)_minmax(0,1fr)]">
+					<div>
+						<h2 class="font-display text-3xl md:text-4xl lg:text-5xl leading-tight">Your private cave in the wild.</h2>
+						<p class="mt-3 font-sans text-body md:text-body-lg leading-relaxed text-[#e5d7c8]/85">
+							A full-board cave house stay in Pian Upe Game Reserve, hosted by a small on-site team who know every rock and ridge.
+						</p>
+					</div>
+					<div>
+						<h3 class="font-sans text-label-xs font-semibold uppercase tracking-[0.25em] text-[#f5f2ea]/70">Explore</h3>
+						<ul class="mt-3 space-y-1.5 font-sans text-body-sm">
+							<li><a href="{{ route('landing') }}#about" class="hover:text-white transition">The Cave</a></li>
+							<li><a href="{{ route('landing') }}#experiences" class="hover:text-white transition">Experiences</a></li>
+							<li><a href="{{ route('landing') }}#rates" class="hover:text-white transition">Rates</a></li>
+							<li><a href="{{ route('landing') }}#gallery" class="hover:text-white transition">Gallery</a></li>
+							<li><a href="{{ route('landing') }}#map" class="hover:text-white transition">Map &amp; Directions</a></li>
+							<li><a href="{{ route('landing') }}#contact" class="hover:text-white transition">Contact</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3 class="font-sans text-label-xs font-semibold uppercase tracking-[0.25em] text-[#f5f2ea]/70">Reservations</h3>
+						<ul class="mt-3 space-y-1.5 font-sans text-body-sm text-[#f5f2ea]/85">
+							<li><span class="text-[#f5f2ea]/60">Phone:</span> +256 (0) 761 311 772</li>
+							<li><span class="text-[#f5f2ea]/60">WhatsApp:</span> +256 777 643084</li>
+							<li><span class="text-[#f5f2ea]/60">Email:</span> reservations@pianupecave.com</li>
+						</ul>
+						<p class="mt-3 font-sans text-body md:text-body-lg leading-relaxed text-[#e5d7c8]/85">
+							Check availability online, then confirm your stay directly with our team for transfers, flights, and special requests.
+						</p>
+					</div>
+				</div>
+
+				<div id="newsletter" class="mt-12 grid gap-8 border-t border-white/15 pt-8 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1.1fr)] md:items-center">
+					<div>
+						<p class="font-display text-2xl md:text-3xl font-semibold uppercase tracking-[0.25em] text-[#f5f2ea]/80">Stay in the quiet</p>
+						<p class="mt-2 font-sans text-body md:text-body-lg text-[#f5f2ea]/80">
+							Occasional updates about retreat dates, special offers, and new experiences at the cave house.
+						</p>
+					</div>
+					<form
+						method="POST"
+						action="{{ route('newsletter.subscribe') }}"
+						class="flex flex-col gap-3 md:flex-row md:justify-end"
+					>
+						@csrf
+						<input
+							name="email"
+							type="email"
+							required
+							value="{{ old('email') }}"
+							placeholder="Your email address"
+							class="w-full rounded-full border border-white/30 bg-black/40 px-4 py-2.5 font-sans text-body-sm text-[#f5f2ea] placeholder:text-white/40 focus:border-white focus:outline-none md:max-w-sm"
+						/>
+						<button
+							type="submit"
+							class="inline-flex items-center justify-center rounded-full bg-[#f5f2ea] px-6 py-2.5 font-sans text-label-xs font-semibold uppercase tracking-[0.22em] text-[#181716] shadow-md shadow-black/40 hover:bg-white transition"
+						>
+							Sign Up
+						</button>
+					</form>
+				</div>
+
+				@if(session('newsletter_subscribed'))
+					<p class="mt-4 font-sans text-body text-emerald-300/90">{{ session('newsletter_subscribed') }}</p>
+				@endif
+				@error('email')
+					<p class="mt-2 font-sans text-body text-red-300">{{ $message }}</p>
+				@endif
+
+				<div class="mt-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+					<div class="flex flex-wrap items-center gap-3">
+						<p class="font-sans text-label-xs text-[#f5f2ea]/75">Find us</p>
+						<div class="flex flex-wrap gap-2">
+							<a
+								href="https://www.instagram.com/pianupecave"
+								target="_blank"
+								class="flex h-9 w-9 items-center justify-center rounded-full border border-white/40 bg-black/40 font-sans text-label-xs text-[#f5f2ea] hover:bg-white hover:text-[#181716] transition"
+								aria-label="Instagram"
+							>
+								<i class="fab fa-instagram"></i>
+							</a>
+							<a
+								href="https://www.airbnb.com/"
+								target="_blank"
+								class="flex h-9 w-9 items-center justify-center rounded-full border border-white/40 bg-black/40 font-sans text-label-xs text-[#f5f2ea] hover:bg-white hover:text-[#181716] transition"
+								aria-label="Airbnb"
+							>
+								<i class="fab fa-airbnb"></i>
+							</a>
+							<a
+								href="https://www.tripadvisor.com/"
+								target="_blank"
+								class="flex h-9 w-9 items-center justify-center rounded-full border border-white/40 bg-black/40 font-sans text-label-xs text-[#f5f2ea] hover:bg-white hover:text-[#181716] transition"
+								aria-label="Tripadvisor"
+							>
+								<i class="fa-solid fa-location-dot"></i>
+							</a>
+							<a
+								href="mailto:reservations@pianupecave.com"
+								class="flex h-9 w-9 items-center justify-center rounded-full border border-white/40 bg-black/40 font-sans text-label-xs text-[#f5f2ea] hover:bg-white hover:text-[#181716] transition"
+								aria-label="Email"
+							>
+								<i class="fa-regular fa-envelope"></i>
+							</a>
+						</div>
+					</div>
+					<div class="font-sans text-body-sm text-[#f5f2ea]/70 text-right">
+						<p>PIAN UPE GAME RESERVE · KARAMOJA · NEAR SIPI FALLS</p>
+						<p class="mt-1">&copy; {{ now()->year }} Pian Upe Cave House. All rights reserved.</p>
+						<p class="mt-1 text-[#f5f2ea]/55">
+							Website by
+							<a href="https://www.index.ug" target="_blank" class="underline underline-offset-4 hover:text-white">Index Digital</a>.
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</main>
 </div>
 </body>
 </html>
