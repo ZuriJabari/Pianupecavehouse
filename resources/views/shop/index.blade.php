@@ -76,7 +76,7 @@
         </div>
     </header>
 
-    <main class="pt-28 lg:pt-32">
+    <main class="pt-32 lg:pt-40">
         <section class="relative overflow-hidden section-fade-in">
             <div class="absolute inset-0">
                 <img
@@ -87,8 +87,8 @@
                     class="h-full w-full object-cover"
                 />
             </div>
-            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black/80"></div>
-            <div class="relative mx-auto flex min-h-[420px] max-w-6xl items-center px-4 py-16 md:min-h-[520px] md:py-24 lg:min-h-[580px] lg:px-6">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black/85"></div>
+            <div class="relative mx-auto flex min-h-[420px] max-w-6xl items-end px-4 py-20 md:min-h-[520px] md:py-28 lg:min-h-[600px] lg:px-6">
                 <div class="max-w-xl text-[#f5f2ea]">
                     <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/70">Pian Upe keepsakes</p>
                     <h1 class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl leading-tight">
