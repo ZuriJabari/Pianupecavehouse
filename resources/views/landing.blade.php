@@ -299,14 +299,15 @@
         <section id="gallery" class="bg-[#f7f0e6] section-fade-in is-visible">
             @php
                 $galleryImages = [
+                    ['path' => 'camera/backgrounds/bg-interlude-01.jpg', 'alt' => 'Wide view over the Pian Upe plains from the cave ridge.'],
+                    ['path' => 'camera/gallery/gallery-07.jpg', 'alt' => 'Breakfast table laid out on the rocks with views over the savannah.'],
                     ['path' => 'camera/gallery/gallery-01.jpg', 'alt' => 'Balcony with blue chairs overlooking the plains and distant ridges.'],
-                    ['path' => 'camera/gallery/gallery-02.jpg', 'alt' => 'Cave room interior with four-poster bed and exposed rock wall.'],
-                    ['path' => 'camera/gallery/gallery-03.jpg', 'alt' => 'Glass pendant lights above the cave house bed.'],
-                    ['path' => 'camera/gallery/gallery-04.jpg', 'alt' => 'Cave bedroom with rock wall, brick, and wide window views.'],
-                    ['path' => 'camera/gallery/gallery-05.jpg', 'alt' => 'Stone steps leading up to the cave house entrance framed by flowers.'],
-                    ['path' => 'camera/gallery/gallery-06.jpg', 'alt' => 'Exterior rock face and garden around the cave house.'],
-                    ['path' => 'camera/gallery/gallery-07.jpg', 'alt' => 'Breakfast table set on the rocks with views over the savannah.'],
-                    ['path' => 'camera/gallery/gallery-08.jpg', 'alt' => 'Cave house glowing at dusk behind the trees.'],
+                    ['path' => 'camera/gallery/gallery-04.jpg', 'alt' => 'Cave bedroom with rock walls, brick, and a large window facing the reserve.'],
+                    ['path' => 'camera/gallery/gallery-06.jpg', 'alt' => 'Exterior rock face and garden pathways around the cave house.'],
+                    ['path' => 'camera/backgrounds/bg-interlude-02.jpg', 'alt' => 'The cave house lit warmly against the rock at dusk.'],
+                    ['path' => 'images/legend/IMG_0249.jpg', 'alt' => 'Traditional Karimojong headrest resting inside the cave house.'],
+                    ['path' => 'images/contact/IMG_0230.jpg', 'alt' => 'Approach road and landscape around Pian Upe Cave House.'],
+                    ['path' => 'camera/backgrounds/footer-bg.jpg', 'alt' => 'Night sky and silhouettes of rocks near the cave house.'],
                 ];
             @endphp
             <div class="mx-auto max-w-6xl px-4 py-16 md:py-20 lg:px-6">
