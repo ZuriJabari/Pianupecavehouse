@@ -79,25 +79,40 @@
     </header>
 
     <main class="pt-24 lg:pt-28">
+        <section class="relative overflow-hidden section-fade-in">
+            <div class="absolute inset-0">
+                <img
+                    src="{{ asset('camera/backgrounds/shop-hero.jpg') }}"
+                    alt="Souvenir objects from Pian Upe Cave House."
+                    loading="lazy"
+                    decoding="async"
+                    class="h-full w-full object-cover"
+                />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black/80"></div>
+            <div class="relative mx-auto flex min-h-[420px] max-w-6xl items-center px-4 py-16 md:min-h-[520px] md:py-24 lg:min-h-[580px] lg:px-6">
+                <div class="max-w-xl text-[#f5f2ea]">
+                    <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/70">Pian Upe keepsakes</p>
+                    <h1 class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl leading-tight">
+                        A small shop for quiet souvenirs.
+                    </h1>
+                    <p class="mt-4 font-sans text-lg md:text-xl text-[#f5f2ea]/85">
+                        Prints, objects, and little rituals from the cave house and the savannah. Curated in small batches so you can carry a piece of Pian Upe home.
+                    </p>
+                    @if(session('shop_notice'))
+                        <div class="mt-5 inline-flex rounded-2xl border border-white/25 bg-black/35 px-4 py-2.5 font-sans text-body-sm text-[#f5f2ea]/90 shadow-sm">
+                            {{ session('shop_notice') }}
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </section>
+
         <section class="section-fade-in">
             <div class="mx-auto max-w-6xl px-4 py-10 lg:px-6 lg:py-16">
                 <div class="grid gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-start">
                     <div>
-                        <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#8d6b4a]/70">Pian Upe keepsakes</p>
-                        <h1 class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl text-[#241b16] leading-tight">
-                            A small shop for quiet souvenirs.
-                        </h1>
-                        <p class="mt-4 max-w-2xl font-sans text-lg md:text-xl text-[#4b3b2f]/85">
-                            Prints, objects, and little rituals from the cave house and the savannah. Curated in small batches so you can carry a piece of Pian Upe home.
-                        </p>
-
-                        @if(session('shop_notice'))
-                            <div class="mt-5 rounded-2xl border border-[#8d6b4a]/25 bg-[#fdf7f0] px-4 py-3 font-sans text-body-sm text-[#4b3b2f]/85 shadow-sm">
-                                {{ session('shop_notice') }}
-                            </div>
-                        @endif
-
-                        <div class="mt-8 grid gap-6 md:grid-cols-2">
+                        <div class="mt-2 grid gap-6 md:grid-cols-2">
                             @forelse($products as $product)
                                 <article class="flex h-full flex-col overflow-hidden rounded-2xl border border-[#e3d4c4] bg-[#fffaf3] shadow-sm">
                                     <div class="relative aspect-[4/3] w-full overflow-hidden bg-[#e7d7c7]">
