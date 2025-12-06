@@ -76,7 +76,7 @@
         </div>
     </header>
 
-    <main class="pt-32 lg:pt-40">
+    <main class="pt-40 lg:pt-48">
         <section class="relative overflow-hidden section-fade-in">
             <div class="absolute inset-0">
                 <img
