@@ -205,4 +205,49 @@ html {
     #experiences a:hover {
         color: #ffffff;
     }
+
+    /* Flatpickr calendar styling for a compact, luxurious feel */
+    .flatpickr-calendar {
+        border-radius: 1.25rem;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75);
+        overflow: hidden;
+        font-family: var(--font-sans);
+    }
+
+    .flatpickr-months .flatpickr-month {
+        padding: 0.5rem 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 0.72rem;
+    }
+
+    .flatpickr-current-month .flatpickr-monthDropdown-months,
+    .flatpickr-current-month input.cur-year {
+        font-size: 0.72rem;
+        font-weight: 600;
+    }
+
+    .flatpickr-weekdays {
+        font-size: 0.7rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+    }
+
+    .flatpickr-day {
+        border-radius: 999px;
+    }
+
+    .flatpickr-day.selected,
+    .flatpickr-day.startRange,
+    .flatpickr-day.endRange,
+    .flatpickr-day.inRange {
+        box-shadow: none;
+    }
+
+    @media (max-width: 767px) {
+        .flatpickr-calendar {
+            max-width: min(22rem, 100vw - 1.5rem);
+        }
+    }
 }

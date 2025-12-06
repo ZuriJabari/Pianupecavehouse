@@ -277,13 +277,20 @@ document.addEventListener('DOMContentLoaded', () => {
             if (startInput.value) defaultDates.push(startInput.value);
             if (endInput.value) defaultDates.push(endInput.value);
 
+            const isSmallViewport = window.matchMedia('(max-width: 767px)').matches;
+
             const options = {
                 mode: 'range',
                 minDate: 'today',
                 dateFormat: 'Y-m-d',
                 altInput: true,
                 altFormat: 'M j, Y',
-                showMonths: 2,
+                // Airbnb-like behaviour: 1 month on mobile, 2 on larger screens
+                showMonths: isSmallViewport ? 1 : 2,
+                disableMobile: true,
+                monthSelectorType: 'dropdown',
+                prevArrow: '‹',
+                nextArrow: '›',
                 onChange: (selectedDates, dateStr, instance) => {
                     if (selectedDates.length > 0) {
                         startInput.value = instance.formatDate(selectedDates[0], 'Y-m-d');
