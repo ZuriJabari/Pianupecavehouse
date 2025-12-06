@@ -1,6 +1,8 @@
 import './bootstrap';
 
 document.addEventListener('DOMContentLoaded', () => {
+    let flatpickrReady = null;
+
     // Section fade-in on scroll
     const sections = document.querySelectorAll('.section-fade-in');
 
@@ -227,6 +229,95 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setGalleryPage(currentGalleryPage);
     }
+
+    // Airbnb-style date range picker for booking widget
+    const initBookingDateRangePicker = () => {
+        const rangeInput = document.querySelector('[data-range-input]');
+        const startInput = document.querySelector('[data-range-start]');
+        const endInput = document.querySelector('[data-range-end]');
+
+        if (!rangeInput || !startInput || !endInput || rangeInput.dataset.rangePickerInitialized === '1') {
+            return;
+        }
+
+        rangeInput.dataset.rangePickerInitialized = '1';
+
+        const ensureFlatpickr = () => {
+            if (flatpickrReady) {
+                return flatpickrReady;
+            }
+
+            flatpickrReady = new Promise((resolve) => {
+                if (window.flatpickr) {
+                    resolve(window.flatpickr);
+                    return;
+                }
+
+                if (!document.querySelector('link[data-flatpickr-css]')) {
+                    const link = document.createElement('link');
+                    link.rel = 'stylesheet';
+                    link.href = 'https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css';
+                    link.setAttribute('data-flatpickr-css', 'true');
+                    document.head.appendChild(link);
+                }
+
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js';
+                script.onload = () => resolve(window.flatpickr);
+                document.head.appendChild(script);
+            });
+
+            return flatpickrReady;
+        };
+
+        ensureFlatpickr().then((flatpickr) => {
+            if (!flatpickr) return;
+
+            const defaultDates = [];
+            if (startInput.value) defaultDates.push(startInput.value);
+            if (endInput.value) defaultDates.push(endInput.value);
+
+            const options = {
+                mode: 'range',
+                minDate: 'today',
+                dateFormat: 'Y-m-d',
+                altInput: true,
+                altFormat: 'M j, Y',
+                showMonths: 2,
+                onChange: (selectedDates, dateStr, instance) => {
+                    if (selectedDates.length > 0) {
+                        startInput.value = instance.formatDate(selectedDates[0], 'Y-m-d');
+                    }
+                    if (selectedDates.length > 1) {
+                        endInput.value = instance.formatDate(selectedDates[1], 'Y-m-d');
+                    } else {
+                        endInput.value = '';
+                    }
+
+                    startInput.dispatchEvent(new Event('input', { bubbles: true }));
+                    endInput.dispatchEvent(new Event('input', { bubbles: true }));
+                },
+            };
+
+            if (defaultDates.length === 2) {
+                options.defaultDate = defaultDates;
+            }
+
+            flatpickr(rangeInput, options);
+        });
+    };
+
+    // Initialise range picker on first load
+    initBookingDateRangePicker();
+
+    // Re-initialise after Livewire updates (e.g. step changes)
+    document.addEventListener('livewire:load', () => {
+        if (window.Livewire && typeof window.Livewire.hook === 'function') {
+            window.Livewire.hook('message.processed', () => {
+                initBookingDateRangePicker();
+            });
+        }
+    });
 
     // Legend section toggle (Read the full legend / Show less)
     const legendToggle = document.querySelector('[data-legend-toggle]');

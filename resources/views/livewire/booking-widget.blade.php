@@ -26,14 +26,17 @@
 					<p class="font-sans text-body-sm text-[#f5f2ea]/65">Choose your preferred stay dates and who you’re travelling with.</p>
 				</div>
 				<div class="grid gap-4 md:grid-cols-2">
-					<div>
-						<label class="block font-sans text-body-sm text-[#f5f2ea]/75">Check-in</label>
-						<input type="date" wire:model.defer="check_in" class="mt-1 w-full rounded-lg border border-white/20 bg-black/40 px-3 py-2.5 font-sans text-body text-[#f5f2ea] placeholder:text-white/30 focus:border-white/60 focus:outline-none" />
+					<div class="md:col-span-2">
+						<label class="block font-sans text-body-sm text-[#f5f2ea]/75">Dates</label>
+						<input
+							type="text"
+							data-range-input
+							class="mt-1 w-full rounded-lg border border-white/20 bg-black/40 px-3 py-2.5 font-sans text-body text-[#f5f2ea] placeholder:text-white/40 focus:border-white/60 focus:outline-none"
+							placeholder="Select dates"
+						/>
+						<input type="hidden" data-range-start wire:model.defer="check_in" />
+						<input type="hidden" data-range-end wire:model.defer="check_out" />
 						@error('check_in') <p class="mt-1 font-sans text-body-sm text-red-300">{{ $message }}</p> @enderror
-					</div>
-					<div>
-						<label class="block font-sans text-body-sm text-[#f5f2ea]/75">Check-out</label>
-						<input type="date" wire:model.defer="check_out" class="mt-1 w-full rounded-lg border border-white/20 bg-black/40 px-3 py-2.5 font-sans text-body text-[#f5f2ea] placeholder:text-white/30 focus:border-white/60 focus:outline-none" />
 						@error('check_out') <p class="mt-1 font-sans text-body-sm text-red-300">{{ $message }}</p> @enderror
 					</div>
 				</div>
