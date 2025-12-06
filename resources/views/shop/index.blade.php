@@ -215,12 +215,14 @@
 				class="pointer-events-none absolute inset-0 bg-cover bg-center opacity-70"
 				style="background-image: url('{{ asset('camera/backgrounds/footer-bg.jpg') }}');"
 			></div>
-			<div class="relative mx-auto max-w-6xl px-4 py-16 text-[#f5f2ea] lg:px-6 lg:py-20">
-				<div class="grid gap-10 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1.1fr)_minmax(0,1fr)]">
+			<div class="pointer-events-none absolute inset-0 bg-black/60"></div>
+
+			<div class="relative mx-auto max-w-6xl px-4 py-14 lg:px-6 lg:py-16">
+				<div class="grid gap-10 font-sans text-body text-[#f5f2ea]/85 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,1fr)]">
 					<div>
-						<h2 class="font-display text-3xl md:text-4xl lg:text-5xl leading-tight">Your private cave in the wild.</h2>
-						<p class="mt-3 font-sans text-body md:text-body-lg leading-relaxed text-[#e5d7c8]/85">
-							A full-board cave house stay in Pian Upe Game Reserve, hosted by a small on-site team who know every rock and ridge.
+						<p class="font-display text-2xl md:text-3xl font-semibold uppercase tracking-[0.28em] text-[#f5f2ea]/80">Pian Upe Cave House</p>
+						<p class="mt-3 font-sans text-body md:text-body-lg leading-relaxed text-[#f5f2ea]/85">
+							A private cave house carved into the rocks of Pian Upe Game Reserve — hosted stays for couples, small groups, and quiet retreats.
 						</p>
 					</div>
 					<div>
