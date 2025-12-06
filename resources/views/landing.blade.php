@@ -148,19 +148,22 @@
                         <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.24em] text-[#f5f2ea]/75">At a glance</h2>
                         <p class="mt-2 font-sans text-body-sm text-[#f5f2ea]/70">A quiet snapshot of what every stay includes.</p>
                         <dl class="mt-5 space-y-3">
-                            <div class="flex items-start justify-between gap-4">
+                            <div class="flex items-start justify-between gap-4 pb-2">
                                 <dt class="font-sans text-body-sm text-[#f5f2ea]/65">Stay</dt>
                                 <dd class="text-right font-sans text-body-sm text-[#f5f2ea]/90">Private cave house · 1 group only</dd>
                             </div>
-                            <div class="flex items-start justify-between gap-4">
+                            <div class="flex items-start justify-between gap-4 border-t border-white/10 pt-2">
                                 <dt class="font-sans text-body-sm text-[#f5f2ea]/65">Rooms</dt>
                                 <dd class="text-right font-sans text-body-sm text-[#f5f2ea]/90">3 cave rooms · full board</dd>
                             </div>
-                            <div class="flex items-start justify-between gap-4">
+                            <div class="flex items-start justify-between gap-4 border-t border-white/10 pt-2">
                                 <dt class="font-sans text-body-sm text-[#f5f2ea]/65">Rates</dt>
-                                <dd class="text-right font-sans text-body-sm text-[#f5f2ea]/90">$250 per person · $350 per couple / night</dd>
+                                <dd class="text-right font-sans text-body-sm text-[#f5f2ea]/90">
+                                    Full-board · $350 double · $250 single<br>
+                                    Half-board · $305 double · $205 single
+                                </dd>
                             </div>
-                            <div class="flex items-start justify-between gap-4">
+                            <div class="flex items-start justify-between gap-4 border-t border-white/10 pt-2">
                                 <dt class="font-sans text-body-sm text-[#f5f2ea]/65">Access</dt>
                                 <dd class="text-right font-sans text-body-sm text-[#f5f2ea]/90">4×4 required · private transfers available</dd>
                             </div>
@@ -499,26 +502,35 @@
                         <p class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl text-[#241b16]">Simple, transparent, and fully private.</p>
                         <div class="mt-6 grid gap-4 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
                             <div class="rounded-2xl border border-[#e3d4c4] bg-[#fffaf3] p-6 font-sans text-body text-[#4b3b2f]/85 shadow-sm">
-                                <h3 class="font-sans text-label-xs font-semibold uppercase tracking-[0.24em] text-[#8d6b4a]/80">Nightly rate</h3>
-                                <p class="mt-3 font-sans text-body leading-relaxed text-[#241b16]">
-                                    <span class="font-semibold">$250</span> per person · <span class="font-semibold">$350</span> per couple, per night.
-                                </p>
+                                <h3 class="font-sans text-label-xs font-semibold uppercase tracking-[0.24em] text-[#8d6b4a]/80">Nightly rates</h3>
+                                <ul class="mt-3 space-y-1 font-sans text-body leading-relaxed text-[#241b16]">
+                                    <li><span class="font-semibold">Full-board · Double occupancy</span> — $350 per night</li>
+                                    <li><span class="font-semibold">Half-board · Double occupancy</span> — $305 per night</li>
+                                    <li><span class="font-semibold">Full-board · Single occupancy</span> — $250 per night</li>
+                                    <li><span class="font-semibold">Half-board · Single occupancy</span> — $205 per night</li>
+                                </ul>
                                 <p class="mt-3 font-sans text-body-sm text-[#5b4636]">
-                                    Full board includes breakfast, lunch, dinner, drinking water, tea, and coffee.
+                                    Full-board includes breakfast, lunch, dinner, drinking water, tea, and coffee. Half-board includes breakfast and dinner.
                                 </p>
                             </div>
                             <div class="rounded-2xl border border-[#e3d4c4] bg-[#fffaf3] p-6 font-sans text-body-sm text-[#4b3b2f]/85 shadow-sm">
-                                <h3 class="font-sans text-label-xs font-semibold uppercase tracking-[0.24em] text-[#8d6b4a]/80">Stay details</h3>
+                                <h3 class="font-sans text-label-xs font-semibold uppercase tracking-[0.24em] text-[#8d6b4a]/80">Extras & stay details</h3>
                                 <ul class="mt-3 space-y-1">
                                     <li>· Minimum stay: 1 night</li>
                                     <li>· Up to 3 rooms · small private groups</li>
                                     <li>· Hosted stays with on-site team & private chef</li>
                                     <li>· Guided time in Pian Upe can be arranged around your dates</li>
                                 </ul>
+                                <p class="mt-3 font-sans text-body-sm text-[#5b4636] font-semibold">Extra meals (per person):</p>
+                                <ul class="mt-1 space-y-1">
+                                    <li>· Breakfast — $20</li>
+                                    <li>· Lunch — $25</li>
+                                    <li>· Dinner — $40</li>
+                                </ul>
                             </div>
                         </div>
                         <p class="mt-5 font-sans text-body leading-relaxed text-[#4b3b2f]/80">
-                            Use the calendar to choose your dates, guests, and rooms. You’ll see an estimated total before sending a reservation request to the team.
+                            Use the calendar to choose your dates, guests, and rooms. You’ll see an estimated total based on full-board before sending a reservation request. Half-board or special arrangements can be confirmed directly with the team.
                         </p>
                     </div>
                     <div id="booking-widget" class="lg:pl-4">
