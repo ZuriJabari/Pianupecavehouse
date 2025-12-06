@@ -413,29 +413,29 @@
                         <p class="mt-4 max-w-xl font-sans text-lg md:text-xl leading-relaxed text-[#f5f2ea]/90">
                             Game drives at first light, rock ridges at dusk, long firelit evenings, and quiet hours with nothing on the calendar.
                         </p>
-                        <div class="mt-8 space-y-6">
-                            <div class="border-t border-white/12 pt-5">
+                        <div class="mt-8 space-y-7 md:space-y-8">
+                            <div class="border-t border-white/12 pt-6 pb-4 md:pt-7 md:pb-5">
                                 <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.24em] text-[#f5f2ea]/80">Dawn on the plains</p>
                                 <h3 class="mt-1 font-display text-2xl md:text-3xl text-white">Sunrise game drives.</h3>
                                 <p class="mt-2 font-sans text-base md:text-lg leading-relaxed text-[#f5f2ea]/92">
                                     Soft light, cool air, and the savannah waking up around you — giraffes, eland, zebras, and wild ostriches in the distance.
                                 </p>
                             </div>
-                            <div class="border-t border-white/12 pt-5">
+                            <div class="border-t border-white/12 pt-6 pb-4 md:pt-7 md:pb-5">
                                 <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.24em] text-[#f5f2ea]/80">Rock ridge rituals</p>
                                 <h3 class="mt-1 font-display text-2xl md:text-3xl text-white">Sunrise on the rocks.</h3>
                                 <p class="mt-2 font-sans text-base md:text-lg leading-relaxed text-[#f5f2ea]/92">
                                     Light hikes to rocky viewpoints for sunrise coffee, slow photographs, and wide-open silence.
                                 </p>
                             </div>
-                            <div class="border-t border-white/12 pt-5">
+                            <div class="border-t border-white/12 pt-6 pb-4 md:pt-7 md:pb-5">
                                 <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.24em] text-[#f5f2ea]/80">Night fire &amp; stars</p>
                                 <h3 class="mt-1 font-display text-2xl md:text-3xl text-white">Firelit evenings.</h3>
                                 <p class="mt-2 font-sans text-base md:text-lg leading-relaxed text-[#f5f2ea]/92">
                                     A crackling fire, Karamoja’s big sky, and nothing but the sounds of the wild as the reserve settles into night.
                                 </p>
                             </div>
-                            <div class="border-t border-white/12 pt-5">
+                            <div class="border-t border-white/12 pt-6 pb-4 md:pt-7 md:pb-5">
                                 <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.24em] text-[#f5f2ea]/80">Quiet, unstructured days</p>
                                 <h3 class="mt-1 font-display text-2xl md:text-3xl text-white">Time to simply be.</h3>
                                 <p class="mt-2 font-sans text-base md:text-lg leading-relaxed text-[#f5f2ea]/92">
