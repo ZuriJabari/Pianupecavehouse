@@ -396,18 +396,22 @@
         </section>
 
         <!-- Experience & Amenities -->
-        <section id="experiences" class="border-y border-[#e3d4c4] bg-[#f7f0e6] section-fade-in">
-            <div class="mx-auto max-w-6xl px-4 py-20 lg:px-6">
-                <div class="grid gap-14 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
+        <section id="experiences" class="relative overflow-hidden section-fade-in">
+            <div
+                class="pointer-events-none absolute inset-0 bg-cover bg-center"
+                style="background-image: url('{{ asset('camera/backgrounds/experiences-hero.jpg') }}');"
+            ></div>
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-black/85"></div>
+            <div class="relative mx-auto max-w-6xl px-4 py-20 lg:px-6">
+                <div class="grid gap-14 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] items-start">
                     <div>
-                        <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#8d6b4a]/70">Experience</h2>
-                        <p class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl text-[#241b16]">Days that move slowly, in a landscape that feels endless.</p>
-                        <p class="mt-4 max-w-xl font-sans text-lg md:text-xl leading-relaxed text-[#4b3b2f]/85">
+                        <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/75">Experience</h2>
+                        <p class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl text-[#fefaf4]">Days that move slowly, in a landscape that feels endless.</p>
+                        <p class="mt-4 max-w-xl font-sans text-lg md:text-xl leading-relaxed text-[#f5f2ea]/80">
                             Game drives at first light, rock ridges at dusk, long firelit evenings, and quiet hours with nothing on the calendar.
                         </p>
                         <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-rows-[auto_auto]">
-                            <article class="relative overflow-hidden rounded-3xl border border-[#e3d4c4] bg-[#070708]/80 p-5 text-[#f5f2ea]/90 shadow-soft group transform transition-transform duration-700 ease-out hover:-translate-y-1">
-                                <div class="absolute inset-0 bg-cover bg-center opacity-60 transform transition-transform duration-700 ease-out will-change-transform group-hover:scale-105 group-hover:-translate-y-1" style="background-image: url('{{ asset('camera/gallery/gallery-07.jpg') }}');"></div>
+                            <article class="relative overflow-hidden rounded-3xl border border-white/14 bg-white/8 backdrop-blur-md p-5 text-[#f5f2ea]/90 shadow-soft group transform transition-transform duration-700 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40">
                                 <div class="relative z-10 flex h-full flex-col justify-between">
                                     <header>
                                         <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.26em] text-[#f5f2ea]/80">Dawn on the plains</p>
@@ -419,8 +423,7 @@
                                 </div>
                             </article>
 
-                            <article class="relative overflow-hidden rounded-3xl border border-[#e3d4c4] bg-[#070708]/80 p-5 text-[#f5f2ea]/90 shadow-soft group transform transition-transform duration-700 ease-out hover:-translate-y-1">
-                                <div class="absolute inset-0 bg-cover bg-center opacity-60 transform transition-transform duration-700 ease-out will-change-transform group-hover:scale-105 group-hover:-translate-y-1" style="background-image: url('{{ asset('camera/gallery/gallery-05.jpg') }}');"></div>
+                            <article class="relative overflow-hidden rounded-3xl border border-white/14 bg-white/8 backdrop-blur-md p-5 text-[#f5f2ea]/90 shadow-soft group transform transition-transform duration-700 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40">
                                 <div class="relative z-10 flex h-full flex-col justify-between">
                                     <header>
                                         <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.26em] text-[#f5f2ea]/80">Rock ridge rituals</p>
@@ -432,8 +435,7 @@
                                 </div>
                             </article>
 
-                            <article class="relative overflow-hidden rounded-3xl border border-[#e3d4c4] bg-[#070708]/80 p-5 text-[#f5f2ea]/90 shadow-soft group transform transition-transform duration-700 ease-out hover:-translate-y-1">
-                                <div class="absolute inset-0 bg-cover bg-center opacity-60 transform transition-transform duration-700 ease-out will-change-transform group-hover:scale-105 group-hover:-translate-y-1" style="background-image: url('{{ asset('camera/gallery/gallery-08.jpg') }}');"></div>
+                            <article class="relative overflow-hidden rounded-3xl border border-white/14 bg-white/8 backdrop-blur-md p-5 text-[#f5f2ea]/90 shadow-soft group transform transition-transform duration-700 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40">
                                 <div class="relative z-10 flex h-full flex-col justify-between">
                                     <header>
                                         <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.26em] text-[#f5f2ea]/80">Night fire &amp; stars</p>
@@ -445,8 +447,7 @@
                                 </div>
                             </article>
 
-                            <article class="relative overflow-hidden rounded-3xl border border-[#e3d4c4] bg-[#070708]/80 p-5 text-[#f5f2ea]/90 shadow-soft group transform transition-transform duration-700 ease-out hover:-translate-y-1">
-                                <div class="absolute inset-0 bg-cover bg-center opacity-60 transform transition-transform duration-700 ease-out will-change-transform group-hover:scale-105 group-hover:-translate-y-1" style="background-image: url('{{ asset('camera/gallery-v2/quiet-days.jpg') }}');"></div>
+                            <article class="relative overflow-hidden rounded-3xl border border-white/14 bg-white/8 backdrop-blur-md p-5 text-[#f5f2ea]/90 shadow-soft group transform transition-transform duration-700 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40">
                                 <div class="relative z-10 flex h-full flex-col justify-between">
                                     <header>
                                         <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.26em] text-[#f5f2ea]/80">Quiet, unstructured days</p>
@@ -460,46 +461,46 @@
                         </div>
                     </div>
                     <div>
-                        <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#8d6b4a]/70">Amenities</h2>
-                        <div class="mt-4 grid gap-4 font-sans text-body-sm text-[#4b3b2f]/85 sm:grid-cols-2">
-                            <div class="flex gap-3 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/90 p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-[#fff8ec]">
-                                <span class="mt-2 h-2 w-2 rounded-full bg-[#8d6b4a]/80"></span>
+                        <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/75">Amenities</h2>
+                        <div class="mt-4 grid gap-4 font-sans text-body-sm text-[#f5f2ea]/88 sm:grid-cols-2">
+                            <div class="flex gap-3 rounded-2xl border border-white/14 bg-black/45 backdrop-blur-md p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-black/60">
+                                <span class="mt-2 h-2 w-2 rounded-full bg-[#f5f2ea]/85"></span>
                                 <p>3 rooms · cave house architecture</p>
                             </div>
-                            <div class="flex gap-3 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/90 p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-[#fff8ec]">
-                                <span class="mt-2 h-2 w-2 rounded-full bg-[#8d6b4a]/80"></span>
+                            <div class="flex gap-3 rounded-2xl border border-white/14 bg-black/45 backdrop-blur-md p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-black/60">
+                                <span class="mt-2 h-2 w-2 rounded-full bg-[#f5f2ea]/85"></span>
                                 <p>Full-board meals</p>
                             </div>
-                            <div class="flex gap-3 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/90 p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-[#fff8ec]">
-                                <span class="mt-2 h-2 w-2 rounded-full bg-[#8d6b4a]/80"></span>
+                            <div class="flex gap-3 rounded-2xl border border-white/14 bg-black/45 backdrop-blur-md p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-black/60">
+                                <span class="mt-2 h-2 w-2 rounded-full bg-[#f5f2ea]/85"></span>
                                 <p>Private chef & attendant</p>
                             </div>
-                            <div class="flex gap-3 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/90 p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-[#fff8ec]">
-                                <span class="mt-2 h-2 w-2 rounded-full bg-[#8d6b4a]/80"></span>
+                            <div class="flex gap-3 rounded-2xl border border-white/14 bg-black/45 backdrop-blur-md p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-black/60">
+                                <span class="mt-2 h-2 w-2 rounded-full bg-[#f5f2ea]/85"></span>
                                 <p>Fireplace & outdoor fire pit</p>
                             </div>
-                            <div class="flex gap-3 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/90 p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-[#fff8ec]">
-                                <span class="mt-2 h-2 w-2 rounded-full bg-[#8d6b4a]/80"></span>
+                            <div class="flex gap-3 rounded-2xl border border-white/14 bg-black/45 backdrop-blur-md p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-black/60">
+                                <span class="mt-2 h-2 w-2 rounded-full bg-[#f5f2ea]/85"></span>
                                 <p>Wildlife & savannah views</p>
                             </div>
-                            <div class="flex gap-3 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/90 p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-[#fff8ec]">
-                                <span class="mt-2 h-2 w-2 rounded-full bg-[#8d6b4a]/80"></span>
+                            <div class="flex gap-3 rounded-2xl border border-white/14 bg-black/45 backdrop-blur-md p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-black/60">
+                                <span class="mt-2 h-2 w-2 rounded-full bg-[#f5f2ea]/85"></span>
                                 <p>Stargazing setup</p>
                             </div>
-                            <div class="flex gap-3 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/90 p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-[#fff8ec]">
-                                <span class="mt-2 h-2 w-2 rounded-full bg-[#8d6b4a]/80"></span>
+                            <div class="flex gap-3 rounded-2xl border border-white/14 bg-black/45 backdrop-blur-md p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-black/60">
+                                <span class="mt-2 h-2 w-2 rounded-full bg-[#f5f2ea]/85"></span>
                                 <p>Guided drives & walks</p>
                             </div>
-                            <div class="flex gap-3 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/90 p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-[#fff8ec]">
-                                <span class="mt-2 h-2 w-2 rounded-full bg-[#8d6b4a]/80"></span>
+                            <div class="flex gap-3 rounded-2xl border border-white/14 bg-black/45 backdrop-blur-md p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-black/60">
+                                <span class="mt-2 h-2 w-2 rounded-full bg-[#f5f2ea]/85"></span>
                                 <p>Solar power & hot water</p>
                             </div>
-                            <div class="flex gap-3 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/90 p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-[#fff8ec]">
-                                <span class="mt-2 h-2 w-2 rounded-full bg-[#8d6b4a]/80"></span>
+                            <div class="flex gap-3 rounded-2xl border border-white/14 bg-black/45 backdrop-blur-md p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-black/60">
+                                <span class="mt-2 h-2 w-2 rounded-full bg-[#f5f2ea]/85"></span>
                                 <p>Outdoor seating & lounge areas</p>
                             </div>
-                            <div class="flex gap-3 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/90 p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-[#fff8ec]">
-                                <span class="mt-2 h-2 w-2 rounded-full bg-[#8d6b4a]/80"></span>
+                            <div class="flex gap-3 rounded-2xl border border-white/14 bg-black/45 backdrop-blur-md p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-black/60">
+                                <span class="mt-2 h-2 w-2 rounded-full bg-[#f5f2ea]/85"></span>
                                 <p>Board games & slow evenings</p>
                             </div>
                         </div>
