@@ -447,7 +447,7 @@
                     <div>
                         <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/80">Amenities</h2>
                         <div class="mt-4 rounded-3xl bg-black/70 p-5 border border-white/10">
-                            <ul class="grid gap-x-6 gap-y-3 font-sans text-body-sm text-[#f5f2ea]/92 sm:grid-cols-2">
+                            <ul class="grid gap-x-10 gap-y-3 md:gap-x-14 md:gap-y-4 font-sans text-body-sm text-[#f5f2ea]/92 sm:grid-cols-2">
                                 <li class="flex gap-2">
                                     <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#f5f2ea]"></span>
                                     <span>3 rooms · cave house architecture</span>
