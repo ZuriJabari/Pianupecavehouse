@@ -86,7 +86,11 @@
             <div class="relative mx-auto flex min-h-[420px] max-w-6xl items-center px-4 py-32 md:min-h-[520px] md:py-40 lg:min-h-[600px] lg:px-6">
                 <div class="max-w-xl text-[#f5f2ea]">
                     <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/70">Pian Upe keepsakes</p>
-                    <h1 class="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-tight text-white">
+                    <h1
+                        role="heading"
+                        aria-level="1"
+                        class="mt-4 font-display text-5xl md:text-6xl lg:text-7xl leading-tight text-white"
+                    >
                         A small shop for quiet souvenirs.
                     </h1>
                     <p class="mt-4 font-sans text-lg md:text-xl text-[#f5f2ea]/85">

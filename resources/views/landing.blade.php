@@ -575,31 +575,46 @@
                     class="h-full w-full border-0"
                 ></iframe>
             </div>
-            <div class="absolute inset-0 bg-gradient-to-r from-[#f7f0e6] via-[#f7f0e6]/92 to-black/70"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/10"></div>
 
-            <div class="relative mx-auto flex min-h-[420px] max-w-6xl items-center px-4 py-16 md:min-h-[520px] md:py-24 lg:min-h-[580px] lg:px-6">
-                <div class="max-w-lg rounded-3xl border border-[#e3d4c4] bg-[#f7f0e6]/95 p-6 shadow-xl shadow-black/30 md:p-8">
-                    <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#8d6b4a]/70">Map & Directions</h2>
-                    <p class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl text-[#241b16] leading-tight">Find your way into the quiet.</p>
-                    <dl class="mt-5 space-y-3 font-sans text-body-sm text-[#4b3b2f]/85">
+            <div class="relative mx-auto flex min-h-[420px] max-w-6xl items-end px-4 py-16 md:min-h-[520px] md:py-24 lg:min-h-[580px] lg:px-6">
+                <div class="max-w-xl rounded-3xl border border-white/25 bg-black/65 p-6 shadow-2xl shadow-black/60 backdrop-blur-sm md:p-8">
+                    <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/70">Map & Directions</p>
+                    <p class="mt-3 font-display text-3xl md:text-4xl lg:text-5xl leading-tight text-white">Find your way into the quiet.</p>
+                    <p class="mt-3 font-sans text-body-sm md:text-body text-[#f5f2ea]/85">
+                        A private ridge inside Pian Upe Game Reserve. Remote enough to feel like the edge of the world, connected enough for transfers and guided access.
+                    </p>
+                    <dl class="mt-5 grid gap-x-8 gap-y-4 font-sans text-body-sm text-[#f5f2ea]/90 md:grid-cols-2">
                         <div>
-                            <dt class="font-sans text-label-xs uppercase tracking-[0.2em] text-[#8d6b4a]/70">Location</dt>
-                            <dd class="mt-1 font-sans text-body">PIAN UPE GAME RESERVE · KARAMOJA · NEAR SIPI FALLS</dd>
+                            <dt class="text-label-xs uppercase tracking-[0.2em] text-[#f5f2ea]/70">Location</dt>
+                            <dd class="mt-1">PIAN UPE GAME RESERVE · KARAMOJA · NEAR SIPI FALLS</dd>
                         </div>
                         <div>
-                            <dt class="font-sans text-label-xs uppercase tracking-[0.2em] text-[#8d6b4a]/70">Coordinates</dt>
-                            <dd class="mt-1 font-sans text-body">3°47’42.7”N 33°51’27.0”E</dd>
+                            <dt class="text-label-xs uppercase tracking-[0.2em] text-[#f5f2ea]/70">Coordinates</dt>
+                            <dd class="mt-1">3°47’42.7”N 33°51’27.0”E</dd>
                         </div>
                         <div>
-                            <dt class="font-sans text-label-xs uppercase tracking-[0.2em] text-[#8d6b4a]/70">Distance</dt>
-                            <dd class="mt-1 font-sans text-body">Approx. 327 km from Kampala</dd>
+                            <dt class="text-label-xs uppercase tracking-[0.2em] text-[#f5f2ea]/70">Distance</dt>
+                            <dd class="mt-1">Approx. 327 km from Kampala</dd>
                         </div>
                         <div>
-                            <dt class="font-sans text-label-xs uppercase tracking-[0.2em] text-[#8d6b4a]/70">Access</dt>
-                            <dd class="mt-1 font-sans text-body font-semibold text-[#241b16]">4×4 vehicle required</dd>
-                            <dd class="mt-1 font-sans text-body-sm text-[#5b4636]">Private 4×4 transfers available from Entebbe Airport or Kampala, and charter flights to Pian Upe Airstrip on request.</dd>
+                            <dt class="text-label-xs uppercase tracking-[0.2em] text-[#f5f2ea]/70">Access</dt>
+                            <dd class="mt-1 font-semibold text-white">4×4 vehicle required</dd>
+                            <dd class="mt-1 text-[#f5f2ea]/80">Private 4×4 transfers available from Entebbe Airport or Kampala, and charter flights to Pian Upe Airstrip on request.</dd>
                         </div>
                     </dl>
+                    <div class="mt-5 flex flex-wrap items-center gap-3">
+                        <a
+                            href="https://www.google.com/maps?q=3.795194,33.857500&z=11"
+                            target="_blank"
+                            class="inline-flex items-center gap-2 rounded-full border border-[#f5f2ea]/60 bg-white/5 px-4 py-2 font-sans text-label-xs font-semibold uppercase tracking-[0.2em] text-[#f5f2ea] hover:bg-white/10"
+                        >
+                            <span>Open in Google Maps</span>
+                        </a>
+                        <p class="font-sans text-[11px] text-[#f5f2ea]/65">
+                            Approx. 327 km from Kampala · 4×4 required
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
