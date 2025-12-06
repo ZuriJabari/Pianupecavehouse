@@ -396,112 +396,92 @@
         </section>
 
         <!-- Experience & Amenities -->
-        <section id="experiences" class="relative overflow-hidden section-fade-in parallax-section">
+        <section id="experiences" class="relative overflow-hidden section-fade-in bg-[#050507]">
             <div
-                class="absolute inset-0 bg-scroll md:bg-fixed bg-cover bg-center parallax-bg"
-                data-parallax-speed="0.25"
+                class="pointer-events-none absolute inset-0 bg-cover bg-center"
                 style="background-image: url('{{ asset('camera/backgrounds/experiences-hero.jpg') }}');">
             </div>
-            <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/80 via-black/65 to-black/90"></div>
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90"></div>
             <div class="relative mx-auto max-w-6xl px-4 py-20 lg:px-6">
                 <div class="grid gap-14 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] items-start">
                     <div>
-                        <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]">Experience</h2>
+                        <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/80">Experience</h2>
                         <p class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl text-white">Days that move slowly, in a landscape that feels endless.</p>
                         <p class="mt-4 max-w-xl font-sans text-lg md:text-xl leading-relaxed text-[#f5f2ea]/90">
                             Game drives at first light, rock ridges at dusk, long firelit evenings, and quiet hours with nothing on the calendar.
                         </p>
-                        <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-rows-[auto_auto]">
-                            <article class="relative overflow-hidden rounded-3xl border border-white/20 bg-black/65 backdrop-blur-lg p-5 text-[#f5f2ea] shadow-soft group transform transition-transform duration-700 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/50">
-                                <div class="relative z-10 flex h-full flex-col justify-between">
-                                    <header>
-                                        <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.26em] text-[#f5f2ea]/85">Dawn on the plains</p>
-                                        <h3 class="mt-2 font-display text-heading-md text-white">Sunrise game drives.</h3>
-                                    </header>
-                                    <p class="mt-3 font-sans text-lg md:text-xl leading-relaxed text-[#f5f2ea]/95">
-                                        Soft light, cool air, and the savannah waking up around you — giraffes, eland, zebras, and wild ostriches in the distance.
-                                    </p>
-                                </div>
-                            </article>
-
-                            <article class="relative overflow-hidden rounded-3xl border border-white/20 bg-black/65 backdrop-blur-lg p-5 text-[#f5f2ea] shadow-soft group transform transition-transform duration-700 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/50">
-                                <div class="relative z-10 flex h-full flex-col justify-between">
-                                    <header>
-                                        <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.26em] text-[#f5f2ea]/85">Rock ridge rituals</p>
-                                        <h3 class="mt-2 font-display text-heading-md text-white">Sunrise on the rocks.</h3>
-                                    </header>
-                                    <p class="mt-3 font-sans text-lg md:text-xl leading-relaxed text-[#f5f2ea]/95">
-                                        Light hikes to rocky viewpoints for sunrise coffee, slow photographs, and wide-open silence.
-                                    </p>
-                                </div>
-                            </article>
-
-                            <article class="relative overflow-hidden rounded-3xl border border-white/20 bg-black/65 backdrop-blur-lg p-5 text-[#f5f2ea] shadow-soft group transform transition-transform duration-700 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/50">
-                                <div class="relative z-10 flex h-full flex-col justify-between">
-                                    <header>
-                                        <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.26em] text-[#f5f2ea]/85">Night fire &amp; stars</p>
-                                        <h3 class="mt-2 font-display text-heading-md text-white">Firelit evenings.</h3>
-                                    </header>
-                                    <p class="mt-3 font-sans text-lg md:text-xl leading-relaxed text-[#f5f2ea]/95">
-                                        A crackling fire, Karamoja’s big sky, and nothing but the sounds of the wild as the reserve settles into night.
-                                    </p>
-                                </div>
-                            </article>
-
-                            <article class="relative overflow-hidden rounded-3xl border border-white/20 bg-black/65 backdrop-blur-lg p-5 text-[#f5f2ea] shadow-soft group transform transition-transform duration-700 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/50">
-                                <div class="relative z-10 flex h-full flex-col justify-between">
-                                    <header>
-                                        <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.26em] text-[#f5f2ea]/85">Quiet, unstructured days</p>
-                                        <h3 class="mt-2 font-display text-heading-md text-white">Time to simply be.</h3>
-                                    </header>
-                                    <p class="mt-3 font-sans text-lg md:text-xl leading-relaxed text-[#f5f2ea]/95">
-                                        Time to read, sleep, journal, or simply watch the light move across the plains — a retreat for your mind, not your schedule.
-                                    </p>
-                                </div>
-                            </article>
+                        <div class="mt-8 grid gap-8 md:grid-cols-2">
+                            <div class="space-y-2">
+                                <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.24em] text-[#f5f2ea]/80">Dawn on the plains</p>
+                                <h3 class="font-display text-heading-md text-white">Sunrise game drives.</h3>
+                                <p class="font-sans text-lg leading-relaxed text-[#f5f2ea]/92">
+                                    Soft light, cool air, and the savannah waking up around you — giraffes, eland, zebras, and wild ostriches in the distance.
+                                </p>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.24em] text-[#f5f2ea]/80">Rock ridge rituals</p>
+                                <h3 class="font-display text-heading-md text-white">Sunrise on the rocks.</h3>
+                                <p class="font-sans text-lg leading-relaxed text-[#f5f2ea]/92">
+                                    Light hikes to rocky viewpoints for sunrise coffee, slow photographs, and wide-open silence.
+                                </p>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.24em] text-[#f5f2ea]/80">Night fire &amp; stars</p>
+                                <h3 class="font-display text-heading-md text-white">Firelit evenings.</h3>
+                                <p class="font-sans text-lg leading-relaxed text-[#f5f2ea]/92">
+                                    A crackling fire, Karamoja’s big sky, and nothing but the sounds of the wild as the reserve settles into night.
+                                </p>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.24em] text-[#f5f2ea]/80">Quiet, unstructured days</p>
+                                <h3 class="font-display text-heading-md text-white">Time to simply be.</h3>
+                                <p class="font-sans text-lg leading-relaxed text-[#f5f2ea]/92">
+                                    Time to read, sleep, journal, or simply watch the light move across the plains — a retreat for your mind, not your schedule.
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div>
-                        <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]">Amenities</h2>
-                        <div class="mt-4 grid gap-4 font-sans text-body-sm text-[#f5f2ea] sm:grid-cols-2">
-                            <div class="flex gap-3 rounded-2xl border border-white/20 bg-black/70 backdrop-blur-lg p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-black/80">
-                                <span class="mt-2 h-2 w-2 rounded-full bg-[#f5f2ea]"></span>
+                        <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/80">Amenities</h2>
+                        <div class="mt-4 grid gap-3 font-sans text-body-sm text-[#f5f2ea]/92 sm:grid-cols-2">
+                            <div class="flex gap-2">
+                                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#f5f2ea]"></span>
                                 <p>3 rooms · cave house architecture</p>
                             </div>
-                            <div class="flex gap-3 rounded-2xl border border-white/20 bg-black/70 backdrop-blur-lg p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-black/80">
-                                <span class="mt-2 h-2 w-2 rounded-full bg-[#f5f2ea]"></span>
+                            <div class="flex gap-2">
+                                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#f5f2ea]"></span>
                                 <p>Full-board meals</p>
                             </div>
-                            <div class="flex gap-3 rounded-2xl border border-white/20 bg-black/70 backdrop-blur-lg p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-black/80">
-                                <span class="mt-2 h-2 w-2 rounded-full bg-[#f5f2ea]"></span>
+                            <div class="flex gap-2">
+                                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#f5f2ea]"></span>
                                 <p>Private chef & attendant</p>
                             </div>
-                            <div class="flex gap-3 rounded-2xl border border-white/20 bg-black/70 backdrop-blur-lg p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-black/80">
-                                <span class="mt-2 h-2 w-2 rounded-full bg-[#f5f2ea]"></span>
+                            <div class="flex gap-2">
+                                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#f5f2ea]"></span>
                                 <p>Fireplace & outdoor fire pit</p>
                             </div>
-                            <div class="flex gap-3 rounded-2xl border border-white/20 bg-black/70 backdrop-blur-lg p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-black/80">
-                                <span class="mt-2 h-2 w-2 rounded-full bg-[#f5f2ea]"></span>
+                            <div class="flex gap-2">
+                                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#f5f2ea]"></span>
                                 <p>Wildlife & savannah views</p>
                             </div>
-                            <div class="flex gap-3 rounded-2xl border border-white/20 bg-black/70 backdrop-blur-lg p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-black/80">
-                                <span class="mt-2 h-2 w-2 rounded-full bg-[#f5f2ea]"></span>
+                            <div class="flex gap-2">
+                                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#f5f2ea]"></span>
                                 <p>Stargazing setup</p>
                             </div>
-                            <div class="flex gap-3 rounded-2xl border border-white/20 bg-black/70 backdrop-blur-lg p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-black/80">
-                                <span class="mt-2 h-2 w-2 rounded-full bg-[#f5f2ea]"></span>
+                            <div class="flex gap-2">
+                                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#f5f2ea]"></span>
                                 <p>Guided drives & walks</p>
                             </div>
-                            <div class="flex gap-3 rounded-2xl border border-white/20 bg-black/70 backdrop-blur-lg p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-black/80">
-                                <span class="mt-2 h-2 w-2 rounded-full bg-[#f5f2ea]"></span>
+                            <div class="flex gap-2">
+                                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#f5f2ea]"></span>
                                 <p>Solar power & hot water</p>
                             </div>
-                            <div class="flex gap-3 rounded-2xl border border-white/20 bg-black/70 backdrop-blur-lg p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-black/80">
-                                <span class="mt-2 h-2 w-2 rounded-full bg-[#f5f2ea]"></span>
+                            <div class="flex gap-2">
+                                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#f5f2ea]"></span>
                                 <p>Outdoor seating & lounge areas</p>
                             </div>
-                            <div class="flex gap-3 rounded-2xl border border-white/20 bg-black/70 backdrop-blur-lg p-4 transition-transform duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft hover:bg-black/80">
-                                <span class="mt-2 h-2 w-2 rounded-full bg-[#f5f2ea]"></span>
+                            <div class="flex gap-2">
+                                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#f5f2ea]"></span>
                                 <p>Board games & slow evenings</p>
                             </div>
                         </div>
