@@ -40,6 +40,7 @@
                         <a href="#about" class="lux-nav-link hover:text-black transition">The Cave</a>
                         <a href="#experiences" class="lux-nav-link hover:text-black transition">Experiences</a>
                         <a href="#rates" class="lux-nav-link hover:text-black transition">Rates</a>
+                        <a href="{{ route('shop.index') }}" class="lux-nav-link hover:text-black transition">Shop</a>
                     </nav>
 
                     <a href="#hero" class="header-logo flex flex-col items-center text-center leading-tight">
@@ -49,6 +50,7 @@
 
                     <nav class="flex items-center gap-8 font-sans text-body-sm font-medium tracking-[0.18em] uppercase text-[#3b2b21]/85">
                         <a href="#gallery" class="lux-nav-link hover:text-black transition">Gallery</a>
+                        <a href="{{ route('shop.index') }}" class="lux-nav-link hover:text-black transition">Shop</a>
                         <a href="#contact" class="lux-nav-link hover:text-black transition">Contact</a>
                         <a
                             href="#rates"
@@ -69,8 +71,9 @@
                         <a href="#about" class="lux-nav-link block rounded-full bg-white/0 px-4 py-2 text-[#f5f2ea]/85 hover:bg-white/10 hover:text-white transition">The Cave</a>
                         <a href="#experiences" class="lux-nav-link block rounded-full bg-white/0 px-4 py-2 text-[#f5f2ea]/85 hover:bg-white/10 hover:text-white transition">Experiences</a>
                         <a href="#rates" class="lux-nav-link block rounded-full bg-white/0 px-4 py-2 text-[#f5f2ea]/85 hover:bg-white/10 hover:text-white transition">Rates</a>
-                        <a href="#gallery" class="lux-nav-link block rounded-full bg-white/0 px-4 py-2 text-[#f5f2ea]/85 hover:bg-white/10 hover:text-white transition">Gallery</a>
-                        <a href="#contact" class="lux-nav-link block rounded-full bg-white/0 px-4 py-2 text-[#f5f2ea]/85 hover:bg-white/10 hover:text-white transition">Contact</a>
+                        <a href="#gallery" class="lux-nav-link block rounded-full bg:white/0 px-4 py-2 text-[#f5f2ea]/85 hover:bg:white/10 hover:text:white transition">Gallery</a>
+                        <a href="{{ route('shop.index') }}" class="lux-nav-link block rounded-full bg:white/0 px-4 py-2 text-[#f5f2ea]/85 hover:bg:white/10 hover:text:white transition">Shop</a>
+                        <a href="#contact" class="lux-nav-link block rounded-full bg:white/0 px-4 py-2 text-[#f5f2ea]/85 hover:bg:white/10 hover:text:white transition">Contact</a>
                     </nav>
                 </div>
             </div>
