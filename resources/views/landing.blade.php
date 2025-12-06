@@ -310,7 +310,35 @@
                     ['path' => 'camera/gallery-v3/img-0372.jpg',  'alt' => 'IMG_0372 · Closer detail from time spent on the rocks near the ridge.'],
                     ['path' => 'camera/gallery-v3/drone-0019.jpg','alt' => 'DJI_0019 · Drone view sweeping across the ridge and plains.'],
                     ['path' => 'camera/gallery-v3/drone-0038.jpg','alt' => 'DJI_0038 · Aerial shot catching the contours of Pian Upe at altitude.'],
+
+                    ['path' => 'camera/gallery-v3/img-0367.jpg',  'alt' => 'IMG_0367 · View of the cave house and its surrounding rocks and plains.'],
+                    ['path' => 'camera/gallery-v3/img-0337.jpg',  'alt' => 'IMG_0337 · Soft light over the savannah near the cave house.'],
+                    ['path' => 'camera/gallery-v3/img-0294.jpg',  'alt' => 'IMG_0294 · The rocky landscape and vegetation around Pian Upe Cave House.'],
+                    ['path' => 'camera/gallery-v3/img-0260.jpg',  'alt' => 'IMG_0260 · Evening tones across the Pian Upe horizon.'],
+                    ['path' => 'camera/gallery-v3/img-0223.jpg',  'alt' => 'IMG_0223 · Details of rock, bush, and sky in the reserve.'],
+                    ['path' => 'camera/gallery-v3/img-0221.jpg',  'alt' => 'IMG_0221 · Pian Upe bushland and distant ridges.'],
+                    ['path' => 'camera/gallery-v3/img-0127.jpg',  'alt' => 'IMG_0127 · A quiet vantage point looking out over the plains.'],
+                    ['path' => 'camera/gallery-v3/img-0117.jpg',  'alt' => 'IMG_0117 · Stone, grass, and sky textures around the cave.'],
+                    ['path' => 'camera/gallery-v3/img-0044.jpg',  'alt' => 'IMG_0044 · Chairs and a resting spot with views of the savannah.'],
+                    ['path' => 'camera/gallery-v3/img-0043.jpg',  'alt' => 'IMG_0043 · Warm afternoon light on the rocks near the house.'],
+                    ['path' => 'camera/gallery-v3/img-0038.jpg',  'alt' => 'IMG_0038 · The wider valley and horizon at Pian Upe.'],
+                    ['path' => 'camera/gallery-v3/img-0016.jpg',  'alt' => 'IMG_0016 · A path through the grasses leading towards the ridge.'],
+
+                    ['path' => 'camera/gallery-v3/drone-0116.jpg','alt' => 'DJI_0116 · High-altitude drone view over the ridges and plains.'],
+                    ['path' => 'camera/gallery-v3/drone-0077.jpg','alt' => 'DJI_0077 · Late light catching the contours of the reserve from above.'],
+                    ['path' => 'camera/gallery-v3/drone-0072.jpg','alt' => 'DJI_0072 · Drone shot tracking the rocky ridge line.'],
+                    ['path' => 'camera/gallery-v3/drone-0017.jpg','alt' => 'DJI_0017 · Aerial view moving across the savannah and rock formations.'],
+
+                    ['path' => 'camera/gallery-v3/personal-0399.jpg','alt' => 'IMG_0399 · Personal moment on the rocks looking out over Pian Upe.'],
+                    ['path' => 'camera/gallery-v3/img-0355.jpg',  'alt' => 'IMG_0355 · Landscape layers and grasses catching the evening light.'],
+                    ['path' => 'camera/gallery-v3/img-0345.jpg',  'alt' => 'IMG_0345 · The ridge and open skies around the cave house.'],
+                    ['path' => 'camera/gallery-v3/img-0321.jpg',  'alt' => 'IMG_0321 · Rolling hills and bushland in the distance.'],
+                    ['path' => 'camera/gallery-v3/img-0318.jpg',  'alt' => 'IMG_0318 · Rock textures and low vegetation close to the cave.'],
+                    ['path' => 'camera/gallery-v3/img-0313.jpg',  'alt' => 'IMG_0313 · A broader view of the rocky ridges and plains.'],
+                    ['path' => 'camera/gallery-v3/img-0101.jpg',  'alt' => 'IMG_0101 · Early light and shadows across the Pian Upe landscape.'],
                 ];
+                $galleryPerPage = 9;
+                $galleryPages = array_chunk($galleryImages, $galleryPerPage);
             @endphp
             <div class="mx-auto max-w-6xl px-4 py-16 md:py-20 lg:px-6">
                 <header class="max-w-3xl">
@@ -320,23 +348,49 @@
                         Rooms carved into rock, terraces over the plains, and small details that make the cave house feel quietly lived‑in.
                     </p>
                 </header>
-                <div class="mt-8 columns-1 gap-4 sm:columns-2 lg:columns-3">
-                    @foreach($galleryImages as $image)
-                        <figure class="mb-4 overflow-hidden rounded-2xl border border-[#e3d4c4] bg-[#fdf7f0] transition-transform duration-700 ease-out will-change-transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20">
-                            <div class="relative aspect-[4/5] overflow-hidden bg-gradient-to-b from-white/10 to-black/80">
-                                <img
-                                    class="h-full w-full object-cover js-gallery-image cursor-zoom-in"
-                                    src="{{ asset($image['path']) }}"
-                                    alt="{{ $image['alt'] }}"
-                                    data-full="{{ asset($image['path']) }}"
-                                    data-caption="{{ $image['alt'] }}"
-                                    loading="lazy"
-                                    decoding="async"
-                                />
-                                <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/60"></div>
+                <div class="mt-8">
+                    <div id="gallery-pages">
+                        @foreach($galleryPages as $pageIndex => $images)
+                            <div
+                                class="gallery-page {{ $pageIndex === 0 ? '' : 'hidden' }}"
+                                data-gallery-page="{{ $pageIndex }}"
+                            >
+                                <div class="columns-1 gap-4 sm:columns-2 lg:columns-3">
+                                    @foreach($images as $image)
+                                        <figure class="mb-4 overflow-hidden rounded-2xl border border-[#e3d4c4] bg-[#fdf7f0] transition-transform duration-700 ease-out will-change-transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20">
+                                            <div class="relative aspect-[4/5] overflow-hidden bg-gradient-to-b from-white/10 to-black/80">
+                                                <img
+                                                    class="h-full w-full object-cover js-gallery-image cursor-zoom-in"
+                                                    src="{{ asset($image['path']) }}"
+                                                    alt="{{ $image['alt'] }}"
+                                                    data-full="{{ asset($image['path']) }}"
+                                                    data-caption="{{ $image['alt'] }}"
+                                                    loading="lazy"
+                                                    decoding="async"
+                                                />
+                                                <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/60"></div>
+                                            </div>
+                                        </figure>
+                                    @endforeach
+                                </div>
                             </div>
-                        </figure>
-                    @endforeach
+                        @endforeach
+                    </div>
+                    @if(count($galleryPages) > 1)
+                        <div class="mt-8 flex items-center justify-center gap-2">
+                            @foreach($galleryPages as $pageIndex => $images)
+                                <button
+                                    type="button"
+                                    class="gallery-page-button {{ $pageIndex === 0 ? 'gallery-page-button--active' : '' }}"
+                                    data-gallery-page-target="{{ $pageIndex }}"
+                                    aria-label="Show gallery page {{ $pageIndex + 1 }}"
+                                    @if($pageIndex === 0) aria-current="page" @endif
+                                >
+                                    {{ $pageIndex + 1 }}
+                                </button>
+                            @endforeach
+                        </div>
+                    @endif
                 </div>
             </div>
         </section>

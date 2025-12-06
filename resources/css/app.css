@@ -138,6 +138,14 @@ html {
         line-height: 1.08;
     }
 
+    .gallery-page-button {
+        @apply inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#d3c3b2] bg-transparent text-[11px] font-semibold uppercase tracking-[0.16em] text-[#4b3b2f]/75 hover:bg-[#241b16] hover:text-[#f5f2ea] hover:border-transparent transition;
+    }
+
+    .gallery-page-button--active {
+        @apply bg-[#241b16] text-[#f5f2ea] border-transparent;
+    }
+
     .parallax-bg {
         background-repeat: no-repeat;
         background-size: cover;

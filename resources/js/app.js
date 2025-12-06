@@ -175,4 +175,43 @@ document.addEventListener('DOMContentLoaded', () => {
             showOffset(1);
         }
     });
+
+    const galleryPages = Array.from(document.querySelectorAll('[data-gallery-page]'));
+    const galleryPageButtons = Array.from(document.querySelectorAll('[data-gallery-page-target]'));
+
+    if (galleryPages.length && galleryPageButtons.length) {
+        let currentGalleryPage = 0;
+
+        const setGalleryPage = (index) => {
+            if (index < 0 || index >= galleryPages.length) return;
+
+            galleryPages.forEach((page, i) => {
+                if (i === index) {
+                    page.classList.remove('hidden');
+                } else {
+                    page.classList.add('hidden');
+                }
+            });
+
+            galleryPageButtons.forEach((button, i) => {
+                if (i === index) {
+                    button.classList.add('gallery-page-button--active');
+                    button.setAttribute('aria-current', 'page');
+                } else {
+                    button.classList.remove('gallery-page-button--active');
+                    button.removeAttribute('aria-current');
+                }
+            });
+
+            currentGalleryPage = index;
+        };
+
+        galleryPageButtons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                setGalleryPage(index);
+            });
+        });
+
+        setGalleryPage(currentGalleryPage);
+    }
 });
