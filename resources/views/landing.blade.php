@@ -509,29 +509,6 @@
             </div>
         </section>
 
-        <!-- Parallax Interlude: At the Cave House -->
-        <section class="relative overflow-hidden section-fade-in parallax-section">
-            <div
-                class="absolute inset-0 bg-scroll md:bg-fixed bg-cover bg-center parallax-bg"
-                data-parallax-speed="0.3"
-                style="background-image: url('{{ asset('camera/backgrounds/bg-interlude-02.jpg') }}');">
-            </div>
-            <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/65"></div>
-            <div class="relative mx-auto flex max-w-6xl items-center px-4 py-20 md:py-32 lg:px-6">
-                <div class="max-w-xl text-[#f5f2ea]">
-                    <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/70">
-                        Life at the cave house
-                    </p>
-                    <p class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl leading-tight">
-                        Slow rituals from sunrise to embers.
-                    </p>
-                    <p class="mt-3 font-sans text-lg md:text-xl leading-relaxed text-[#f5f2ea]/85">
-                        Coffee on the rocks, unhurried meals, warm light on stone walls, and the quiet of Pian Upe just beyond the balcony.
-                    </p>
-                </div>
-            </div>
-        </section>
-
         <!-- Rates & Booking -->
         <section id="rates" class="bg-[#f7f0e6] section-fade-in">
             <div class="mx-auto max-w-6xl px-4 py-16 md:py-20 lg:px-6">
@@ -632,6 +609,29 @@
                             ></iframe>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parallax Interlude: At the Cave House -->
+        <section class="relative overflow-hidden section-fade-in parallax-section">
+            <div
+                class="absolute inset-0 bg-scroll md:bg-fixed bg-cover bg-center parallax-bg"
+                data-parallax-speed="0.3"
+                style="background-image: url('{{ asset('camera/backgrounds/bg-interlude-02.jpg') }}');">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/65"></div>
+            <div class="relative mx-auto flex max-w-6xl items-center px-4 py-20 md:py-32 lg:px-6">
+                <div class="max-w-xl text-[#f5f2ea]">
+                    <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/70">
+                        Life at the cave house
+                    </p>
+                    <p class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl leading-tight">
+                        Slow rituals from sunrise to embers.
+                    </p>
+                    <p class="mt-3 font-sans text-lg md:text-xl leading-relaxed text-[#f5f2ea]/85">
+                        Coffee on the rocks, unhurried meals, warm light on stone walls, and the quiet of Pian Upe just beyond the balcony.
+                    </p>
                 </div>
             </div>
         </section>
