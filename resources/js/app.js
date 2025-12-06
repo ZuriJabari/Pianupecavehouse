@@ -227,4 +227,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setGalleryPage(currentGalleryPage);
     }
+
+    // Legend section toggle (Read the full legend / Show less)
+    const legendToggle = document.querySelector('[data-legend-toggle]');
+    const legendExtended = document.getElementById('legend-extended');
+
+    if (legendToggle && legendExtended) {
+        const moreLabel = legendToggle.querySelector('[data-legend-more]');
+        const lessLabel = legendToggle.querySelector('[data-legend-less]');
+        let legendOpen = false;
+
+        const setLegendState = (open) => {
+            legendOpen = open;
+            legendToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            legendExtended.classList.toggle('hidden', !open);
+
+            if (moreLabel && lessLabel) {
+                moreLabel.classList.toggle('hidden', open);
+                lessLabel.classList.toggle('hidden', !open);
+            }
+        };
+
+        legendToggle.addEventListener('click', () => {
+            setLegendState(!legendOpen);
+        });
+
+        setLegendState(false);
+    }
 });

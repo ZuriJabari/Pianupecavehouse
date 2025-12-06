@@ -223,7 +223,7 @@
         <!-- About & Exclusivity -->
         <section id="about" class="bg-[#f7f0e6] section-fade-in">
             <div class="mx-auto grid max-w-6xl gap-14 px-4 py-24 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:px-6">
-                <div x-data="{ openLegend: false }">
+                <div>
                     <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#8d6b4a]/70">The Legend</h2>
                     <p class="mt-4 font-display text-4xl md:text-5xl lg:text-6xl tracking-tight text-[#241b16]">
                         Once a Karimojong warrior cave. Now a sanctuary of hush luxury.
@@ -232,7 +232,7 @@
                         <p>
                             Long before curated tasting menus and handwoven linens, this cavern carved into Pian Upe’s volcanic ridge was the covert rendezvous of Karimojong warriors. Cloaked in night, they gathered here to trade intelligence, map raids, and pledge alliances — strategies whispered against stone that still remembers every vow.
                         </p>
-                        <div x-show="openLegend" x-transition.opacity.duration.400ms class="space-y-4">
+                        <div id="legend-extended" class="space-y-4 hidden">
                             <p>
                                 When the drums of conflict fell silent, the same hideaway softened into a pastoral camp. Herders rested with their cattle, embers glowed against basalt walls, and stories travelled from elder to child while the savannah night kept vigil outside.
                             </p>
@@ -242,11 +242,12 @@
                         </div>
                         <button
                             type="button"
-                            @click="openLegend = ! openLegend"
+                            data-legend-toggle
                             class="mt-4 inline-flex items-center gap-2 rounded-full border border-[#8d6b4a]/60 px-5 py-2 font-sans text-label-xs font-semibold uppercase tracking-[0.22em] text-[#8d6b4a]/90 hover:bg-[#8d6b4a] hover:text-[#f7f0e6] transition lux-cta"
+                            aria-expanded="false"
                         >
-                            <span x-show="! openLegend">Read the full legend</span>
-                            <span x-show="openLegend">Show less</span>
+                            <span data-legend-more>Read the full legend</span>
+                            <span data-legend-less class="hidden">Show less</span>
                         </button>
                     </div>
                 </div>
