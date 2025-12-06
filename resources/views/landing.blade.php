@@ -392,7 +392,7 @@
                             </article>
 
                             <article class="relative overflow-hidden rounded-3xl border border-[#e3d4c4] bg-[#070708]/80 p-5 text-[#f5f2ea]/90 shadow-soft group transform transition-transform duration-700 ease-out hover:-translate-y-1">
-                                <div class="absolute inset-0 bg-cover bg-center opacity-60 transform transition-transform duration-700 ease-out will-change-transform group-hover:scale-105 group-hover:-translate-y-1" style="background-image: url('{{ asset('camera/gallery/gallery-01.jpg') }}');"></div>
+                                <div class="absolute inset-0 bg-cover bg-center opacity-60 transform transition-transform duration-700 ease-out will-change-transform group-hover:scale-105 group-hover:-translate-y-1" style="background-image: url('{{ asset('camera/gallery-v2/quiet-days.jpg') }}');"></div>
                                 <div class="relative z-10 flex h-full flex-col justify-between">
                                     <header>
                                         <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.26em] text-[#f5f2ea]/80">Quiet, unstructured days</p>
