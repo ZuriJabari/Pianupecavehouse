@@ -176,13 +176,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    const gallerySection = document.getElementById('gallery');
     const galleryPages = Array.from(document.querySelectorAll('[data-gallery-page]'));
     const galleryPageButtons = Array.from(document.querySelectorAll('[data-gallery-page-target]'));
 
     if (galleryPages.length && galleryPageButtons.length) {
         let currentGalleryPage = 0;
 
-        const setGalleryPage = (index) => {
+        const setGalleryPage = (index, options = { scroll: false }) => {
             if (index < 0 || index >= galleryPages.length) return;
 
             galleryPages.forEach((page, i) => {
@@ -204,11 +205,23 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             currentGalleryPage = index;
+
+            if (options.scroll && gallerySection) {
+                const rect = gallerySection.getBoundingClientRect();
+                const offset = window.scrollY + rect.top - 120;
+                window.scrollTo({ top: offset, behavior: 'smooth' });
+            }
         };
 
-        galleryPageButtons.forEach((button, index) => {
-            button.addEventListener('click', () => {
-                setGalleryPage(index);
+        galleryPageButtons.forEach((button) => {
+            const targetAttr = button.getAttribute('data-gallery-page-target');
+            const targetIndex = parseInt(targetAttr || '', 10);
+
+            if (Number.isNaN(targetIndex)) return;
+
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                setGalleryPage(targetIndex, { scroll: true });
             });
         });
 
