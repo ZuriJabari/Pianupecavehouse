@@ -522,6 +522,7 @@
                                     <li>· Minimum stay: 1 night</li>
                                     <li>· Up to 3 rooms · small private groups</li>
                                     <li>· Hosted stays with on-site team & private chef</li>
+                                    <li>· Dinner menus often feature wild game meats — buffalo, antelope, and wild pig — subject to season and conservation guidelines</li>
                                     <li>· Guided time in Pian Upe can be arranged around your dates</li>
                                 </ul>
                                 <p class="mt-3 font-sans text-body-sm text-[#5b4636] font-semibold">Extra meals (per person):</p>
