@@ -289,20 +289,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 showMonths: isSmallViewport ? 1 : 2,
                 disableMobile: true,
                 monthSelectorType: 'dropdown',
-                prevArrow: '‹',
-                nextArrow: '›',
+                prevArrow: '',
+                nextArrow: '',
                 onChange: (selectedDates, dateStr, instance) => {
                     if (selectedDates.length > 0) {
                         startInput.value = instance.formatDate(selectedDates[0], 'Y-m-d');
                     }
                     if (selectedDates.length > 1) {
                         endInput.value = instance.formatDate(selectedDates[1], 'Y-m-d');
+
+                        // Close the calendar once a full range is chosen so the button is easily clickable
+                        instance.close();
+                        rangeInput.blur();
                     } else {
                         endInput.value = '';
                     }
 
-                    startInput.dispatchEvent(new Event('input', { bubbles: true }));
-                    endInput.dispatchEvent(new Event('input', { bubbles: true }));
+                    // Make sure Livewire sees the updated values
+                    ['input', 'change'].forEach((eventName) => {
+                        startInput.dispatchEvent(new Event(eventName, { bubbles: true }));
+                        endInput.dispatchEvent(new Event(eventName, { bubbles: true }));
+                    });
                 },
             };
 
