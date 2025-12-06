@@ -39,7 +39,6 @@
                     <a href="{{ route('landing') }}#about" class="lux-nav-link hover:text-black transition">The Cave</a>
                     <a href="{{ route('landing') }}#experiences" class="lux-nav-link hover:text-black transition">Experiences</a>
                     <a href="{{ route('landing') }}#rates" class="lux-nav-link hover:text-black transition">Rates</a>
-                    <a href="{{ route('shop.index') }}" class="lux-nav-link hover:text-black transition">Shop</a>
                 </nav>
 
                 <a href="{{ route('landing') }}#hero" class="header-logo flex flex-col items-center text-center leading-tight">
@@ -49,13 +48,12 @@
 
                 <nav class="flex items-center gap-8 font-sans text-body-sm font-medium tracking-[0.18em] uppercase text-[#3b2b21]/85">
                     <a href="{{ route('landing') }}#gallery" class="lux-nav-link hover:text-black transition">Gallery</a>
-                    <a href="{{ route('shop.index') }}" class="lux-nav-link hover:text-black transition">Shop</a>
                     <a href="{{ route('landing') }}#contact" class="lux-nav-link hover:text-black transition">Contact</a>
                     <a
-                        href="{{ route('landing') }}#rates"
+                        href="{{ route('shop.index') }}"
                         class="lux-cta rounded-full bg-[#241b16] px-6 py-2.5 font-sans text-label-xs font-semibold tracking-[0.22em] text-[#f5f2ea] shadow-sm hover:bg-[#f5f2ea] hover:text-[#181716] transition"
                     >
-                        Reserve
+                        Shop
                     </a>
                 </nav>
             </div>
@@ -78,7 +76,7 @@
         </div>
     </header>
 
-    <main class="pt-24 lg:pt-28">
+    <main class="pt-28 lg:pt-32">
         <section class="relative overflow-hidden section-fade-in">
             <div class="absolute inset-0">
                 <img
