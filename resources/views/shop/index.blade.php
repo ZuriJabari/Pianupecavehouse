@@ -49,12 +49,7 @@
                 <nav class="flex items-center gap-8 font-sans text-body-sm font-medium tracking-[0.18em] uppercase text-[#3b2b21]/85">
                     <a href="{{ route('landing') }}#gallery" class="lux-nav-link hover:text-black transition">Gallery</a>
                     <a href="{{ route('landing') }}#contact" class="lux-nav-link hover:text-black transition">Contact</a>
-                    <a
-                        href="{{ route('shop.index') }}"
-                        class="lux-cta rounded-full bg-[#241b16] px-6 py-2.5 font-sans text-label-xs font-semibold tracking-[0.22em] text-[#f5f2ea] shadow-sm hover:bg-[#f5f2ea] hover:text-[#181716] transition"
-                    >
-                        Shop
-                    </a>
+                    <a href="{{ route('shop.index') }}" class="lux-nav-link hover:text-black transition">Shop</a>
                 </nav>
             </div>
         </div>
@@ -91,7 +86,7 @@
             <div class="relative mx-auto flex min-h-[420px] max-w-6xl items-center px-4 py-32 md:min-h-[520px] md:py-40 lg:min-h-[600px] lg:px-6">
                 <div class="max-w-xl text-[#f5f2ea]">
                     <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/70">Pian Upe keepsakes</p>
-                    <h1 class="mt-3 font-display hero-heading text-4xl md:text-5xl lg:text-6xl leading-tight">
+                    <h1 class="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-tight text-white">
                         A small shop for quiet souvenirs.
                     </h1>
                     <p class="mt-4 font-sans text-lg md:text-xl text-[#f5f2ea]/85">

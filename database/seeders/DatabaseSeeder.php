@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Property;
 use App\Models\Rate;
+use App\Models\ShopProduct;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -23,6 +24,18 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Admin',
                 'password' => bcrypt('password'),
+            ]
+        );
+
+        // Seed a default Maasai shuka product for the shop
+        ShopProduct::firstOrCreate(
+            ['slug' => 'maasai-shuka'],
+            [
+                'name' => 'Maasai shuka, African Fabric, Safari Fabric, Maasai Cloth, Traditional Cloths, Picnic Blanket',
+                'description' => 'Original used by the Karimojong as a cloth, made out of 100% acrylic. The shuka comes in a variety of colours and is a multipurpose item: blanket, throw, wall hanging, fashion accessory for men and women, or material for dresses, shorts, skirts and other crafts. It is worn by Karimojong warriors as an important attire that distinguishes them from the rest of the communities. You can also use it as a beautiful bedspread or table-spread during outdoor camping or safaris as well as cultural dressing during special occasions (approx. 200cm x 150cm).',
+                'price_cents' => 1500,
+                'currency' => 'USD',
+                'image_path' => 'images/shop/maasai-shuka.jpg',
             ]
         );
 

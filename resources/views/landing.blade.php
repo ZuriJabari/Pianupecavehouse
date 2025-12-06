@@ -50,12 +50,7 @@
                     <nav class="flex items-center gap-8 font-sans text-body-sm font-medium tracking-[0.18em] uppercase text-[#3b2b21]/85">
                         <a href="#gallery" class="lux-nav-link hover:text-black transition">Gallery</a>
                         <a href="#contact" class="lux-nav-link hover:text-black transition">Contact</a>
-                        <a
-                            href="{{ route('shop.index') }}"
-                            class="lux-cta rounded-full bg-[#241b16] px-6 py-2.5 font-sans text-label-xs font-semibold tracking-[0.22em] text-[#f5f2ea] shadow-sm hover:bg-[#f5f2ea] hover:text-[#181716] transition"
-                        >
-                            Shop
-                        </a>
+                        <a href="{{ route('shop.index') }}" class="lux-nav-link hover:text-black transition">Shop</a>
                     </nav>
                 </div>
             </div>
