@@ -568,44 +568,42 @@
         @endif
 
         <!-- Map & Directions -->
-        <section id="map" class="bg-[#f7f0e6] section-fade-in">
-            <div class="mx-auto max-w-6xl px-4 py-20 lg:px-6">
-                <div class="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
-                    <div>
-                        <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#8d6b4a]/70">Map & Directions</h2>
-                        <p class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl text-[#241b16]">Find your way into the quiet.</p>
-                        <dl class="mt-5 space-y-3 font-sans text-body-sm text-[#4b3b2f]/85">
-                            <div>
-                                <dt class="font-sans text-label-xs uppercase tracking-[0.2em] text-[#8d6b4a]/70">Location</dt>
-                                <dd class="mt-1 font-sans text-body">PIAN UPE GAME RESERVE · KARAMOJA · NEAR SIPI FALLS</dd>
-                            </div>
-                            <div>
-                                <dt class="font-sans text-label-xs uppercase tracking-[0.2em] text-[#8d6b4a]/70">Coordinates</dt>
-                                <dd class="mt-1 font-sans text-body">3°47’42.7”N 33°51’27.0”E</dd>
-                            </div>
-                            <div>
-                                <dt class="font-sans text-label-xs uppercase tracking-[0.2em] text-[#8d6b4a]/70">Distance</dt>
-                                <dd class="mt-1 font-sans text-body">Approx. 327 km from Kampala</dd>
-                            </div>
-                            <div>
-                                <dt class="font-sans text-label-xs uppercase tracking-[0.2em] text-[#8d6b4a]/70">Access</dt>
-                                <dd class="mt-1 font-sans text-body font-semibold text-[#241b16]">4×4 vehicle required</dd>
-                                <dd class="mt-1 font-sans text-body-sm text-[#5b4636]">Private 4×4 transfers available from Entebbe Airport or Kampala, and charter flights to Pian Upe Airstrip on request.</dd>
-                            </div>
-                        </dl>
-                    </div>
-                    <div class="overflow-hidden rounded-2xl border border-[#e3d4c4] bg-white">
-                        {{-- Map placeholder; can be replaced with interactive map embed --}}
-                        <div class="aspect-[4/3] w-full">
-                            <iframe
-                                title="Pian Upe Cave House Map"
-                                src="https://www.google.com/maps?q=3.795194,33.857500&z=9&output=embed"
-                                loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"
-                                class="h-full w-full border-0"
-                            ></iframe>
+        <section id="map" class="relative overflow-hidden section-fade-in">
+            <div class="absolute inset-0">
+                {{-- Map placeholder; can be replaced with interactive map embed --}}
+                <iframe
+                    title="Pian Upe Cave House Map"
+                    src="https://www.google.com/maps?q=3.795194,33.857500&z=9&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    class="h-full w-full border-0"
+                ></iframe>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#f7f0e6] via-[#f7f0e6]/92 to-black/70"></div>
+
+            <div class="relative mx-auto flex min-h-[420px] max-w-6xl items-center px-4 py-16 md:min-h-[520px] md:py-24 lg:min-h-[580px] lg:px-6">
+                <div class="max-w-lg rounded-3xl border border-[#e3d4c4] bg-[#f7f0e6]/95 p-6 shadow-xl shadow-black/30 md:p-8">
+                    <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#8d6b4a]/70">Map & Directions</h2>
+                    <p class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl text-[#241b16] leading-tight">Find your way into the quiet.</p>
+                    <dl class="mt-5 space-y-3 font-sans text-body-sm text-[#4b3b2f]/85">
+                        <div>
+                            <dt class="font-sans text-label-xs uppercase tracking-[0.2em] text-[#8d6b4a]/70">Location</dt>
+                            <dd class="mt-1 font-sans text-body">PIAN UPE GAME RESERVE · KARAMOJA · NEAR SIPI FALLS</dd>
                         </div>
-                    </div>
+                        <div>
+                            <dt class="font-sans text-label-xs uppercase tracking-[0.2em] text-[#8d6b4a]/70">Coordinates</dt>
+                            <dd class="mt-1 font-sans text-body">3°47’42.7”N 33°51’27.0”E</dd>
+                        </div>
+                        <div>
+                            <dt class="font-sans text-label-xs uppercase tracking-[0.2em] text-[#8d6b4a]/70">Distance</dt>
+                            <dd class="mt-1 font-sans text-body">Approx. 327 km from Kampala</dd>
+                        </div>
+                        <div>
+                            <dt class="font-sans text-label-xs uppercase tracking-[0.2em] text-[#8d6b4a]/70">Access</dt>
+                            <dd class="mt-1 font-sans text-body font-semibold text-[#241b16]">4×4 vehicle required</dd>
+                            <dd class="mt-1 font-sans text-body-sm text-[#5b4636]">Private 4×4 transfers available from Entebbe Airport or Kampala, and charter flights to Pian Upe Airstrip on request.</dd>
+                        </div>
+                    </dl>
                 </div>
             </div>
         </section>
