@@ -117,7 +117,7 @@
                 <div class="grid gap-12 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-end">
                     <div class="max-w-2xl">
                         <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.28em] text-[#f5f2ea]/70">
-                            Pian Upe Game Reserve · Eastern Uganda
+                            PIAN UPE GAME RESERVE  KARAMOJA ( NEAR SIPI FALLS )
                         </p>
                         <p
                             role="heading"
@@ -548,7 +548,7 @@
                         <dl class="mt-5 space-y-3 font-sans text-body-sm text-[#4b3b2f]/85">
                             <div>
                                 <dt class="font-sans text-label-xs uppercase tracking-[0.2em] text-[#8d6b4a]/70">Location</dt>
-                                <dd class="mt-1 font-sans text-body">Pian Upe Game Reserve, Eastern Uganda</dd>
+                                <dd class="mt-1 font-sans text-body">PIAN UPE GAME RESERVE  KARAMOJA ( NEAR SIPI FALLS )</dd>
                             </div>
                             <div>
                                 <dt class="font-sans text-label-xs uppercase tracking-[0.2em] text-[#8d6b4a]/70">Coordinates</dt>
@@ -747,7 +747,7 @@
 						</div>
 					</div>
 					<div class="font-sans text-body-sm text-[#f5f2ea]/70 text-right">
-						<p>Pian Upe Game Reserve · Eastern Uganda</p>
+						<p>PIAN UPE GAME RESERVE  KARAMOJA ( NEAR SIPI FALLS )</p>
 						<p class="mt-1">&copy; {{ now()->year }} Pian Upe Cave House. All rights reserved.</p>
 						<p class="mt-1 text-[#f5f2ea]/55">
 							Website by
