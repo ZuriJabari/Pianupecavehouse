@@ -88,7 +88,7 @@
                 />
             </div>
             <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black/85"></div>
-            <div class="relative mx-auto flex min-h-[420px] max-w-6xl items-center px-4 py-20 md:min-h-[520px] md:py-28 lg:min-h-[600px] lg:px-6">
+            <div class="relative mx-auto flex min-h-[420px] max-w-6xl items-start px-4 pt-28 pb-16 md:min-h-[520px] md:pt-36 md:pb-20 lg:min-h-[600px] lg:px-6">
                 <div class="max-w-xl text-[#f5f2ea]">
                     <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/70">Pian Upe keepsakes</p>
                     <h1 class="mt-3 font-display hero-heading text-4xl md:text-5xl lg:text-6xl leading-tight">
