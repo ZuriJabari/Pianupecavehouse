@@ -298,16 +298,18 @@
         <!-- Gallery -->
         <section id="gallery" class="bg-[#f7f0e6] section-fade-in is-visible">
             @php
+                // New gallery set sourced from /CAMERA PICTURES (root, DRONE PICTURES, Personal pictures)
+                // and exported as optimised JPEGs into public/camera/gallery-v2.
                 $galleryImages = [
-                    ['path' => 'camera/backgrounds/bg-interlude-01.jpg', 'alt' => 'Wide view over the Pian Upe plains from the cave ridge.'],
-                    ['path' => 'camera/gallery/gallery-07.jpg', 'alt' => 'Breakfast table laid out on the rocks with views over the savannah.'],
-                    ['path' => 'camera/gallery/gallery-01.jpg', 'alt' => 'Balcony with blue chairs overlooking the plains and distant ridges.'],
-                    ['path' => 'camera/gallery/gallery-04.jpg', 'alt' => 'Cave bedroom with rock walls, brick, and a large window facing the reserve.'],
-                    ['path' => 'camera/gallery/gallery-06.jpg', 'alt' => 'Exterior rock face and garden pathways around the cave house.'],
-                    ['path' => 'camera/backgrounds/bg-interlude-02.jpg', 'alt' => 'The cave house lit warmly against the rock at dusk.'],
-                    ['path' => 'images/legend/IMG_0249.jpg', 'alt' => 'Traditional Karimojong headrest resting inside the cave house.'],
-                    ['path' => 'images/contact/IMG_0230.jpg', 'alt' => 'Approach road and landscape around Pian Upe Cave House.'],
-                    ['path' => 'camera/backgrounds/footer-bg.jpg', 'alt' => 'Night sky and silhouettes of rocks near the cave house.'],
+                    ['path' => 'camera/gallery-v2/drone-01.jpg', 'alt' => 'Aerial view of the cave ridge and surrounding Pian Upe plains.'],
+                    ['path' => 'camera/gallery-v2/drone-02.jpg', 'alt' => 'Drone shot looking back towards the cave house and savannah.'],
+                    ['path' => 'camera/gallery-v2/stay-01.jpg', 'alt' => 'Rocky approach and landscape leading up to Pian Upe Cave House.'],
+                    ['path' => 'camera/gallery-v2/stay-02.jpg', 'alt' => 'Soft light over the rocks and bush around the cave.'],
+                    ['path' => 'camera/gallery-v2/stay-03.jpg', 'alt' => 'Evening tones and sky above the Pian Upe ridge.'],
+                    ['path' => 'camera/gallery-v2/stay-04.jpg', 'alt' => 'Warm, low light across the savannah landscape near the cave.'],
+                    ['path' => 'camera/gallery-v2/personal-01.jpg', 'alt' => 'Personal moment on the rocks capturing the Pian Upe horizon.'],
+                    ['path' => 'camera/gallery-v2/personal-02.jpg', 'alt' => 'Closer personal detail shot from time spent around the cave.'],
+                    ['path' => 'camera/gallery-v2/personal-03.jpg', 'alt' => 'Gallery-style still from your shoot, reworked as a hero detail.'],
                 ];
             @endphp
             <div class="mx-auto max-w-6xl px-4 py-16 md:py-20 lg:px-6">
