@@ -32,7 +32,7 @@
 							type="text"
 							data-range-input
 							class="mt-1 w-full rounded-lg border border-white/20 bg-black/40 px-3 py-2.5 font-sans text-body text-[#f5f2ea] placeholder:text-white/40 focus:border-white/60 focus:outline-none"
-							placeholder="Select dates"
+							placeholder="Tap to choose arrival &amp; departure"
 						/>
 						<input type="hidden" data-range-start wire:model.defer="check_in" />
 						<input type="hidden" data-range-end wire:model.defer="check_out" />

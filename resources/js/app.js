@@ -289,8 +289,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 showMonths: isSmallViewport ? 1 : 2,
                 disableMobile: true,
                 monthSelectorType: 'dropdown',
-                prevArrow: '',
-                nextArrow: '',
+                prevArrow: '‹',
+                nextArrow: '›',
                 onChange: (selectedDates, dateStr, instance) => {
                     if (selectedDates.length > 0) {
                         startInput.value = instance.formatDate(selectedDates[0], 'Y-m-d');
