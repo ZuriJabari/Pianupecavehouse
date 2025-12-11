@@ -214,11 +214,12 @@ html {
         overflow: hidden;
         font-family: var(--font-sans);
         background-color: rgba(0, 0, 0, 0.96);
+        padding-top: 0.4rem;
         padding-bottom: 0.75rem;
     }
 
     .flatpickr-months .flatpickr-month {
-        padding: 0.95rem 1.1rem 0.35rem;
+        padding: 0.75rem 1rem 0.2rem;
         text-transform: uppercase;
         letter-spacing: 0.18em;
         font-size: 0.8rem;
@@ -267,7 +268,7 @@ html {
     }
 
     .flatpickr-days {
-        padding: 0.6rem 0.75rem 0.35rem;
+        padding: 0.35rem 0.75rem 0.35rem;
     }
 
     .flatpickr-day {

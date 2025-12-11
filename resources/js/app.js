@@ -278,6 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (endInput.value) defaultDates.push(endInput.value);
 
             const isSmallViewport = window.matchMedia('(max-width: 767px)').matches;
+            let rangeCloseTimeoutId = null;
 
             const options = {
                 mode: 'range',
@@ -298,8 +299,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (selectedDates.length > 1) {
                         endInput.value = instance.formatDate(selectedDates[1], 'Y-m-d');
 
-                        // Close the calendar once a full range is chosen so the button is easily clickable
-                        instance.close();
+                        // Close the calendar a little after a full range is chosen so guests can see their selection
+                        if (rangeCloseTimeoutId) {
+                            clearTimeout(rangeCloseTimeoutId);
+                        }
+                        rangeCloseTimeoutId = window.setTimeout(() => {
+                            instance.close();
+                            rangeInput.blur();
+                        }, 2000);
                         rangeInput.blur();
                     } else {
                         endInput.value = '';
