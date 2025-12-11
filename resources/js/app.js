@@ -2,6 +2,7 @@ import './bootstrap';
 
 document.addEventListener('DOMContentLoaded', () => {
     let flatpickrReady = null;
+    let livewireBookingHookSetup = false;
 
     // Section fade-in on scroll
     const sections = document.querySelectorAll('.section-fade-in');
@@ -332,13 +333,29 @@ document.addEventListener('DOMContentLoaded', () => {
     initBookingDateRangePicker();
 
     // Re-initialise after Livewire updates (e.g. step changes)
-    document.addEventListener('livewire:load', () => {
-        if (window.Livewire && typeof window.Livewire.hook === 'function') {
-            window.Livewire.hook('message.processed', () => {
-                initBookingDateRangePicker();
-            });
+    const setupLivewireBookingHook = () => {
+        if (livewireBookingHookSetup) {
+            return;
         }
-    });
+
+        if (!window.Livewire || typeof window.Livewire.hook !== 'function') {
+            return;
+        }
+
+        livewireBookingHookSetup = true;
+
+        window.Livewire.hook('message.processed', () => {
+            initBookingDateRangePicker();
+        });
+    };
+
+    if (window.Livewire) {
+        setupLivewireBookingHook();
+    } else {
+        document.addEventListener('livewire:load', () => {
+            setupLivewireBookingHook();
+        });
+    }
 
     // Legend section toggle (Read the full legend / Show less)
     const legendToggle = document.querySelector('[data-legend-toggle]');
