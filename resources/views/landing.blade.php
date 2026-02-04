@@ -155,8 +155,7 @@
                             <div class="flex items-start justify-between gap-4 border-t border-white/10 pt-2">
                                 <dt class="font-sans text-body-sm text-[#f5f2ea]/65">Rates</dt>
                                 <dd class="text-right font-sans text-body-sm text-[#f5f2ea]/90">
-                                    Full-board · $350 double · $250 single<br>
-                                    Half-board · $305 double · $205 single
+                                    Full-board · $350 per night
                                 </dd>
                             </div>
                             <div class="flex items-start justify-between gap-4 border-t border-white/10 pt-2">
@@ -503,13 +502,10 @@
                             <div class="rounded-2xl border border-[#e3d4c4] bg-[#fffaf3] p-6 font-sans text-body text-[#4b3b2f]/85 shadow-sm">
                                 <h3 class="font-sans text-label-xs font-semibold uppercase tracking-[0.24em] text-[#8d6b4a]/80">Nightly rates</h3>
                                 <ul class="mt-3 space-y-1 font-sans text-body leading-relaxed text-[#241b16]">
-                                    <li><span class="font-semibold">Full-board · Double occupancy</span> — $350 per night</li>
-                                    <li><span class="font-semibold">Half-board · Double occupancy</span> — $305 per night</li>
-                                    <li><span class="font-semibold">Full-board · Single occupancy</span> — $250 per night</li>
-                                    <li><span class="font-semibold">Half-board · Single occupancy</span> — $205 per night</li>
+                                    <li><span class="font-semibold">Full-board</span> — $350 per night</li>
                                 </ul>
                                 <p class="mt-3 font-sans text-body-sm text-[#5b4636]">
-                                    Full-board includes breakfast, lunch, dinner, drinking water, tea, and coffee. Half-board includes breakfast and dinner.
+                                    Full-board includes breakfast, lunch, dinner, drinking water, tea, and coffee.
                                 </p>
                             </div>
                             <div class="rounded-2xl border border-[#e3d4c4] bg-[#fffaf3] p-6 font-sans text-body-sm text-[#4b3b2f]/85 shadow-sm">
@@ -530,7 +526,7 @@
                             </div>
                         </div>
                         <p class="mt-5 font-sans text-body leading-relaxed text-[#4b3b2f]/80">
-                            Use the calendar to choose your dates, guests, and rooms. You’ll see an estimated total based on full-board before sending a reservation request. Half-board or special arrangements can be confirmed directly with the team.
+                            Use the calendar to choose your dates, guests, and rooms. You’ll see an estimated total based on full-board before sending a reservation request.
                         </p>
                     </div>
                     <div id="booking-widget" class="lg:pl-4">

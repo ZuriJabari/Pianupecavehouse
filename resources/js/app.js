@@ -276,70 +276,78 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const defaultDates = [];
             if (startInput.value) defaultDates.push(startInput.value);
-            if (endInput.value) defaultDates.push(endInput.value);
 
-            const isSmallViewport = window.matchMedia('(max-width: 767px)').matches;
-            let rangeCloseTimeoutId = null;
-
-            const options = {
-                mode: 'range',
-                minDate: 'today',
-                dateFormat: 'Y-m-d',
-                altInput: true,
-                altFormat: 'M j, Y',
-                // Airbnb-like behaviour: 1 month on mobile, 2 on larger screens
-                showMonths: isSmallViewport ? 1 : 2,
-                disableMobile: true,
-                monthSelectorType: 'dropdown',
-                prevArrow: '‹',
-                nextArrow: '›',
-                onChange: (selectedDates, dateStr, instance) => {
-                    if (selectedDates.length > 0) {
-                        startInput.value = instance.formatDate(selectedDates[0], 'Y-m-d');
-                    }
-                    if (selectedDates.length > 1) {
-                        endInput.value = instance.formatDate(selectedDates[1], 'Y-m-d');
-
-                        // Close the calendar a little after a full range is chosen so guests can see their selection
-                        if (rangeCloseTimeoutId) {
-                            clearTimeout(rangeCloseTimeoutId);
-                        }
-                        rangeCloseTimeoutId = window.setTimeout(() => {
-                            instance.close();
-                            rangeInput.blur();
-                        }, 2000);
-                        rangeInput.blur();
-                    } else {
-                        endInput.value = '';
-                    }
-
-                    // Make sure Livewire sees the updated values
-                    ['input', 'change'].forEach((eventName) => {
-                        startInput.dispatchEvent(new Event(eventName, { bubbles: true }));
-                        endInput.dispatchEvent(new Event(eventName, { bubbles: true }));
-                    });
-                },
-            };
-
-            if (defaultDates.length === 2) {
-                options.defaultDate = defaultDates;
-            }
-
-            flatpickr(rangeInput, options);
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js';
+            script.onload = () => resolve(window.flatpickr);
+            document.head.appendChild(script);
         });
+
+        return flatpickrReady;
     };
 
-    // Initialise range picker on first load
-    initBookingDateRangePicker();
+    ensureFlatpickr().then((flatpickr) => {
+        if (!flatpickr) return;
 
-    // Re-initialise after Livewire updates (e.g. step changes)
-    const setupLivewireBookingHook = () => {
-        if (livewireBookingHookSetup) {
-            return;
+        const defaultDates = [];
+        if (startInput.value) defaultDates.push(startInput.value);
+        if (endInput.value) defaultDates.push(endInput.value);
+
+        const isSmallViewport = window.matchMedia('(max-width: 767px)').matches;
+        let rangeCloseTimeoutId = null;
+
+        const options = {
+            mode: 'range',
+            minDate: 'today',
+            dateFormat: 'Y-m-d',
+            altInput: true,
+            altFormat: 'M j, Y',
+            // Airbnb-like behaviour: 1 month on mobile, 2 on larger screens
+            showMonths: isSmallViewport ? 1 : 2,
+            disableMobile: true,
+            monthSelectorType: 'dropdown',
+            prevArrow: '‹',
+            nextArrow: '›',
+            onReady: (selectedDates, dateStr, instance) => {
+                if (instance && instance.calendarContainer) {
+                    instance.calendarContainer.classList.add('lux-booking-calendar');
+                }
+            },
+            onChange: (selectedDates, dateStr, instance) => {
+                if (selectedDates.length > 0) {
+                    startInput.value = instance.formatDate(selectedDates[0], 'Y-m-d');
+                }
+                if (selectedDates.length > 1) {
+                    endInput.value = instance.formatDate(selectedDates[1], 'Y-m-d');
+
+                    // Close the calendar a little after a full range is chosen so guests can see their selection
+                    if (rangeCloseTimeoutId) {
+                        clearTimeout(rangeCloseTimeoutId);
+                    }
+                    rangeCloseTimeoutId = window.setTimeout(() => {
+                        instance.close();
+                        rangeInput.blur();
+                    }, 2000);
+                    rangeInput.blur();
+                } else {
+                    endInput.value = '';
+                }
+
+                // Make sure Livewire sees the updated values
+                ['input', 'change'].forEach((eventName) => {
+                    startInput.dispatchEvent(new Event(eventName, { bubbles: true }));
+                    endInput.dispatchEvent(new Event(eventName, { bubbles: true }));
+                });
+            },
+        };
+
+        if (defaultDates.length === 2) {
+            options.defaultDate = defaultDates;
         }
 
-        if (!window.Livewire || typeof window.Livewire.hook !== 'function') {
-            return;
+        flatpickr(rangeInput, options);
+    });
+};
         }
 
         livewireBookingHookSetup = true;
