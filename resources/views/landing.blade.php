@@ -75,7 +75,7 @@
 
         <!-- Floating CTA on mobile -->
         <a
-            href="#booking-widget"
+            href="{{ route('booking') }}"
             class="lux-cta fixed bottom-5 left-1/2 z-40 flex -translate-x-1/2 items-center gap-2 rounded-full bg-[#241b16] px-6 py-3 font-sans text-label-xs font-semibold tracking-[0.22em] text-[#f7f0e6] shadow-lg shadow-black/40 lg:hidden"
         >
             Reserve
@@ -543,12 +543,29 @@
                         </div>
                     </div>
 
-                    {{-- Right: booking widget --}}
+                    {{-- Right: booking CTA --}}
                     <div id="booking-widget" class="lg:sticky lg:top-24">
-                        <div class="rounded-3xl border border-white/12 bg-black/70 p-6 md:p-7 shadow-2xl shadow-black/60 backdrop-blur-sm">
-                            <p class="font-sans text-xs font-semibold uppercase tracking-[0.26em] text-[#f5f2ea]/50 mb-1">Reserve your stay</p>
-                            <p class="font-sans text-sm text-[#f5f2ea]/45 mb-5">No payment required now. We'll confirm within 24 hours.</p>
-                            @livewire('booking-widget')
+                        <div class="rounded-3xl border border-white/12 bg-black/70 p-8 md:p-10 shadow-2xl shadow-black/60 backdrop-blur-sm text-center">
+                            <div class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#f5f2ea]/10 mb-6">
+                                <svg class="h-8 w-8 text-[#f5f2ea]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <p class="font-sans text-xs font-semibold uppercase tracking-[0.26em] text-[#f5f2ea]/50 mb-2">Reserve your stay</p>
+                            <h3 class="font-display text-2xl text-[#f5f2ea] mb-3">Book Your Dates</h3>
+                            <p class="font-sans text-sm text-[#f5f2ea]/60 mb-6 leading-relaxed">
+                                No payment required now. Our team will confirm your booking within 24 hours.
+                            </p>
+                            <a href="{{ route('booking') }}" 
+                                class="inline-flex items-center justify-center gap-2 rounded-full bg-[#f5f2ea] px-8 py-4 font-sans text-xs font-semibold tracking-[0.22em] text-[#181716] shadow-lg shadow-black/40 hover:bg-white transition-all hover:scale-105">
+                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                                Start Booking
+                            </a>
+                            <p class="mt-6 font-sans text-xs text-[#f5f2ea]/35">
+                                14-day advance booking required
+                            </p>
                         </div>
                     </div>
 

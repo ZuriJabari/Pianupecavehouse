@@ -133,6 +133,23 @@ class BookingResource extends Resource
                     ])
                     ->searchable(),
 
+                Tables\Columns\BadgeColumn::make('payment.status')
+                    ->label('Payment')
+                    ->default('Unpaid')
+                    ->formatStateUsing(fn ($state) => $state ? ucfirst($state) : 'Unpaid')
+                    ->colors([
+                        'success' => 'completed',
+                        'warning' => 'pending',
+                        'danger' => 'failed',
+                        'gray' => fn ($state) => $state === null,
+                    ])
+                    ->icon(fn ($state) => match($state) {
+                        'completed' => 'heroicon-o-check-circle',
+                        'pending' => 'heroicon-o-clock',
+                        'failed' => 'heroicon-o-x-circle',
+                        default => 'heroicon-o-banknotes',
+                    }),
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Submitted')
                     ->dateTime('M j, Y H:i')
@@ -177,6 +194,55 @@ class BookingResource extends Resource
                         Notification::make()
                             ->title('Booking confirmed')
                             ->body('Dates locked in the availability calendar.')
+                            ->success()
+                            ->send();
+                    }),
+
+                Tables\Actions\Action::make('mark_paid')
+                    ->label('Mark as Paid')
+                    ->icon('heroicon-o-banknotes')
+                    ->color('success')
+                    ->requiresConfirmation()
+                    ->modalHeading('Mark this booking as paid?')
+                    ->modalDescription('This will update the payment status to completed.')
+                    ->form([
+                        Forms\Components\Select::make('payment_method')
+                            ->label('Payment Method')
+                            ->options([
+                                'bank_transfer' => 'Bank Transfer',
+                                'card' => 'Credit/Debit Card',
+                                'cash' => 'Cash',
+                                'mobile_money' => 'Mobile Money',
+                                'other' => 'Other',
+                            ])
+                            ->required()
+                            ->native(false),
+                        Forms\Components\Textarea::make('payment_notes')
+                            ->label('Payment Notes (optional)')
+                            ->placeholder('Transaction reference, receipt number, etc.')
+                            ->rows(2),
+                    ])
+                    ->visible(fn (Booking $record): bool => 
+                        in_array($record->status, ['confirmed', 'awaiting_payment']) && 
+                        (!$record->payment || $record->payment->status !== 'completed')
+                    )
+                    ->action(function (Booking $record, array $data): void {
+                        // Create or update payment record
+                        $record->payment()->updateOrCreate(
+                            ['booking_id' => $record->id],
+                            [
+                                'amount_cents' => $record->total_cents,
+                                'currency' => $record->currency,
+                                'payment_method' => $data['payment_method'],
+                                'status' => 'completed',
+                                'paid_at' => now(),
+                                'notes' => $data['payment_notes'] ?? null,
+                            ]
+                        );
+
+                        Notification::make()
+                            ->title('Payment recorded')
+                            ->body('Booking marked as paid successfully.')
                             ->success()
                             ->send();
                     }),

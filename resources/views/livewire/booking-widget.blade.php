@@ -80,30 +80,6 @@
             </div>
         </div>
 
-        {{-- Guests & Rooms --}}
-        <div class="grid grid-cols-2 gap-3">
-            <div>
-                <label class="block font-sans text-xs font-semibold uppercase tracking-[0.2em] text-[#f5f2ea]/50 mb-1.5">Guests</label>
-                <div class="flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-3.5 py-2.5">
-                    <button type="button" wire:click="decrementGuests"
-                        class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/10 text-[#f5f2ea]/70 hover:bg-white/20 transition font-bold text-sm leading-none select-none">−</button>
-                    <span class="flex-1 text-center font-sans text-sm text-[#f5f2ea]" wire:text="guests">{{ $guests }}</span>
-                    <button type="button" wire:click="incrementGuests"
-                        class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/10 text-[#f5f2ea]/70 hover:bg-white/20 transition font-bold text-sm leading-none select-none">+</button>
-                </div>
-            </div>
-            <div>
-                <label class="block font-sans text-xs font-semibold uppercase tracking-[0.2em] text-[#f5f2ea]/50 mb-1.5">Rooms</label>
-                <div class="flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-3.5 py-2.5">
-                    <button type="button" wire:click="decrementRooms"
-                        class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/10 text-[#f5f2ea]/70 hover:bg-white/20 transition font-bold text-sm leading-none select-none">−</button>
-                    <span class="flex-1 text-center font-sans text-sm text-[#f5f2ea]" wire:text="rooms_requested">{{ $rooms_requested }}</span>
-                    <button type="button" wire:click="incrementRooms"
-                        class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/10 text-[#f5f2ea]/70 hover:bg-white/20 transition font-bold text-sm leading-none select-none">+</button>
-                </div>
-            </div>
-        </div>
-
         {{-- Add-ons --}}
         <div class="space-y-2 border-t border-white/10 pt-4">
             <p class="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-[#f5f2ea]/50 mb-3">Optional add-ons</p>
@@ -147,12 +123,36 @@
         <div class="flex items-start justify-between gap-4">
             <div>
                 <p class="font-sans text-xs font-semibold uppercase tracking-[0.26em] text-[#f5f2ea]/50">Step 2 of 3</p>
-                <h3 class="mt-1 font-display text-2xl text-[#f5f2ea]">Your details</h3>
+                <h3 class="mt-1 font-display text-2xl text-[#f5f2ea]">Guest details</h3>
             </div>
             <button type="button" wire:click="backToDates"
                 class="mt-1.5 shrink-0 font-sans text-xs text-[#f5f2ea]/45 underline underline-offset-4 hover:text-[#f5f2ea]/75 transition">
                 ← Edit dates
             </button>
+        </div>
+
+        {{-- Guests & Rooms --}}
+        <div class="grid grid-cols-2 gap-3">
+            <div>
+                <label class="block font-sans text-xs font-semibold uppercase tracking-[0.2em] text-[#f5f2ea]/50 mb-1.5">Guests</label>
+                <div class="flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-3.5 py-2.5">
+                    <button type="button" wire:click="decrementGuests"
+                        class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/10 text-[#f5f2ea]/70 hover:bg-white/20 transition font-bold text-sm leading-none select-none">−</button>
+                    <span class="flex-1 text-center font-sans text-sm text-[#f5f2ea]" wire:text="guests">{{ $guests }}</span>
+                    <button type="button" wire:click="incrementGuests"
+                        class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/10 text-[#f5f2ea]/70 hover:bg-white/20 transition font-bold text-sm leading-none select-none">+</button>
+                </div>
+            </div>
+            <div>
+                <label class="block font-sans text-xs font-semibold uppercase tracking-[0.2em] text-[#f5f2ea]/50 mb-1.5">Rooms</label>
+                <div class="flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-3.5 py-2.5">
+                    <button type="button" wire:click="decrementRooms"
+                        class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/10 text-[#f5f2ea]/70 hover:bg-white/20 transition font-bold text-sm leading-none select-none">−</button>
+                    <span class="flex-1 text-center font-sans text-sm text-[#f5f2ea]" wire:text="rooms_requested">{{ $rooms_requested }}</span>
+                    <button type="button" wire:click="incrementRooms"
+                        class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/10 text-[#f5f2ea]/70 hover:bg-white/20 transition font-bold text-sm leading-none select-none">+</button>
+                </div>
+            </div>
         </div>
 
         {{-- Pricing card --}}
