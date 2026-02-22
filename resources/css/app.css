@@ -216,6 +216,17 @@ html {
         background-color: rgba(0, 0, 0, 0.96);
         padding-top: 0.9rem;
         padding-bottom: 0.9rem;
+        max-width: calc(100vw - 2rem);
+        width: auto !important;
+    }
+
+    @media (max-width: 640px) {
+        .flatpickr-calendar.lux-booking-calendar {
+            max-width: calc(100vw - 1.5rem);
+            left: 50% !important;
+            right: auto !important;
+            transform: translateX(-50%);
+        }
     }
 
     .lux-booking-calendar .flatpickr-months {
