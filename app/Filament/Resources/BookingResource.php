@@ -231,6 +231,7 @@ class BookingResource extends Resource
                         $record->payment()->updateOrCreate(
                             ['booking_id' => $record->id],
                             [
+                                'amount' => $record->total_amount,
                                 'amount_cents' => $record->total_amount * 100,
                                 'currency' => $record->currency,
                                 'payment_method' => $data['payment_method'],
