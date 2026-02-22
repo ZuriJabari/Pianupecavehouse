@@ -302,7 +302,12 @@
         minDate.setDate(minDate.getDate() + 14);
         var closeTimer = null;
 
-        fp(arrival, {
+        // Preserve existing dates from Livewire model
+        var defaultDates = [];
+        if (hidStart.value) defaultDates.push(hidStart.value);
+        if (hidEnd.value) defaultDates.push(hidEnd.value);
+
+        var instance = fp(arrival, {
             mode: 'range',
             minDate: minDate,
             dateFormat: 'Y-m-d',
@@ -311,12 +316,18 @@
             showMonths: window.innerWidth >= 768 ? 2 : 1,
             disableMobile: true,
             disable: disabledRanges || [],
+            defaultDate: defaultDates.length > 0 ? defaultDates : null,
             onReady: function (_, __, inst) {
                 if (inst.calendarContainer) {
                     inst.calendarContainer.classList.add('lux-booking-calendar');
                 }
                 if (departure) {
                     departure.addEventListener('click', function () { inst.open(); });
+                }
+                // Sync departure field with existing end date
+                if (hidEnd.value && departure) {
+                    var endDate = new Date(hidEnd.value);
+                    departure.value = inst.formatDate(endDate, 'M j, Y');
                 }
             },
             onChange: function (dates, _, inst) {
@@ -338,6 +349,9 @@
                 }
             },
         });
+
+        // Store instance reference for cleanup
+        arrival._flatpickr = instance;
     }
 
     function initPicker() {
@@ -368,9 +382,33 @@
     function scheduleInit() {
         clearTimeout(_debounce);
         _debounce = setTimeout(function () {
-            // Clear the init flag so the picker re-attaches if the element was replaced
             var el = document.getElementById('lux-arrival');
-            if (el) el.dataset.fpInit = '';
+            if (!el) return;
+            
+            // If picker already exists and is working, don't reinit
+            if (el._flatpickr && el.dataset.fpInit === '1') {
+                // Just verify the dates are still synced
+                var hidStart = document.getElementById('lux-start');
+                var hidEnd = document.getElementById('lux-end');
+                if (hidStart && hidStart.value) {
+                    var dates = [];
+                    if (hidStart.value) dates.push(hidStart.value);
+                    if (hidEnd && hidEnd.value) dates.push(hidEnd.value);
+                    if (dates.length > 0) {
+                        el._flatpickr.setDate(dates, false);
+                    }
+                }
+                return;
+            }
+            
+            // Destroy old instance if it exists
+            if (el._flatpickr) {
+                el._flatpickr.destroy();
+                el._flatpickr = null;
+            }
+            
+            // Clear the init flag and reinitialize
+            el.dataset.fpInit = '';
             initPicker();
         }, 60);
     }
