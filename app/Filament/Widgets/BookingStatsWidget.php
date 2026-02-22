@@ -12,7 +12,7 @@ class BookingStatsWidget extends BaseWidget
     {
         $confirmedBookings = Booking::where('status', 'confirmed')->get();
         $totalConfirmed = $confirmedBookings->count();
-        $totalRevenue = $confirmedBookings->sum('total_cents') / 100;
+        $totalRevenue = $confirmedBookings->sum('total_amount');
         $totalGuests = $confirmedBookings->sum('guests');
         
         $upcomingBookings = Booking::where('status', 'confirmed')
@@ -22,7 +22,7 @@ class BookingStatsWidget extends BaseWidget
         $currentMonthRevenue = Booking::where('status', 'confirmed')
             ->whereMonth('created_at', now()->month)
             ->whereYear('created_at', now()->year)
-            ->sum('total_cents') / 100;
+            ->sum('total_amount');
 
         return [
             Stat::make('Confirmed Bookings', $totalConfirmed)
