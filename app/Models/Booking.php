@@ -25,6 +25,7 @@ class Booking extends Model
         'rate_snapshot',
         'add_ons',
         'notes',
+        'admin_notes',
         'coupon_id',
         'payment_id',
     ];

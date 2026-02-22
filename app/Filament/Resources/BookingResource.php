@@ -3,15 +3,14 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\BookingResource\Pages;
-use App\Filament\Resources\BookingResource\RelationManagers;
+use App\Models\AvailabilityLock;
 use App\Models\Booking;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class BookingResource extends Resource
 {
@@ -21,151 +20,205 @@ class BookingResource extends Resource
 
     protected static ?string $navigationGroup = 'Operations';
 
+    protected static ?int $navigationSort = 1;
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('property_id')
-                    ->relationship('property', 'name')
-                    ->required(),
-                Forms\Components\TextInput::make('reference')
-                    ->required(),
-                Forms\Components\TextInput::make('guest_name')
-                    ->required(),
-                Forms\Components\TextInput::make('guest_email')
-                    ->email()
-                    ->required(),
-                Forms\Components\TextInput::make('guest_phone')
-                    ->tel(),
-                Forms\Components\TextInput::make('guests_adults')
-                    ->required()
-                    ->numeric()
-                    ->default(1),
-                Forms\Components\TextInput::make('guests_children')
-                    ->required()
-                    ->numeric()
-                    ->default(0),
-                Forms\Components\TextInput::make('rooms_requested')
-                    ->required()
-                    ->numeric()
-                    ->default(1),
-                Forms\Components\DatePicker::make('check_in')
-                    ->required(),
-                Forms\Components\DatePicker::make('check_out')
-                    ->required(),
-                Forms\Components\TextInput::make('nights')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\Select::make('status')
-                    ->options([
-                        'pending' => 'Pending',
-                        'confirmed' => 'Confirmed',
-                        'cancelled' => 'Cancelled',
+                Forms\Components\Section::make('Guest')
+                    ->schema([
+                        Forms\Components\TextInput::make('guest_name')->required(),
+                        Forms\Components\TextInput::make('guest_email')->email()->required(),
+                        Forms\Components\TextInput::make('guest_phone')->tel(),
+                        Forms\Components\TextInput::make('guests_adults')->numeric()->default(1)->required(),
+                        Forms\Components\TextInput::make('guests_children')->numeric()->default(0)->required(),
+                        Forms\Components\TextInput::make('rooms_requested')->numeric()->default(1)->required(),
                     ])
-                    ->required()
-                    ->default('pending'),
-                Forms\Components\TextInput::make('total_amount')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('currency')
-                    ->required(),
-                Forms\Components\Textarea::make('rate_snapshot')
-                    ->columnSpanFull(),
-                Forms\Components\Textarea::make('add_ons')
-                    ->columnSpanFull(),
-                Forms\Components\Textarea::make('notes')
-                    ->columnSpanFull(),
-                Forms\Components\Select::make('coupon_id')
-                    ->relationship('coupon', 'id'),
-                Forms\Components\Select::make('payment_id')
-                    ->relationship('payment', 'id'),
+                    ->columns(3),
+
+                Forms\Components\Section::make('Stay')
+                    ->schema([
+                        Forms\Components\Select::make('property_id')
+                            ->relationship('property', 'name')
+                            ->required(),
+                        Forms\Components\TextInput::make('reference')->required(),
+                        Forms\Components\DatePicker::make('check_in')->required()->native(false)->displayFormat('M j, Y'),
+                        Forms\Components\DatePicker::make('check_out')->required()->native(false)->displayFormat('M j, Y'),
+                        Forms\Components\TextInput::make('nights')->numeric()->required(),
+                        Forms\Components\Select::make('status')
+                            ->options([
+                                'pending'          => 'Pending',
+                                'awaiting_payment' => 'Awaiting Payment',
+                                'paid'             => 'Paid',
+                                'confirmed'        => 'Confirmed',
+                                'rejected'         => 'Rejected',
+                                'cancelled'        => 'Cancelled',
+                            ])
+                            ->required()
+                            ->native(false)
+                            ->default('pending'),
+                        Forms\Components\TextInput::make('total_amount')->numeric()->required(),
+                        Forms\Components\TextInput::make('currency')->required()->default('USD'),
+                    ])
+                    ->columns(3),
+
+                Forms\Components\Section::make('Notes')
+                    ->schema([
+                        Forms\Components\Textarea::make('notes')
+                            ->label('Guest notes')
+                            ->rows(3)
+                            ->columnSpanFull(),
+                        Forms\Components\Textarea::make('admin_notes')
+                            ->label('Admin notes (internal)')
+                            ->helperText('Not visible to the guest.')
+                            ->rows(3)
+                            ->columnSpanFull(),
+                    ]),
             ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
-            ->defaultSort('check_in')
+            ->defaultSort('created_at', 'desc')
             ->columns([
-                Tables\Columns\TextColumn::make('property.name')
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('reference')
-                    ->searchable(),
+                    ->searchable()
+                    ->copyable()
+                    ->fontFamily('mono')
+                    ->weight('bold'),
+
                 Tables\Columns\TextColumn::make('guest_name')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('Guest'),
+
                 Tables\Columns\TextColumn::make('guest_email')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+
                 Tables\Columns\TextColumn::make('guest_phone')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('guests_adults')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('guests_children')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('rooms_requested')
-                    ->numeric()
-                    ->sortable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+
                 Tables\Columns\TextColumn::make('check_in')
-                    ->date()
+                    ->date('M j, Y')
                     ->sortable(),
+
                 Tables\Columns\TextColumn::make('check_out')
-                    ->date()
+                    ->date('M j, Y')
                     ->sortable(),
+
                 Tables\Columns\TextColumn::make('nights')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('status')
-                    ->badge()
+
+                Tables\Columns\TextColumn::make('guests_adults')
+                    ->label('Guests')
+                    ->numeric()
+                    ->sortable(),
+
+                Tables\Columns\TextColumn::make('total_amount')
+                    ->label('Total')
+                    ->formatStateUsing(fn ($state, Booking $record) => '$' . number_format($state) . ' ' . $record->currency)
+                    ->sortable(),
+
+                Tables\Columns\BadgeColumn::make('status')
                     ->colors([
-                        'primary' => 'pending',
+                        'warning' => 'pending',
+                        'primary' => 'awaiting_payment',
+                        'info'    => 'paid',
                         'success' => 'confirmed',
-                        'danger' => 'cancelled',
+                        'danger'  => fn ($state) => in_array($state, ['rejected', 'cancelled']),
                     ])
                     ->searchable(),
-                Tables\Columns\TextColumn::make('total_amount')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('currency')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('coupon.id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('payment.id')
-                    ->numeric()
-                    ->sortable(),
+
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->label('Submitted')
+                    ->dateTime('M j, Y H:i')
+                    ->sortable(),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('status')
                     ->options([
-                        'pending' => 'Pending',
-                        'confirmed' => 'Confirmed',
-                        'cancelled' => 'Cancelled',
+                        'pending'          => 'Pending',
+                        'awaiting_payment' => 'Awaiting Payment',
+                        'paid'             => 'Paid',
+                        'confirmed'        => 'Confirmed',
+                        'rejected'         => 'Rejected',
+                        'cancelled'        => 'Cancelled',
                     ]),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\Action::make('markConfirmed')
+                Tables\Actions\Action::make('confirm')
                     ->label('Confirm')
                     ->icon('heroicon-o-check-circle')
+                    ->color('success')
                     ->requiresConfirmation()
-                    ->visible(fn (Booking $record): bool => $record->status !== 'confirmed')
-                    ->action(fn (Booking $record) => $record->update(['status' => 'confirmed'])),
-                Tables\Actions\Action::make('markCancelled')
-                    ->label('Cancel')
-                    ->color('danger')
+                    ->modalHeading('Confirm this booking?')
+                    ->modalDescription('This will mark the booking as confirmed and permanently lock the dates in the availability calendar.')
+                    ->visible(fn (Booking $record): bool => ! in_array($record->status, ['confirmed', 'cancelled', 'rejected']))
+                    ->action(function (Booking $record): void {
+                        $record->update(['status' => 'confirmed']);
+
+                        // Upsert a permanent availability lock for confirmed dates
+                        AvailabilityLock::updateOrCreate(
+                            ['booking_id' => $record->id],
+                            [
+                                'property_id' => $record->property_id,
+                                'locked_from' => $record->check_in,
+                                'locked_to'   => $record->check_out,
+                                'expires_at'  => null,
+                                'block_type'  => 'booked',
+                                'reason'      => 'Confirmed booking: ' . $record->reference,
+                            ]
+                        );
+
+                        Notification::make()
+                            ->title('Booking confirmed')
+                            ->body('Dates locked in the availability calendar.')
+                            ->success()
+                            ->send();
+                    }),
+
+                Tables\Actions\Action::make('reject')
+                    ->label('Reject')
                     ->icon('heroicon-o-x-circle')
+                    ->color('danger')
                     ->requiresConfirmation()
-                    ->visible(fn (Booking $record): bool => $record->status !== 'cancelled')
-                    ->action(fn (Booking $record) => $record->update(['status' => 'cancelled'])),
+                    ->modalHeading('Reject this booking?')
+                    ->modalDescription('The guest will need to be notified separately. Dates will be released.')
+                    ->visible(fn (Booking $record): bool => ! in_array($record->status, ['rejected', 'cancelled']))
+                    ->action(function (Booking $record): void {
+                        $record->update(['status' => 'rejected']);
+
+                        // Remove any pending lock for this booking
+                        AvailabilityLock::where('booking_id', $record->id)->delete();
+
+                        Notification::make()
+                            ->title('Booking rejected')
+                            ->body('Dates have been released.')
+                            ->warning()
+                            ->send();
+                    }),
+
+                Tables\Actions\Action::make('admin_note')
+                    ->label('Add note')
+                    ->icon('heroicon-o-pencil-square')
+                    ->color('gray')
+                    ->form([
+                        Forms\Components\Textarea::make('admin_notes')
+                            ->label('Admin notes (internal)')
+                            ->default(fn (Booking $record) => $record->admin_notes)
+                            ->rows(4)
+                            ->required(),
+                    ])
+                    ->action(function (Booking $record, array $data): void {
+                        $record->update(['admin_notes' => $data['admin_notes']]);
+                        Notification::make()->title('Note saved')->success()->send();
+                    }),
+
+                Tables\Actions\EditAction::make()->label('Edit'),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
@@ -178,7 +231,7 @@ class BookingResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageBookings::route('/'),
+            'index'    => Pages\ManageBookings::route('/'),
             'calendar' => Pages\CalendarBookings::route('/calendar'),
         ];
     }

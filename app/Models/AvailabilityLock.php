@@ -14,7 +14,10 @@ class AvailabilityLock extends Model
         'locked_to',
         'expires_at',
         'reason',
+        'block_type',
     ];
+
+    // block_type values: blocked | booked | maintenance | reserved
 
     protected $casts = [
         'locked_from' => 'date',

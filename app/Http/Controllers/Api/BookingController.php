@@ -18,10 +18,14 @@ class BookingController extends Controller
 
 	public function availability(Request $request): JsonResponse
 	{
+		$minDate = now()->addDays(\App\Services\BookingService::MIN_ADVANCE_DAYS)->toDateString();
+
 		$data = $request->validate([
-			'check_in' => ['required', 'date', 'after_or_equal:today'],
+			'check_in' => ['required', 'date', 'after_or_equal:' . $minDate],
 			'check_out' => ['required', 'date', 'after:check_in'],
 			'guests' => ['required', 'integer', 'min:1'],
+		], [
+			'check_in.after_or_equal' => 'Bookings must be made at least ' . \App\Services\BookingService::MIN_ADVANCE_DAYS . ' days in advance.',
 		]);
 
 		$property = $this->bookingService->getPrimaryProperty();

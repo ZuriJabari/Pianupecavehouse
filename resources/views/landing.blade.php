@@ -11,6 +11,7 @@
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600|cormorant-garamond:400,500,600" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" referrerpolicy="no-referrer" />
 
+    <link rel="preload" href="{{ asset('hero/hero-poster.jpg') }}" as="image">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
@@ -95,19 +96,13 @@
             <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-black/40 to-[#050507]"></div>
             <div class="pointer-events-none absolute inset-y-0 left-0 w-full md:w-2/3 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
             <div class="absolute inset-0">
-                {{-- Cinematic hero video; randomly selected per page load --}}
-                <video
-                    class="hero-video h-full w-full object-cover"
-                    autoplay
-                    muted
-                    loop
-                    playsinline
-                    preload="metadata"
-                    poster="{{ asset('hero/hero-poster.jpg') }}"
-                    aria-hidden="true"
-                >
-                    <source src="{{ asset($heroVideo) }}" type="video/mp4">
-                </video>
+                <img
+                    src="{{ asset('camera/gallery-v3/drone-0019.jpg') }}"
+                    alt="Pian Upe landscape"
+                    class="h-full w-full object-cover"
+                    loading="eager"
+                    decoding="async"
+                />
             </div>
             <div class="relative z-10 mx-auto max-w-6xl px-4 py-32 lg:px-6">
                 <div class="grid gap-12 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-end">
@@ -251,7 +246,7 @@
                         <div class="relative aspect-[4/5] sm:aspect-[3/4] overflow-hidden">
                             <img
                                 class="h-full w-full object-cover"
-                                src="{{ asset('images/legend/IMG_0249.jpg') }}"
+                                src="{{ asset('images/legend-optimized.jpg') }}"
                                 alt="Traditional wooden headrest wrapped in cloth inside the cave."
                                 loading="lazy"
                                 decoding="async"
@@ -276,7 +271,7 @@
             <div
                 class="absolute inset-0 bg-scroll md:bg-fixed bg-cover bg-center parallax-bg"
                 data-parallax-speed="0.4"
-                style="background-image: url('{{ asset('camera/backgrounds/bg-interlude-01.jpg') }}');">
+                style="background-image: url('{{ asset('camera/backgrounds/bg-interlude-01-optimized.jpg') }}');">
             </div>
             <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/60"></div>
             <div class="relative mx-auto flex max-w-6xl items-center px-4 py-16 md:py-32 lg:px-6">
@@ -354,19 +349,22 @@
                                 class="gallery-page {{ $pageIndex === 0 ? '' : 'hidden' }}"
                                 data-gallery-page="{{ $pageIndex }}"
                             >
-                                <div class="columns-1 gap-4 sm:columns-2 lg:columns-3">
+                                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                                     @foreach($images as $image)
-                                        <figure class="mb-4 overflow-hidden rounded-2xl border border-[#e3d4c4] bg-[#fdf7f0] transition-transform duration-700 ease-out will-change-transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20">
+                                        <figure class="overflow-hidden rounded-2xl border border-[#e3d4c4] bg-[#fdf7f0] transition-transform duration-700 ease-out will-change-transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20">
                                             <div class="relative aspect-[4/5] overflow-hidden bg-gradient-to-b from-white/10 to-black/80">
-                                                <img
-                                                    class="h-full w-full object-cover js-gallery-image cursor-zoom-in"
-                                                    src="{{ asset($image['path']) }}"
-                                                    alt="{{ $image['alt'] }}"
-                                                    data-full="{{ asset($image['path']) }}"
-                                                    data-caption="{{ $image['alt'] }}"
-                                                    loading="lazy"
-                                                    decoding="async"
-                                                />
+                                                <picture>
+                                                    <source srcset="{{ asset(str_replace('.jpg', '.webp', $image['path'])) }}" type="image/webp">
+                                                    <img
+                                                        class="h-full w-full object-cover js-gallery-image cursor-zoom-in"
+                                                        src="{{ asset($image['path']) }}"
+                                                        alt="{{ $image['alt'] }}"
+                                                        data-full="{{ asset($image['path']) }}"
+                                                        data-caption="{{ $image['alt'] }}"
+                                                        loading="lazy"
+                                                        decoding="async"
+                                                    />
+                                                </picture>
                                                 <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/60"></div>
                                             </div>
                                         </figure>
@@ -398,7 +396,7 @@
         <section id="experiences" class="relative overflow-hidden section-fade-in bg-[#050507]">
             <div
                 class="pointer-events-none absolute inset-0 bg-cover bg-center"
-                style="background-image: url('{{ asset('camera/backgrounds/experiences-hero.jpg') }}');">
+                style="background-image: url('{{ asset('camera/backgrounds/experiences-hero-optimized.jpg') }}');">
             </div>
             <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90"></div>
             <div class="relative mx-auto max-w-6xl px-4 py-20 lg:px-6">
@@ -492,46 +490,68 @@
         </section>
 
         <!-- Rates & Booking -->
-        <section id="rates" class="bg-[#f7f0e6] section-fade-in">
-            <div class="mx-auto max-w-6xl px-4 py-16 md:py-20 lg:px-6">
-                <div class="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
+        <section id="rates" class="bg-[#050507] section-fade-in">
+            <div class="mx-auto max-w-6xl px-4 py-14 md:py-18 lg:px-6">
+                <div class="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-start">
+
+                    {{-- Left: rates info --}}
                     <div>
-                        <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#8d6b4a]/70">Rates & Availability</h2>
-                        <p class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl text-[#241b16]">Simple, transparent, and fully private.</p>
-                        <div class="mt-6 grid gap-4 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
-                            <div class="rounded-2xl border border-[#e3d4c4] bg-[#fffaf3] p-6 font-sans text-body text-[#4b3b2f]/85 shadow-sm">
-                                <h3 class="font-sans text-label-xs font-semibold uppercase tracking-[0.24em] text-[#8d6b4a]/80">Nightly rates</h3>
-                                <ul class="mt-3 space-y-1 font-sans text-body leading-relaxed text-[#241b16]">
-                                    <li><span class="font-semibold">Full-board</span> — $350 per night</li>
-                                </ul>
-                                <p class="mt-3 font-sans text-body-sm text-[#5b4636]">
-                                    Full-board includes breakfast, lunch, dinner, drinking water, tea, and coffee.
+                        <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/50">Rates &amp; Availability</h2>
+                        <p class="mt-3 font-display text-4xl md:text-5xl text-[#f5f2ea] leading-tight">Simple, transparent,<br class="hidden md:block"> and fully private.</p>
+                        <p class="mt-4 font-sans text-base leading-relaxed text-[#f5f2ea]/60">
+                            One group at a time. No shared spaces, no other guests. The cave house is yours entirely.
+                        </p>
+
+                        <div class="mt-7 space-y-3">
+                            {{-- Rate card --}}
+                            <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+                                <p class="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-[#f5f2ea]/45">Full-board rate</p>
+                                <p class="mt-2 font-display text-3xl text-[#f5f2ea]">$350 <span class="text-lg font-sans font-normal text-[#f5f2ea]/50">/ night</span></p>
+                                <p class="mt-2 font-sans text-sm text-[#f5f2ea]/55 leading-relaxed">
+                                    Includes breakfast, lunch, dinner, drinking water, tea &amp; coffee. Meals often feature wild game — buffalo, antelope, wild pig — subject to season.
                                 </p>
                             </div>
-                            <div class="rounded-2xl border border-[#e3d4c4] bg-[#fffaf3] p-6 font-sans text-body-sm text-[#4b3b2f]/85 shadow-sm">
-                                <h3 class="font-sans text-label-xs font-semibold uppercase tracking-[0.24em] text-[#8d6b4a]/80">Extras & stay details</h3>
-                                <ul class="mt-3 space-y-1">
-                                    <li>· Minimum stay: 1 night</li>
-                                    <li>· Up to 3 rooms · small private groups</li>
-                                    <li>· Hosted stays with on-site team & private chef</li>
-                                    <li>· Dinner menus often feature wild game meats — buffalo, antelope, and wild pig — subject to season and conservation guidelines</li>
-                                    <li>· Guided time in Pian Upe can be arranged around your dates</li>
-                                </ul>
-                                <p class="mt-3 font-sans text-body-sm text-[#5b4636] font-semibold">Extra meals (per person):</p>
-                                <ul class="mt-1 space-y-1">
-                                    <li>· Breakfast — $20</li>
-                                    <li>· Lunch — $25</li>
-                                    <li>· Dinner — $40</li>
-                                </ul>
+
+                            {{-- Details --}}
+                            <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+                                <p class="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-[#f5f2ea]/45 mb-3">Stay details</p>
+                                <dl class="space-y-2 font-sans text-sm text-[#f5f2ea]/70">
+                                    <div class="flex justify-between gap-4">
+                                        <dt>Minimum stay</dt><dd class="text-[#f5f2ea]/90">1 night</dd>
+                                    </div>
+                                    <div class="flex justify-between gap-4">
+                                        <dt>Rooms</dt><dd class="text-[#f5f2ea]/90">Up to 3 · exclusive use</dd>
+                                    </div>
+                                    <div class="flex justify-between gap-4">
+                                        <dt>Advance booking</dt><dd class="text-[#f5f2ea]/90">14 days minimum</dd>
+                                    </div>
+                                    <div class="flex justify-between gap-4">
+                                        <dt>Airport transfer (4×4)</dt><dd class="text-[#f5f2ea]/90">+$200</dd>
+                                    </div>
+                                    <div class="flex justify-between gap-4">
+                                        <dt>Guided game drive</dt><dd class="text-[#f5f2ea]/90">+$150</dd>
+                                    </div>
+                                    <div class="flex justify-between gap-4">
+                                        <dt>Charter flight</dt><dd class="text-[#f5f2ea]/90">On request</dd>
+                                    </div>
+                                </dl>
                             </div>
+
+                            <p class="font-sans text-xs text-[#f5f2ea]/35 leading-relaxed px-1">
+                                Bookings are manually confirmed after offline payment. No online payment is taken. Our team will contact you within 24 hours of your request.
+                            </p>
                         </div>
-                        <p class="mt-5 font-sans text-body leading-relaxed text-[#4b3b2f]/80">
-                            Use the calendar to choose your dates, guests, and rooms. You’ll see an estimated total based on full-board before sending a reservation request.
-                        </p>
                     </div>
-                    <div id="booking-widget" class="lg:pl-4">
-                        @livewire('booking-widget')
+
+                    {{-- Right: booking widget --}}
+                    <div id="booking-widget" class="lg:sticky lg:top-24">
+                        <div class="rounded-3xl border border-white/12 bg-black/70 p-6 md:p-7 shadow-2xl shadow-black/60 backdrop-blur-sm">
+                            <p class="font-sans text-xs font-semibold uppercase tracking-[0.26em] text-[#f5f2ea]/50 mb-1">Reserve your stay</p>
+                            <p class="font-sans text-sm text-[#f5f2ea]/45 mb-5">No payment required now. We'll confirm within 24 hours.</p>
+                            @livewire('booking-widget')
+                        </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -620,7 +640,7 @@
             <div
                 class="absolute inset-0 bg-scroll md:bg-fixed bg-cover bg-center parallax-bg"
                 data-parallax-speed="0.3"
-                style="background-image: url('{{ asset('camera/backgrounds/bg-interlude-02.jpg') }}');">
+                style="background-image: url('{{ asset('camera/backgrounds/bg-interlude-02-optimized.jpg') }}');">
             </div>
             <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/65"></div>
             <div class="relative mx-auto flex max-w-6xl items-center px-4 py-20 md:py-32 lg:px-6">
@@ -654,6 +674,43 @@
                             <p><span class="font-medium text-[#8d6b4a]/80">Email:</span> reservations@pianupecave.com</p>
                             <p><span class="font-medium text-[#8d6b4a]/80">Website:</span> pianupecave.com</p>
                         </div>
+                        <div class="mt-8 rounded-2xl border border-[#e3d4c4] bg-[#fffaf3] p-5 font-sans text-body text-[#4b3b2f]/85 shadow-sm">
+                            <h3 class="font-sans text-label-xs font-semibold uppercase tracking-[0.24em] text-[#8d6b4a]/80">Payment Methods</h3>
+                            <div class="mt-3 overflow-hidden rounded-xl border border-[#e3d4c4]/60 bg-white/60">
+                                <table class="w-full text-left text-sm text-[#3b2f26]">
+                                    <thead class="bg-[#f0e4d6] text-xs uppercase tracking-[0.14em] text-[#6c523c]/80">
+                                        <tr>
+                                            <th class="px-3 py-2 font-semibold">Method</th>
+                                            <th class="px-3 py-2 font-semibold">Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-t border-[#e3d4c4]">
+                                            <td class="px-3 py-3 align-top font-medium text-[#4b3b2f]">Bank (KCB)</td>
+                                            <td class="px-3 py-3 align-top space-y-1">
+                                                <div>Account Name: <span class="font-medium">BEN LOKERIS KORIANG</span></div>
+                                                <div>Account Number: <span class="font-mono font-medium">2303088216</span></div>
+                                                <div>SWIFT: <span class="font-mono font-medium">KCBLUGKA</span></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-t border-[#e3d4c4]">
+                                            <td class="px-3 py-3 align-top font-medium text-[#4b3b2f]">Airtel Money</td>
+                                            <td class="px-3 py-3 align-top space-y-1">
+                                                <div>Merchant Name: <span class="font-medium">Pian Upe</span></div>
+                                                <div>Merchant Code: <span class="font-mono font-medium">7013424</span></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-t border-[#e3d4c4]">
+                                            <td class="px-3 py-3 align-top font-medium text-[#4b3b2f]">MTN MoMo</td>
+                                            <td class="px-3 py-3 align-top space-y-1">
+                                                <div>Merchant Name: <span class="font-medium">Koriang Ben Lokeris</span></div>
+                                                <div>Merchant Code: <span class="font-mono font-medium">06703748</span></div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                         <div class="mt-8 flex flex-wrap gap-3">
                             <a href="https://wa.me/256777643084" target="_blank" class="inline-flex items-center rounded-full bg-[#25D366] px-6 py-2.5 font-sans text-label-xs font-semibold tracking-[0.22em] text-[#031106] shadow-lg shadow-black/40 hover:bg-[#22c55e] transition">
                                 Chat on WhatsApp
@@ -670,7 +727,7 @@
                         <div class="relative aspect-[4/5] sm:aspect-[3/4] overflow-hidden">
                             <img
                                 class="h-full w-full object-cover transform transition-transform duration-700 ease-out will-change-transform hover:scale-105"
-                                src="{{ asset('images/contact/IMG_0230.jpg') }}"
+                                src="{{ asset('images/contact-optimized.jpg') }}"
                                 alt="Dining table set inside the cave house with rock walls all around."
                                 loading="lazy"
                                 decoding="async"
@@ -693,7 +750,7 @@
 		<footer class="relative border-t border-black/40 bg-black">
 			<div
 				class="pointer-events-none absolute inset-0 bg-cover bg-center opacity-70"
-				style="background-image: url('{{ asset('camera/backgrounds/footer-bg.jpg') }}');"
+				style="background-image: url('{{ asset('camera/backgrounds/footer-bg-optimized.jpg') }}');"
 			></div>
 			<div class="pointer-events-none absolute inset-0 bg-black/60"></div>
 

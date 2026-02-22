@@ -43,16 +43,45 @@
 
             <div class="mt-5 space-y-3 font-sans text-body text-[#f5f2ea]/80">
                 <p>
-                    This invoice summarises your provisional booking. To confirm your stay, please complete payment via bank transfer or cash as per the instructions below, and share proof of payment with our reservations team.
+                    This invoice summarises your provisional booking. To confirm your stay, please complete payment via bank transfer, mobile money, or cash as per the instructions below, and share proof of payment with our reservations team.
                 </p>
-                <div class="rounded-xl border border-white/10 bg-white/[0.02] p-4 space-y-2">
-                    <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.2em] text-[#f5f2ea]/70">Bank Transfer</h2>
-                    <p>We currently accept bank transfer payments. Please contact our team for up-to-date bank details:</p>
-                    <ul class="list-disc pl-5 space-y-1">
-                        <li>Email: <span class="font-medium">reservations@pianupecave.com</span></li>
-                        <li>Phone / WhatsApp: <span class="font-medium">+256 777 643084</span></li>
-                        <li>Please include your booking reference <span class="font-mono">{{ $booking->reference }}</span> as the payment reference.</li>
-                    </ul>
+                <div class="rounded-xl border border-white/10 bg-white/[0.02] p-4 space-y-3">
+                    <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.2em] text-[#f5f2ea]/70">Payment Methods</h2>
+                    <div class="overflow-hidden rounded-lg border border-white/10">
+                        <table class="w-full text-left text-sm text-[#f5f2ea]/85">
+                            <thead class="bg-white/5 text-xs uppercase tracking-[0.14em] text-[#f5f2ea]/70">
+                                <tr>
+                                    <th class="px-3 py-2 font-semibold">Method</th>
+                                    <th class="px-3 py-2 font-semibold">Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-t border-white/10">
+                                    <td class="px-3 py-3 align-top font-medium text-[#f5f2ea]">Bank (KCB)</td>
+                                    <td class="px-3 py-3 align-top space-y-1">
+                                        <div>Account Name: <span class="font-medium">BEN LOKERIS KORIANG</span></div>
+                                        <div>Account Number: <span class="font-mono font-medium">2303088216</span></div>
+                                        <div>SWIFT: <span class="font-mono font-medium">KCBLUGKA</span></div>
+                                    </td>
+                                </tr>
+                                <tr class="border-t border-white/10">
+                                    <td class="px-3 py-3 align-top font-medium text-[#f5f2ea]">Airtel Money</td>
+                                    <td class="px-3 py-3 align-top space-y-1">
+                                        <div>Merchant Name: <span class="font-medium">Pian Upe</span></div>
+                                        <div>Merchant Code: <span class="font-mono font-medium">7013424</span></div>
+                                    </td>
+                                </tr>
+                                <tr class="border-t border-white/10">
+                                    <td class="px-3 py-3 align-top font-medium text-[#f5f2ea]">MTN MoMo</td>
+                                    <td class="px-3 py-3 align-top space-y-1">
+                                        <div>Merchant Name: <span class="font-medium">Koriang Ben Lokeris</span></div>
+                                        <div>Merchant Code: <span class="font-mono font-medium">06703748</span></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-[#f5f2ea]/70 text-xs">Please include your booking reference <span class="font-mono">{{ $booking->reference }}</span> as the payment reference.</p>
                 </div>
                 <div class="rounded-xl border border-white/10 bg-white/[0.02] p-4 space-y-2">
                     <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.2em] text-[#f5f2ea]/70">Cash on Arrival</h2>

@@ -30,6 +30,42 @@
 									<div style="font-size:18px;font-weight:600;color:#111827;">Pian Upe Cave House</div>
 									<div style="margin-top:4px;font-size:12px;color:#4b5563;">Boutique cave house stay in Karamoja, Uganda</div>
 									<div style="margin-top:4px;font-size:12px;color:#4b5563;">Email: reservations@pianupecave.com · Phone / WhatsApp: +256 777 643084</div>
+									<div style="margin-top:10px;font-size:12px;color:#111827;font-weight:600;">Payment Instructions</div>
+									<div style="margin-top:6px;font-size:12px;color:#4b5563;line-height:1.6;">
+										<table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;font-size:12px;">
+											<thead>
+												<tr style="background-color:#f3f4f6;color:#6b7280;text-transform:uppercase;letter-spacing:0.08em;font-size:11px;">
+													<th align="left" style="padding:8px 10px;font-weight:600;border-bottom:1px solid #e5e7eb;">Method</th>
+													<th align="left" style="padding:8px 10px;font-weight:600;border-bottom:1px solid #e5e7eb;">Details</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td style="padding:10px 10px;font-weight:600;color:#111827;border-bottom:1px solid #e5e7eb;">Bank (KCB)</td>
+													<td style="padding:10px 10px;color:#374151;border-bottom:1px solid #e5e7eb;">
+														<div>Account Name: <strong>BEN LOKERIS KORIANG</strong></div>
+														<div>Account Number: <strong style="font-family:ui-monospace,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;">2303088216</strong></div>
+														<div>SWIFT: <strong style="font-family:ui-monospace,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;">KCBLUGKA</strong></div>
+													</td>
+												</tr>
+												<tr>
+													<td style="padding:10px 10px;font-weight:600;color:#111827;border-bottom:1px solid #e5e7eb;">Airtel Money</td>
+													<td style="padding:10px 10px;color:#374151;border-bottom:1px solid #e5e7eb;">
+														<div>Merchant Name: <strong>Pian Upe</strong></div>
+														<div>Merchant Code: <strong style="font-family:ui-monospace,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;">7013424</strong></div>
+													</td>
+												</tr>
+												<tr>
+													<td style="padding:10px 10px;font-weight:600;color:#111827;">MTN MoMo</td>
+													<td style="padding:10px 10px;color:#374151;">
+														<div>Merchant Name: <strong>Koriang Ben Lokeris</strong></div>
+														<div>Merchant Code: <strong style="font-family:ui-monospace,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;">06703748</strong></div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<div style="margin-top:8px;color:#6b7280;">Please include your booking reference <span style="font-family:ui-monospace,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;">{{ $booking->reference }}</span> as the payment reference.</div>
+									</div>
 								</td>
 								<td align="right" style="vertical-align:top;">
 									<div style="font-size:26px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#111827;">INVOICE</div>

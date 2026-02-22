@@ -224,10 +224,43 @@ html {
     }
 
     .lux-booking-calendar .flatpickr-months .flatpickr-month {
-        padding: 0.25rem 0 0.1rem;
+        padding: 0.4rem 0 0.3rem;
+    }
+
+    .lux-booking-calendar .flatpickr-current-month {
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
-        letter-spacing: 0.18em;
-        font-size: 0.8rem;
+        color: rgba(245, 242, 234, 0.85);
+    }
+
+    .lux-booking-calendar .flatpickr-current-month .flatpickr-monthDropdown-months {
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        appearance: none;
+        background: transparent;
+        border: none;
+        color: inherit;
+        cursor: pointer;
+        padding: 0;
+        margin-right: 0.35rem;
+    }
+
+    .lux-booking-calendar .flatpickr-current-month input.cur-year {
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        background: transparent;
+        border: none;
+        color: inherit;
+        padding: 0;
+        width: 3.5rem;
+    }
+
+    .lux-booking-calendar .flatpickr-current-month .numInputWrapper {
+        width: 3.5rem;
     }
 
     .lux-booking-calendar .flatpickr-months .flatpickr-prev-month,
@@ -239,27 +272,14 @@ html {
         align-items: center;
         justify-content: center;
         color: #f5f2ea;
-        opacity: 0.9;
+        opacity: 0.75;
+        transition: all 0.2s;
     }
 
     .lux-booking-calendar .flatpickr-months .flatpickr-prev-month:hover,
     .lux-booking-calendar .flatpickr-months .flatpickr-next-month:hover {
         background-color: rgba(255, 255, 255, 0.12);
         opacity: 1;
-    }
-
-    .lux-booking-calendar .flatpickr-current-month .flatpickr-monthDropdown-months,
-    .lux-booking-calendar .flatpickr-current-month input.cur-year {
-        font-size: 0.8rem;
-        font-weight: 600;
-    }
-
-    .lux-booking-calendar .flatpickr-current-month .flatpickr-monthDropdown-months,
-    .lux-booking-calendar .flatpickr-current-month .numInputWrapper {
-        padding-inline: 0.6rem;
-        padding-block: 0.25rem;
-        border-radius: 999px;
-        background-color: rgba(255, 255, 255, 0.05);
     }
 
     .lux-booking-calendar .flatpickr-weekdays {
@@ -300,6 +320,23 @@ html {
         background: rgba(245, 242, 234, 0.22);
         color: #f5f2ea;
         box-shadow: none;
+    }
+
+    .lux-booking-calendar .flatpickr-day.flatpickr-disabled,
+    .lux-booking-calendar .flatpickr-day.flatpickr-disabled:hover {
+        color: rgba(245, 242, 234, 0.18);
+        background: transparent;
+        cursor: not-allowed;
+        text-decoration: line-through;
+        text-decoration-color: rgba(245, 242, 234, 0.12);
+    }
+
+    .lux-booking-calendar .flatpickr-day.notAllowed,
+    .lux-booking-calendar .flatpickr-day.notAllowed.inRange,
+    .lux-booking-calendar .flatpickr-day.notAllowed.today.inRange {
+        color: rgba(245, 242, 234, 0.18);
+        background: transparent;
+        cursor: not-allowed;
     }
 
     @media (max-width: 767px) {

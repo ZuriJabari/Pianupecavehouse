@@ -134,6 +134,69 @@ class BookingService
         ];
     }
 
+    public const MIN_ADVANCE_DAYS = 14;
+
+    public function enforceAdvanceBookingRule(Carbon $checkIn): void
+    {
+        $minDate = now()->startOfDay()->addDays(self::MIN_ADVANCE_DAYS);
+        if ($checkIn->lt($minDate)) {
+            throw new \RuntimeException(
+                'Bookings must be made at least ' . self::MIN_ADVANCE_DAYS . ' days in advance to allow us to prepare an exceptional hosting experience.'
+            );
+        }
+    }
+
+    public function getBlockedDateRanges(Property $property, int $monthsAhead = 12): array
+    {
+        $from = now()->startOfDay();
+        $to = now()->addMonths($monthsAhead)->endOfDay();
+        $now = now();
+
+        $locks = AvailabilityLock::where('property_id', $property->id)
+            ->where('locked_to', '>=', $from)
+            ->where('locked_from', '<=', $to)
+            ->where(function ($q) use ($now) {
+                $q->whereNull('expires_at')->orWhere('expires_at', '>', $now);
+            })
+            ->get(['locked_from', 'locked_to', 'block_type', 'reason']);
+
+        $bookings = Booking::where('property_id', $property->id)
+            ->whereIn('status', ['pending', 'awaiting_payment', 'paid', 'confirmed'])
+            ->where('check_out', '>=', $from)
+            ->where('check_in', '<=', $to)
+            ->get(['check_in', 'check_out']);
+
+        $ranges = [];
+
+        foreach ($locks as $lock) {
+            $ranges[] = [
+                'from' => $lock->locked_from->toDateString(),
+                'to'   => $lock->locked_to->toDateString(),
+                'type' => $lock->block_type ?? 'blocked',
+            ];
+        }
+
+        foreach ($bookings as $booking) {
+            $ranges[] = [
+                'from' => $booking->check_in->toDateString(),
+                'to'   => $booking->check_out->toDateString(),
+                'type' => 'booked',
+            ];
+        }
+
+        // Disable dates within the 14-day advance window
+        $advanceCutoff = now()->startOfDay()->addDays(self::MIN_ADVANCE_DAYS - 1);
+        if ($advanceCutoff->gte($from)) {
+            $ranges[] = [
+                'from' => $from->toDateString(),
+                'to'   => $advanceCutoff->toDateString(),
+                'type' => 'advance_window',
+            ];
+        }
+
+        return $ranges;
+    }
+
     public function createBooking(array $data): Booking
     {
         $property = $data['property'] ?? $this->getPrimaryProperty();
@@ -144,6 +207,8 @@ class BookingService
         $checkIn = Carbon::parse($data['check_in'])->startOfDay();
         $checkOut = Carbon::parse($data['check_out'])->startOfDay();
         $guests = (int) ($data['guests'] ?? 1);
+
+        $this->enforceAdvanceBookingRule($checkIn);
 
         if (! $this->isRangeAvailable($property, $checkIn, $checkOut)) {
             throw new \RuntimeException('Selected dates are no longer available');

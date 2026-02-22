@@ -231,124 +231,15 @@ document.addEventListener('DOMContentLoaded', () => {
         setGalleryPage(currentGalleryPage);
     }
 
-    // Airbnb-style date range picker for booking widget
+    // Date range picker — the new booking widget handles its own picker via inline JS.
+    // This function is kept as a no-op hook for Livewire compatibility.
     const initBookingDateRangePicker = () => {
-        const rangeInput = document.querySelector('[data-range-input]');
-        const startInput = document.querySelector('[data-range-start]');
-        const endInput = document.querySelector('[data-range-end]');
-
-        if (!rangeInput || !startInput || !endInput || rangeInput.dataset.rangePickerInitialized === '1') {
-            return;
-        }
-
-        rangeInput.dataset.rangePickerInitialized = '1';
-
-        const ensureFlatpickr = () => {
-            if (flatpickrReady) {
-                return flatpickrReady;
-            }
-
-            flatpickrReady = new Promise((resolve) => {
-                if (window.flatpickr) {
-                    resolve(window.flatpickr);
-                    return;
-                }
-
-                if (!document.querySelector('link[data-flatpickr-css]')) {
-                    const link = document.createElement('link');
-                    link.rel = 'stylesheet';
-                    link.href = 'https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css';
-                    link.setAttribute('data-flatpickr-css', 'true');
-                    document.head.appendChild(link);
-                }
-
-                const script = document.createElement('script');
-                script.src = 'https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js';
-                script.onload = () => resolve(window.flatpickr);
-                document.head.appendChild(script);
-            });
-
-            return flatpickrReady;
-        };
-
-        ensureFlatpickr().then((flatpickr) => {
-            if (!flatpickr) return;
-
-            const defaultDates = [];
-            if (startInput.value) defaultDates.push(startInput.value);
-
-            const script = document.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js';
-            script.onload = () => resolve(window.flatpickr);
-            document.head.appendChild(script);
-        });
-
-        return flatpickrReady;
+        // The booking widget view initialises its own flatpickr instance.
+        // Nothing to do here.
     };
 
-    ensureFlatpickr().then((flatpickr) => {
-        if (!flatpickr) return;
-
-        const defaultDates = [];
-        if (startInput.value) defaultDates.push(startInput.value);
-        if (endInput.value) defaultDates.push(endInput.value);
-
-        const isSmallViewport = window.matchMedia('(max-width: 767px)').matches;
-        let rangeCloseTimeoutId = null;
-
-        const options = {
-            mode: 'range',
-            minDate: 'today',
-            dateFormat: 'Y-m-d',
-            altInput: true,
-            altFormat: 'M j, Y',
-            // Airbnb-like behaviour: 1 month on mobile, 2 on larger screens
-            showMonths: isSmallViewport ? 1 : 2,
-            disableMobile: true,
-            monthSelectorType: 'dropdown',
-            prevArrow: '‹',
-            nextArrow: '›',
-            onReady: (selectedDates, dateStr, instance) => {
-                if (instance && instance.calendarContainer) {
-                    instance.calendarContainer.classList.add('lux-booking-calendar');
-                }
-            },
-            onChange: (selectedDates, dateStr, instance) => {
-                if (selectedDates.length > 0) {
-                    startInput.value = instance.formatDate(selectedDates[0], 'Y-m-d');
-                }
-                if (selectedDates.length > 1) {
-                    endInput.value = instance.formatDate(selectedDates[1], 'Y-m-d');
-
-                    // Close the calendar a little after a full range is chosen so guests can see their selection
-                    if (rangeCloseTimeoutId) {
-                        clearTimeout(rangeCloseTimeoutId);
-                    }
-                    rangeCloseTimeoutId = window.setTimeout(() => {
-                        instance.close();
-                        rangeInput.blur();
-                    }, 2000);
-                    rangeInput.blur();
-                } else {
-                    endInput.value = '';
-                }
-
-                // Make sure Livewire sees the updated values
-                ['input', 'change'].forEach((eventName) => {
-                    startInput.dispatchEvent(new Event(eventName, { bubbles: true }));
-                    endInput.dispatchEvent(new Event(eventName, { bubbles: true }));
-                });
-            },
-        };
-
-        if (defaultDates.length === 2) {
-            options.defaultDate = defaultDates;
-        }
-
-        flatpickr(rangeInput, options);
-    });
-};
-        }
+    const setupLivewireBookingHook = () => {
+        if (livewireBookingHookSetup) return;
 
         livewireBookingHookSetup = true;
 
