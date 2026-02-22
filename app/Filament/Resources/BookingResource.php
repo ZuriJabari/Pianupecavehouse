@@ -234,6 +234,7 @@ class BookingResource extends Resource
                                 'amount_cents' => $record->total_amount * 100,
                                 'currency' => $record->currency,
                                 'payment_method' => $data['payment_method'],
+                                'provider_payment_id' => 'manual_' . time(),
                                 'status' => 'completed',
                                 'paid_at' => now(),
                                 'notes' => $data['payment_notes'] ?? null,
