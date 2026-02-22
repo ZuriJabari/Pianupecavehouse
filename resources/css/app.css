@@ -207,19 +207,61 @@ html {
     }
 
     /* Native date input styling for mobile */
-    input[type="date"] {
+    .mobile-date-input {
         position: relative;
         color-scheme: dark;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
     }
 
-    input[type="date"]::-webkit-calendar-picker-indicator {
+    .mobile-date-input::-webkit-calendar-picker-indicator {
+        position: absolute;
+        right: 0.875rem;
+        width: 1.25rem;
+        height: 1.25rem;
         filter: invert(1);
-        opacity: 0.7;
+        opacity: 0.5;
         cursor: pointer;
+        transition: opacity 0.2s;
     }
 
-    input[type="date"]::-webkit-calendar-picker-indicator:hover {
-        opacity: 1;
+    .mobile-date-input::-webkit-calendar-picker-indicator:hover {
+        opacity: 0.8;
+    }
+
+    .mobile-date-input:focus::-webkit-calendar-picker-indicator {
+        opacity: 0.7;
+    }
+
+    /* Better date input text styling */
+    .mobile-date-input::-webkit-datetime-edit {
+        padding: 0;
+    }
+
+    .mobile-date-input::-webkit-datetime-edit-fields-wrapper {
+        padding: 0;
+    }
+
+    .mobile-date-input::-webkit-datetime-edit-text {
+        color: rgba(245, 242, 234, 0.4);
+        padding: 0 0.125rem;
+    }
+
+    .mobile-date-input::-webkit-datetime-edit-month-field,
+    .mobile-date-input::-webkit-datetime-edit-day-field,
+    .mobile-date-input::-webkit-datetime-edit-year-field {
+        color: rgba(245, 242, 234, 0.9);
+        font-weight: 500;
+    }
+
+    .mobile-date-input::-webkit-datetime-edit-month-field:focus,
+    .mobile-date-input::-webkit-datetime-edit-day-field:focus,
+    .mobile-date-input::-webkit-datetime-edit-year-field:focus {
+        background-color: rgba(245, 242, 234, 0.15);
+        color: #f5f2ea;
+        border-radius: 0.25rem;
+        outline: none;
     }
 
     /* Flatpickr calendar styling for a luxurious, touch-friendly feel */
