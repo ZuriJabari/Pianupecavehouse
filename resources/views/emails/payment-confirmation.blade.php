@@ -143,7 +143,7 @@
             </div>
             <div class="info-row">
                 <span class="info-label">Payment Date</span>
-                <span class="info-value">{{ $payment->paid_at->format('F j, Y') }}</span>
+                <span class="info-value">{{ $payment->paid_at ? $payment->paid_at->format('F j, Y') : now()->format('F j, Y') }}</span>
             </div>
             <div class="info-row">
                 <span class="info-label">Amount Paid</span>
