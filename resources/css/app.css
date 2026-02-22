@@ -222,25 +222,37 @@ html {
     @media (max-width: 767px) {
         .flatpickr-calendar.lux-booking-calendar {
             width: 100% !important;
-            max-width: min(340px, calc(100vw - 2rem));
+            max-width: min(300px, calc(100vw - 3rem));
             left: 50% !important;
             right: auto !important;
             transform: translateX(-50%);
             margin: 0;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
         }
         
         .flatpickr-calendar.lux-booking-calendar .flatpickr-months {
-            padding-inline: 0.75rem;
+            padding-inline: 0.5rem;
+            margin-bottom: 0.1rem;
         }
         
         .flatpickr-calendar.lux-booking-calendar .flatpickr-days {
             width: 100% !important;
+            padding: 0.25rem 0.5rem 0.25rem;
         }
         
         .flatpickr-calendar.lux-booking-calendar .dayContainer {
             width: 100% !important;
             min-width: 100% !important;
             max-width: 100% !important;
+        }
+        
+        .flatpickr-calendar.lux-booking-calendar .flatpickr-current-month {
+            font-size: 0.75rem;
+        }
+        
+        .flatpickr-calendar.lux-booking-calendar .flatpickr-weekdays {
+            font-size: 0.65rem;
         }
     }
 
@@ -332,10 +344,10 @@ html {
     
     @media (max-width: 767px) {
         .lux-booking-calendar .flatpickr-day {
-            height: 2.2rem;
-            line-height: 2.2rem;
-            font-size: 0.85rem;
-            margin: 0.05rem;
+            height: 1.9rem;
+            line-height: 1.9rem;
+            font-size: 0.75rem;
+            margin: 0.025rem;
         }
     }
 
