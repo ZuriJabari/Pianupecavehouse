@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
                 'min_nights' => 1,
                 'max_nights' => null,
                 'default_rate_per_person' => 220,
-                'default_rate_per_couple' => 330,
+                'default_rate_per_couple' => 350,
                 'capacity_per_room' => 2,
                 'settings' => [
                     'location' => 'Pian Upe Game Reserve, Eastern Uganda',
@@ -72,7 +72,7 @@ class DatabaseSeeder extends Seeder
                 'starts_at' => now()->startOfYear(),
                 'ends_at' => now()->endOfYear(),
                 'rate_per_person' => 220,
-                'rate_per_couple' => 330,
+                'rate_per_couple' => 350,
                 'extra_person_rate' => 220,
                 'min_nights' => 1,
                 'max_nights' => null,

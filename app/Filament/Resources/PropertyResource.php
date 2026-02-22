@@ -49,7 +49,7 @@ class PropertyResource extends Resource
                 Forms\Components\TextInput::make('default_rate_per_couple')
                     ->required()
                     ->numeric()
-                    ->default(330),
+                    ->default(350),
                 Forms\Components\TextInput::make('capacity_per_room')
                     ->required()
                     ->numeric()

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->unsignedTinyInteger('min_nights')->default(1);
             $table->unsignedTinyInteger('max_nights')->nullable();
             $table->unsignedInteger('default_rate_per_person')->default(220);
-            $table->unsignedInteger('default_rate_per_couple')->default(330);
+            $table->unsignedInteger('default_rate_per_couple')->default(350);
             $table->unsignedTinyInteger('capacity_per_room')->default(2);
             $table->json('settings')->nullable();
             $table->timestamps();
