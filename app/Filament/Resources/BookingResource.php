@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\BookingResource\Pages;
+use App\Mail\PaymentConfirmationMail;
 use App\Models\AvailabilityLock;
 use App\Models\Booking;
 use Filament\Forms;
@@ -11,6 +12,7 @@ use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Mail;
 
 class BookingResource extends Resource
 {
@@ -228,7 +230,7 @@ class BookingResource extends Resource
                     )
                     ->action(function (Booking $record, array $data): void {
                         // Create or update payment record
-                        $record->payment()->updateOrCreate(
+                        $payment = $record->payment()->updateOrCreate(
                             ['booking_id' => $record->id],
                             [
                                 'amount' => $record->total_amount,
@@ -242,11 +244,23 @@ class BookingResource extends Resource
                             ]
                         );
 
-                        Notification::make()
-                            ->title('Payment recorded')
-                            ->body('Booking marked as paid successfully.')
-                            ->success()
-                            ->send();
+                        // Send payment confirmation email to guest
+                        try {
+                            Mail::to($record->guest_email)
+                                ->send(new PaymentConfirmationMail($record, $payment));
+                            
+                            Notification::make()
+                                ->title('Payment recorded')
+                                ->body('Payment recorded and confirmation email sent to guest.')
+                                ->success()
+                                ->send();
+                        } catch (\Exception $e) {
+                            Notification::make()
+                                ->title('Payment recorded')
+                                ->body('Payment recorded but email failed to send: ' . $e->getMessage())
+                                ->warning()
+                                ->send();
+                        }
                     }),
 
                 Tables\Actions\Action::make('reject')
