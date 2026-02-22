@@ -4,8 +4,11 @@ namespace App\Mail;
 
 use App\Models\Booking;
 use App\Models\Payment;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
@@ -32,7 +35,7 @@ class PaymentConfirmationMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Payment Received - Pian Upe Cave House',
+            subject: 'Payment Receipt - Pian Upe Cave House',
             from: 'reservations@pianupecave.com',
             replyTo: 'reservations@pianupecave.com',
         );
@@ -44,7 +47,7 @@ class PaymentConfirmationMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.payment-confirmation',
+            view: 'emails.payment-receipt',
         );
     }
 
@@ -55,6 +58,27 @@ class PaymentConfirmationMail extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        // Generate PDF receipt
+        $options = new Options();
+        $options->set('isHtml5ParserEnabled', true);
+        $options->set('isRemoteEnabled', true);
+        
+        $dompdf = new Dompdf($options);
+        
+        $html = view('emails.payment-receipt', [
+            'booking' => $this->booking,
+            'payment' => $this->payment,
+        ])->render();
+        
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+        
+        $pdfContent = $dompdf->output();
+        
+        return [
+            Attachment::fromData(fn () => $pdfContent, 'payment-receipt-' . $this->booking->reference . '.pdf')
+                ->withMime('application/pdf'),
+        ];
     }
 }
