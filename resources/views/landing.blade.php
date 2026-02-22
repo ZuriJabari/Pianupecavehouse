@@ -96,13 +96,17 @@
             <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-black/40 to-[#050507]"></div>
             <div class="pointer-events-none absolute inset-y-0 left-0 w-full md:w-2/3 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
             <div class="absolute inset-0">
-                <img
-                    src="{{ asset('camera/gallery-v3/drone-0019.jpg') }}"
-                    alt="Pian Upe landscape"
-                    class="h-full w-full object-cover"
-                    loading="eager"
-                    decoding="async"
-                />
+                <picture>
+                    <source srcset="{{ asset('camera/gallery-v3/drone-0019.webp') }}" type="image/webp">
+                    <img
+                        src="{{ asset('camera/gallery-v3/drone-0019.jpg') }}"
+                        alt="Pian Upe landscape"
+                        class="h-full w-full object-cover"
+                        loading="eager"
+                        fetchpriority="high"
+                        decoding="async"
+                    />
+                </picture>
             </div>
             <div class="relative z-10 mx-auto max-w-6xl px-4 py-32 lg:px-6">
                 <div class="grid gap-12 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-end">
