@@ -48,7 +48,32 @@
 
         {{-- Date inputs --}}
         <div class="space-y-3">
-            <div class="grid grid-cols-2 gap-3">
+            {{-- Native date inputs for mobile (< 768px) --}}
+            <div class="grid grid-cols-2 gap-3 md:hidden">
+                <div>
+                    <label class="block font-sans text-xs font-semibold uppercase tracking-[0.2em] text-[#f5f2ea]/50 mb-1.5">Arrival</label>
+                    <input
+                        type="date"
+                        wire:model.live="check_in"
+                        min="{{ now()->addDays(14)->format('Y-m-d') }}"
+                        class="w-full rounded-xl border border-white/20 bg-white/5 px-3.5 py-3 font-sans text-sm text-[#f5f2ea] focus:border-[#f5f2ea]/40 focus:outline-none transition [color-scheme:dark]"
+                    />
+                    @error('check_in') <p class="mt-1.5 text-xs text-red-300">{{ $message }}</p> @enderror
+                </div>
+                <div>
+                    <label class="block font-sans text-xs font-semibold uppercase tracking-[0.2em] text-[#f5f2ea]/50 mb-1.5">Departure</label>
+                    <input
+                        type="date"
+                        wire:model.live="check_out"
+                        min="{{ $check_in ? \Carbon\Carbon::parse($check_in)->addDay()->format('Y-m-d') : now()->addDays(15)->format('Y-m-d') }}"
+                        class="w-full rounded-xl border border-white/20 bg-white/5 px-3.5 py-3 font-sans text-sm text-[#f5f2ea] focus:border-[#f5f2ea]/40 focus:outline-none transition [color-scheme:dark]"
+                    />
+                    @error('check_out') <p class="mt-1.5 text-xs text-red-300">{{ $message }}</p> @enderror
+                </div>
+            </div>
+
+            {{-- Flatpickr inputs for desktop (≥ 768px) --}}
+            <div class="hidden md:grid grid-cols-2 gap-3">
                 <div>
                     <label class="block font-sans text-xs font-semibold uppercase tracking-[0.2em] text-[#f5f2ea]/50 mb-1.5">Arrival</label>
                     <input
