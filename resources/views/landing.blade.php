@@ -215,11 +215,7 @@
         </section>
 
         <!-- About & Exclusivity -->
-        <section id="about" class="relative overflow-hidden bg-[#f7f0e6] section-fade-in">
-            <div
-                class="absolute inset-0 bg-cover bg-center opacity-20"
-                style="background-image: url('{{ asset('camera/backgrounds/footer-bg-optimized.jpg') }}');">
-            </div>
+        <section id="about" class="bg-[#f7f0e6] section-fade-in">
             <div class="mx-auto grid max-w-6xl gap-14 px-4 py-24 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:px-6">
                 <div>
                     <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#8d6b4a]/70">The Legend</h2>
@@ -254,7 +250,7 @@
                         <div class="relative aspect-[4/5] sm:aspect-[3/4] overflow-hidden">
                             <img
                                 class="h-full w-full object-cover"
-                                src="{{ asset('images/legend-optimized.jpg') }}"
+                                src="{{ asset('camera/backgrounds/footer-bg-optimized.jpg') }}"
                                 alt="Traditional wooden headrest wrapped in cloth inside the cave."
                                 loading="lazy"
                                 decoding="async"
