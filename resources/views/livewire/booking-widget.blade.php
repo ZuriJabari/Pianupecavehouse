@@ -52,36 +52,38 @@
             <div class="space-y-3">
                 <div>
                     <label class="block font-sans text-xs font-semibold uppercase tracking-[0.2em] text-[#f5f2ea]/50 mb-2">Arrival Date</label>
-                    <div class="relative">
+                    <label class="relative cursor-pointer block" for="arrival-date">
                         <div class="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none">
                             <svg class="h-4 w-4 text-[#f5f2ea]/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                             </svg>
                         </div>
                         <input
+                            id="arrival-date"
                             type="date"
                             wire:model.live="check_in"
                             min="{{ now()->addDays(7)->format('Y-m-d') }}"
-                            class="cursor-pointer mobile-date-input w-full rounded-xl border border-white/20 bg-white/5 pl-11 pr-3.5 py-3.5 font-sans text-base text-[#f5f2ea] focus:border-[#f5f2ea]/50 focus:bg-white/8 focus:outline-none transition-all [color-scheme:dark]"
+                            class="w-full rounded-xl border border-white/20 bg-white/5 pl-11 pr-3.5 py-3.5 font-sans text-base text-[#f5f2ea] focus:border-[#f5f2ea]/50 focus:bg-white/8 focus:outline-none transition-all [color-scheme:dark]"
                         />
-                    </div>
+                    </label>
                     @error('check_in') <p class="mt-1.5 text-xs text-red-300">{{ $message }}</p> @enderror
                 </div>
                 <div>
                     <label class="block font-sans text-xs font-semibold uppercase tracking-[0.2em] text-[#f5f2ea]/50 mb-2">Departure Date</label>
-                    <div class="relative">
+                    <label class="relative cursor-pointer block" for="departure-date">
                         <div class="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none">
                             <svg class="h-4 w-4 text-[#f5f2ea]/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                             </svg>
                         </div>
                         <input
+                            id="departure-date"
                             type="date"
                             wire:model.live="check_out"
                             min="{{ $check_in ? \Carbon\Carbon::parse($check_in)->addDay()->format('Y-m-d') : now()->addDays(15)->format('Y-m-d') }}"
-                            class="cursor-pointer mobile-date-input w-full rounded-xl border border-white/20 bg-white/5 pl-11 pr-3.5 py-3.5 font-sans text-base text-[#f5f2ea] focus:border-[#f5f2ea]/50 focus:bg-white/8 focus:outline-none transition-all [color-scheme:dark]"
+                            class="w-full rounded-xl border border-white/20 bg-white/5 pl-11 pr-3.5 py-3.5 font-sans text-base text-[#f5f2ea] focus:border-[#f5f2ea]/50 focus:bg-white/8 focus:outline-none transition-all [color-scheme:dark]"
                         />
-                    </div>
+                    </label>
                     @error('check_out') <p class="mt-1.5 text-xs text-red-300">{{ $message }}</p> @enderror
                 </div>
             </div>
