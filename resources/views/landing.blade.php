@@ -973,8 +973,7 @@
               },
               "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": 3.795194,
-                "longitude": 33.8575
+                "url": "https://maps.app.goo.gl/h16bLpWnaLbmYaay5?g_st=iw"
               },
               "amenityFeature": [
                 {"@type": "LocationFeatureSpecification", "name": "Private cave house", "value": true},
