@@ -134,7 +134,7 @@ class BookingService
         ];
     }
 
-    public const MIN_ADVANCE_DAYS = 14;
+    public const MIN_ADVANCE_DAYS = 7;
 
     public function enforceAdvanceBookingRule(Carbon $checkIn): void
     {
