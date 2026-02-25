@@ -828,7 +828,7 @@
 		<footer class="relative border-t border-black/40 bg-black">
 			<div
 				class="pointer-events-none absolute inset-0 bg-cover bg-center opacity-70"
-				style="background-image: url('{{ asset('camera/backgrounds/footer-bg-optimized.jpg') }}');"
+				style="background-image: url('{{ asset('camera/backgrounds/bg-interlude-02-optimized.jpg') }}');"
 			></div>
 			<div class="pointer-events-none absolute inset-0 bg-black/60"></div>
 
