@@ -499,7 +499,7 @@
                 class="absolute inset-0 bg-cover bg-center"
                 style="background-image: url('{{ asset('camera/gallery-v3/img-0117.jpg') }}');">
             </div>
-            <div class="absolute inset-0 bg-black/75"></div>
+            <div class="absolute inset-0 bg-black/85"></div>
             <div class="mx-auto max-w-6xl px-4 py-14 md:py-18 lg:px-6">
                 <div class="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-start">
 
