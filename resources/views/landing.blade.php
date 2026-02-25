@@ -532,7 +532,7 @@
                                         <dt>Rooms</dt><dd class="text-[#f5f2ea]/90">Up to 3 · exclusive use</dd>
                                     </div>
                                     <div class="flex justify-between gap-4">
-                                        <dt>Advance booking</dt><dd class="text-[#f5f2ea]/90">14 days minimum</dd>
+                                        <dt>Advance booking</dt><dd class="text-[#f5f2ea]/90">7 days minimum</dd>
                                     </div>
                                     <div class="flex justify-between gap-4">
                                         <dt>Airport transfer (4×4)</dt><dd class="text-[#f5f2ea]/90">+$200</dd>

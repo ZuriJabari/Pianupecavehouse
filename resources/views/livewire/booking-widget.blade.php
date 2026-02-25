@@ -338,7 +338,7 @@
         arrival.dataset.fpInit = '1';
 
         var minDate = new Date();
-        minDate.setDate(minDate.getDate() + 14);
+        minDate.setDate(minDate.getDate() + 7);
         var closeTimer = null;
 
         // Preserve existing dates from Livewire model

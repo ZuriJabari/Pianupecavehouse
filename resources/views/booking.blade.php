@@ -74,7 +74,9 @@
                         </svg>
                     </div>
                     <h3 class="font-sans text-sm font-semibold uppercase tracking-wider text-[#f5f2ea]/90 mb-2">No Payment Now</h3>
-                    <p class="font-sans text-sm text-[#f5f2ea]/50">Request to book. Our team will confirm and send your invoice</p>
+                    <p class="mt-6 font-sans text-xs text-[#f5f2ea]/35">
+                        7-day advance booking required
+                    </p>
                 </div>
             </div>
 
