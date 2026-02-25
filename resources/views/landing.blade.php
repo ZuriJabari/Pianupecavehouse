@@ -668,7 +668,7 @@
                 {{-- Map placeholder; can be replaced with interactive map embed --}}
                 <iframe
                     title="Pian Upe Cave House Map"
-                    src="https://maps.app.goo.gl/h16bLpWnaLbmYaay5?g_st=iw"
+                    src="https://maps.app.goo.gl/h16bLpWnaLbmYaay5"
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
                     class="h-full w-full border-0"
