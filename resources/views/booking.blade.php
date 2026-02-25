@@ -88,7 +88,7 @@
                 <p class="font-sans text-sm text-[#f5f2ea]/40">© {{ date('Y') }} Pian Upe Cave House. All rights reserved.</p>
                 <div class="flex items-center gap-6">
                     <a href="mailto:reservations@pianupecave.com" class="font-sans text-sm text-[#f5f2ea]/60 hover:text-[#f5f2ea] transition">Contact</a>
-                    <a href="tel:+256777643084" class="font-sans text-sm text-[#f5f2ea]/60 hover:text-[#f5f2ea] transition">+256 777 643084</a>
+                    <a href="tel:+256762031031" class="font-sans text-sm text-[#f5f2ea]/60 hover:text-[#f5f2ea] transition">+256 762 031 031</a>
                 </div>
             </div>
         </div>

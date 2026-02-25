@@ -193,8 +193,8 @@
                 <strong>Pian Upe Cave House</strong><br>
                 Pian Upe Game Reserve, Eastern Uganda<br>
                 Email: <a href="mailto:reservations@pianupecave.com">reservations@pianupecave.com</a><br>
-                Phone: +256 (0) 761 311 772<br>
-                WhatsApp: +256 777 643084
+                Phone: +256 762 031 031 (MTN) · +256 704 881 798 (AIRTEL)<br>
+                WhatsApp: +256 762 031 031 (MTN)
             </p>
         </div>
     </div>

@@ -238,8 +238,8 @@
 					<div>
 						<h3 class="font-sans text-label-xs font-semibold uppercase tracking-[0.25em] text-[#f5f2ea]/70">Reservations</h3>
 						<ul class="mt-3 space-y-1.5 font-sans text-body-sm text-[#f5f2ea]/85">
-							<li><span class="text-[#f5f2ea]/60">Phone:</span> +256 (0) 761 311 772</li>
-							<li><span class="text-[#f5f2ea]/60">WhatsApp:</span> +256 777 643084</li>
+							<li><span class="text-[#f5f2ea]/60">Phone:</span> +256 762 031 031 (MTN) · +256 704 881 798 (AIRTEL)</li>
+							<li><span class="text-[#f5f2ea]/60">WhatsApp:</span> +256 762 031 031 (MTN)</li>
 							<li><span class="text-[#f5f2ea]/60">Email:</span> reservations@pianupecave.com</li>
 						</ul>
 						<p class="mt-3 font-sans text-body md:text-body-lg leading-relaxed text-[#e5d7c8]/85">
