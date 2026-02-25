@@ -541,9 +541,66 @@
                                 </dl>
                             </div>
 
-                            <p class="font-sans text-xs text-[#f5f2ea]/35 leading-relaxed px-1">
-                                Bookings are manually confirmed after offline payment. No online payment is taken. Our team will contact you within 24 hours of your request.
-                            </p>
+                            {{-- Full Board Details --}}
+                            <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+                                <p class="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-[#f5f2ea]/45 mb-3">Full Board Rates Include</p>
+                                <ul class="space-y-2 font-sans text-sm text-[#f5f2ea]/70 leading-relaxed">
+                                    <li class="flex items-start gap-2">
+                                        <span class="mt-0.5 h-1.5 w-1.5 rounded-full bg-[#f5f2ea]/40 flex-shrink-0"></span>
+                                        <span>Full Board accommodation</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="mt-0.5 h-1.5 w-1.5 rounded-full bg-[#f5f2ea]/40 flex-shrink-0"></span>
+                                        <span>3 multiple course meals per day, all hot beverages and bar snacks, house drinks</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="mt-0.5 h-1.5 w-1.5 rounded-full bg-[#f5f2ea]/40 flex-shrink-0"></span>
+                                        <span>Other camp services provided at KWL</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {{-- Full Board Exclusions --}}
+                            <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+                                <p class="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-[#f5f2ea]/45 mb-3">Full Board Rates Exclude</p>
+                                <ul class="space-y-2 font-sans text-sm text-[#f5f2ea]/70 leading-relaxed">
+                                    <li class="flex items-start gap-2">
+                                        <span class="mt-0.5 h-1.5 w-1.5 rounded-full bg-[#f5f2ea]/40 flex-shrink-0"></span>
+                                        <span>National Park Fees</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="mt-0.5 h-1.5 w-1.5 rounded-full bg-[#f5f2ea]/40 flex-shrink-0"></span>
+                                        <span>Road Transfers</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="mt-0.5 h-1.5 w-1.5 rounded-full bg-[#f5f2ea]/40 flex-shrink-0"></span>
+                                        <span>Premium and non-house drinks</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="mt-0.5 h-1.5 w-1.5 rounded-full bg-[#f5f2ea]/40 flex-shrink-0"></span>
+                                        <span>Optional activities</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {{-- Children Policy --}}
+                            <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+                                <p class="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-[#f5f2ea]/45 mb-3">Children Policy</p>
+                                <div class="space-y-3 font-sans text-sm text-[#f5f2ea]/70 leading-relaxed">
+                                    <div>
+                                        <p class="font-medium text-[#f5f2ea]/90 mb-1">Children's rate: Under 5 years</p>
+                                        <p>Accommodated free if sharing room with full paying adults (maximum two children).</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-[#f5f2ea]/90 mb-1">Children of 5-12 years of age</p>
+                                        <p>Accommodated at reduced rates when sharing a room with full paying adults.</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-[#f5f2ea]/90 mb-1">Children in their own room or of 13 years and above</p>
+                                        <p>Pay the relevant full adult rates applicable.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
