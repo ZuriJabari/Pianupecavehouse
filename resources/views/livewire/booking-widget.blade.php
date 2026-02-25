@@ -42,7 +42,7 @@
             <p class="font-sans text-xs font-semibold uppercase tracking-[0.26em] text-[#f5f2ea]/50">Step 1 of 3</p>
             <h3 class="mt-1 font-display text-2xl text-[#f5f2ea]">Select your dates</h3>
             <p class="mt-1.5 font-sans text-sm leading-relaxed text-[#f5f2ea]/55">
-                Exclusive, single-group hosting. Bookings require at least 14 days' notice.
+                Exclusive, single-group hosting. Bookings require at least 7 days' notice.
             </p>
         </div>
 

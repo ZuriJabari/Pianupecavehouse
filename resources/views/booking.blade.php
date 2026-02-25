@@ -54,7 +54,7 @@
                         </svg>
                     </div>
                     <h3 class="font-sans text-sm font-semibold uppercase tracking-wider text-[#f5f2ea]/90 mb-2">7-Day Advance</h3>
-                    <p class="font-sans text-sm text-[#f5f2ea]/50">Bookings require at least 14 days' notice for exceptional preparation</p>
+                    <p class="font-sans text-sm text-[#f5f2ea]/50">Bookings require at least 7 days' notice for exceptional preparation</p>
                 </div>
 
                 <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center">
