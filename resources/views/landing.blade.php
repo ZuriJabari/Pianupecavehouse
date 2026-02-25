@@ -299,7 +299,7 @@
                 // Gallery set built from user-specified CAMERA PICTURES files,
                 // exported as optimised JPEGs into public/camera/gallery-v3.
                 $galleryImages = [
-                    ['path' => 'camera/gallery-v3/img-0151.jpg',  'alt' => 'IMG_0151 · A moment overlooking the rocks and plains of Pian Upe.'],
+                    ['path' => 'camera/gallery-v3/img-0117.jpg',  'alt' => 'IMG_0117 · Stone, grass, and sky textures around the cave.'],
                     ['path' => 'camera/gallery-v3/img-0226.jpg',  'alt' => 'IMG_0226 · Light and shadow across the rocky landscape near the cave.'],
                     ['path' => 'camera/gallery-v3/img-0238.jpg',  'alt' => 'IMG_0238 · Textures of stone, bush, and sky around Pian Upe Cave House.'],
                     ['path' => 'camera/gallery-v3/img-0245.jpg',  'alt' => 'IMG_0245 · Warm tones over the savannah and rocky outcrops.'],
