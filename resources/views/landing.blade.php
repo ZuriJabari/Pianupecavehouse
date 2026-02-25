@@ -690,7 +690,7 @@
                         </div>
                         <div>
                             <dt class="text-label-xs uppercase tracking-[0.2em] text-[#f5f2ea]/70">Coordinates</dt>
-                            <dd class="mt-1">3°47’42.7”N 33°51’27.0”E</dd>
+                            <dd class="mt-1">1.8949892239815602, 34.235761062139964</dd>
                         </div>
                         <div>
                             <dt class="text-label-xs uppercase tracking-[0.2em] text-[#f5f2ea]/70">Distance</dt>
@@ -704,7 +704,7 @@
                     </dl>
                     <div class="mt-5 flex flex-wrap items-center gap-3">
                         <a
-                            href="https://www.google.com/maps?q=3.795194,33.857500&z=11"
+                            href="https://www.google.com/maps?q=1.8949892239815602,34.235761062139964&z=11"
                             target="_blank"
                             class="inline-flex items-center gap-2 rounded-full border border-[#f5f2ea]/60 bg-white/5 px-4 py-2 font-sans text-label-xs font-semibold uppercase tracking-[0.2em] text-[#f5f2ea] hover:bg-white/10"
                         >
