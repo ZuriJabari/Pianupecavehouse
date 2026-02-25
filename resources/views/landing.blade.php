@@ -676,7 +676,7 @@
             </div>
             <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/10"></div>
 
-            <div class="relative mx-auto flex min-h-[420px] max-w-6xl items-end px-4 py-16 md:min-h-[520px] md:py-24 lg:min-h-[580px] lg:px-6">
+            <div class="relative mx-auto flex min-h-[420px] max-w-6xl items-center justify-end px-4 py-16 md:min-h-[520px] md:py-24 lg:min-h-[580px] lg:px-6">
                 <div class="max-w-xl rounded-3xl border border-white/25 bg-black/65 p-6 shadow-2xl shadow-black/60 backdrop-blur-sm md:p-8">
                     <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/70">Map & Directions</p>
                     <p class="mt-3 font-display text-3xl md:text-4xl lg:text-5xl leading-tight text-white">Find your way into the quiet.</p>
