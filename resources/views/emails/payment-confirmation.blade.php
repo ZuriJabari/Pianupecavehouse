@@ -194,7 +194,7 @@
                 Pian Upe Game Reserve, Eastern Uganda<br>
                 Email: <a href="mailto:reservations@pianupecave.com">reservations@pianupecave.com</a><br>
                 Phone: +256 762 031 031 (MTN) · +256 704 881 798 (AIRTEL)<br>
-                WhatsApp: +256 762 031 031 (MTN)
+                WhatsApp: +256762031031
             </p>
         </div>
     </div>

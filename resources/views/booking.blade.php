@@ -53,7 +53,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                     </div>
-                    <h3 class="font-sans text-sm font-semibold uppercase tracking-wider text-[#f5f2ea]/90 mb-2">14-Day Advance</h3>
+                    <h3 class="font-sans text-sm font-semibold uppercase tracking-wider text-[#f5f2ea]/90 mb-2">7-Day Advance</h3>
                     <p class="font-sans text-sm text-[#f5f2ea]/50">Bookings require at least 14 days' notice for exceptional preparation</p>
                 </div>
 
@@ -90,7 +90,7 @@
                 <p class="font-sans text-sm text-[#f5f2ea]/40">© {{ date('Y') }} Pian Upe Cave House. All rights reserved.</p>
                 <div class="flex items-center gap-6">
                     <a href="mailto:reservations@pianupecave.com" class="font-sans text-sm text-[#f5f2ea]/60 hover:text-[#f5f2ea] transition">Contact</a>
-                    <a href="tel:+256762031031" class="font-sans text-sm text-[#f5f2ea]/60 hover:text-[#f5f2ea] transition">+256 762 031 031</a>
+                    <a href="tel:+256762031031" class="font-sans text-sm text-[#f5f2ea]/60 hover:text-[#f5f2ea] transition">+256762031031</a>
                 </div>
             </div>
         </div>

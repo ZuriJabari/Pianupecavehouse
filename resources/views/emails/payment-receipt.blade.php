@@ -29,7 +29,7 @@
 								<td align="left" style="vertical-align:top;">
 									<div style="font-size:18px;font-weight:600;color:#111827;">Pian Upe Cave House</div>
 									<div style="margin-top:4px;font-size:12px;color:#4b5563;">Boutique cave house stay in Karamoja, Uganda</div>
-									<div style="margin-top:4px;font-size:12px;color:#4b5563;">Email: reservations@pianupecave.com · Phone / WhatsApp: +256 762 031 031 (MTN) · +256 704 881 798 (AIRTEL)</div>
+									<div style="margin-top:4px;font-size:12px;color:#4b5563;">Email: reservations@pianupecave.com · Phone / WhatsApp: +256762031031 · +256704881798</div>
 								</td>
 								<td align="right" style="vertical-align:top;">
 									<div style="font-size:26px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#111827;">RECEIPT</div>
