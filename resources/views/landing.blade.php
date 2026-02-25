@@ -402,7 +402,7 @@
                 class="absolute inset-0 bg-cover bg-center"
                 style="background-image: url('{{ asset('camera/gallery-v3/img-0117.jpg') }}');">
             </div>
-            <div class="absolute inset-0 bg-black/80"></div>
+            <div class="absolute inset-0 bg-black/60"></div>
             <div
                 class="pointer-events-none absolute inset-0 bg-cover bg-center"
                 style="background-image: url('{{ asset('camera/backgrounds/experiences-hero-optimized.jpg') }}');">
