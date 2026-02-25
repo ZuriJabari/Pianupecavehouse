@@ -62,7 +62,7 @@
                             type="date"
                             wire:model.live="check_in"
                             min="{{ now()->addDays(7)->format('Y-m-d') }}"
-                            class="mobile-date-input w-full rounded-xl border border-white/20 bg-white/5 pl-11 pr-3.5 py-3.5 font-sans text-base text-[#f5f2ea] focus:border-[#f5f2ea]/50 focus:bg-white/8 focus:outline-none transition-all [color-scheme:dark]"
+                            class="cursor-pointer mobile-date-input w-full rounded-xl border border-white/20 bg-white/5 pl-11 pr-3.5 py-3.5 font-sans text-base text-[#f5f2ea] focus:border-[#f5f2ea]/50 focus:bg-white/8 focus:outline-none transition-all [color-scheme:dark]"
                         />
                     </div>
                     @error('check_in') <p class="mt-1.5 text-xs text-red-300">{{ $message }}</p> @enderror
@@ -79,7 +79,7 @@
                             type="date"
                             wire:model.live="check_out"
                             min="{{ $check_in ? \Carbon\Carbon::parse($check_in)->addDay()->format('Y-m-d') : now()->addDays(15)->format('Y-m-d') }}"
-                            class="mobile-date-input w-full rounded-xl border border-white/20 bg-white/5 pl-11 pr-3.5 py-3.5 font-sans text-base text-[#f5f2ea] focus:border-[#f5f2ea]/50 focus:bg-white/8 focus:outline-none transition-all [color-scheme:dark]"
+                            class="cursor-pointer mobile-date-input w-full rounded-xl border border-white/20 bg-white/5 pl-11 pr-3.5 py-3.5 font-sans text-base text-[#f5f2ea] focus:border-[#f5f2ea]/50 focus:bg-white/8 focus:outline-none transition-all [color-scheme:dark]"
                         />
                     </div>
                     @error('check_out') <p class="mt-1.5 text-xs text-red-300">{{ $message }}</p> @enderror
