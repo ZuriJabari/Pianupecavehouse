@@ -630,7 +630,7 @@
                                 Start Booking
                             </a>
                             <p class="mt-6 font-sans text-xs text-[#f5f2ea]/35">
-                                14-day advance booking required
+                                7-day advance booking required
                             </p>
                         </div>
                     </div>
