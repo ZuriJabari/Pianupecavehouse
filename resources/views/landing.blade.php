@@ -399,6 +399,11 @@
         <!-- Experience & Amenities -->
         <section id="experiences" class="relative overflow-hidden section-fade-in bg-[#050507]">
             <div
+                class="absolute inset-0 bg-cover bg-center"
+                style="background-image: url('{{ asset('camera/gallery-v3/img-0117.jpg') }}');">
+            </div>
+            <div class="absolute inset-0 bg-black/80"></div>
+            <div
                 class="pointer-events-none absolute inset-0 bg-cover bg-center"
                 style="background-image: url('{{ asset('camera/backgrounds/experiences-hero-optimized.jpg') }}');">
             </div>
@@ -494,12 +499,7 @@
         </section>
 
         <!-- Rates & Booking -->
-        <section id="rates" class="relative overflow-hidden bg-[#050507] section-fade-in">
-            <div
-                class="absolute inset-0 bg-cover bg-center"
-                style="background-image: url('{{ asset('camera/gallery-v3/img-0117.jpg') }}');">
-            </div>
-            <div class="absolute inset-0 bg-black/85"></div>
+        <section id="rates" class="bg-[#050507] section-fade-in">
             <div class="mx-auto max-w-6xl px-4 py-14 md:py-18 lg:px-6">
                 <div class="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-start">
 
