@@ -61,7 +61,7 @@
                         <input
                             type="date"
                             wire:model.live="check_in"
-                            min="{{ now()->addDays(14)->format('Y-m-d') }}"
+                            min="{{ now()->addDays(7)->format('Y-m-d') }}"
                             class="mobile-date-input w-full rounded-xl border border-white/20 bg-white/5 pl-11 pr-3.5 py-3.5 font-sans text-base text-[#f5f2ea] focus:border-[#f5f2ea]/50 focus:bg-white/8 focus:outline-none transition-all [color-scheme:dark]"
                         />
                     </div>
@@ -115,7 +115,7 @@
             </div>
             <div class="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5">
                 <svg class="h-3.5 w-3.5 shrink-0 text-[#f5f2ea]/35" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M12 8v4l3 3"/></svg>
-                <p class="font-sans text-xs text-[#f5f2ea]/45">Earliest arrival: <span class="font-medium text-[#f5f2ea]/65">{{ now()->addDays(14)->format('M j, Y') }}</span></p>
+                <p class="font-sans text-xs text-[#f5f2ea]/45">Earliest arrival: <span class="font-medium text-[#f5f2ea]/65">{{ now()->addDays(7)->format('M j, Y') }}</span></p>
             </div>
         </div>
 
