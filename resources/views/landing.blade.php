@@ -122,10 +122,7 @@
                             Your private cave in the wild.
                         </p>
                         <p class="mt-5 max-w-xl font-sans text-xl md:text-2xl leading-relaxed text-[#f5f2ea]/80">
-                            A fully private, full-board cave house carved into the rocks of Pian Upe — where silence, starlight, and savannah winds become part of your stay.
-                        </p>
-                        <p class="mt-3 font-sans text-lg text-[#f5f2ea]/70">
-                            Hosted for one group at a time. No shared spaces, no strangers — just you and the savannah horizon.
+                            A luxury cave house carved into the rocks of Pian Upe — where silence, starlight, and savannah winds become part of your stay. Rooms from $350 per night.
                         </p>
                         <div class="mt-8 flex flex-wrap items-center gap-4">
                             <a
@@ -175,20 +172,20 @@
                         Included in every stay
                     </p>
                     <p class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl leading-tight text-[#241b16]">
-                        A fully hosted, fully private stay in Pian Upe.
+                        A fully hosted stay in Pian Upe.
                     </p>
                     <p class="mt-4 font-sans text-body-lg leading-relaxed text-[#4b3b2f]/85">
-                        Every booking includes a private cave house, full-board dining, and guided time in the reserve — quietly curated around your group, never rushed, never shared.
+                        Every booking includes full-board dining and guided time in the reserve — quietly curated around your stay, never rushed.
                     </p>
                 </header>
 
                 <dl class="mt-12 grid gap-6 font-sans text-body-sm text-[#4b3b2f]/85 lg:grid-cols-3">
                     <div class="flex flex-col justify-between rounded-3xl border border-[#e3d4c4] bg-[#fffaf3]/80 p-6 backdrop-blur-sm transition duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft">
                         <div class="space-y-2">
-                            <dt class="font-sans text-label-xs font-semibold uppercase tracking-[0.2em] text-[#8d6b4a]/85">Private stay</dt>
-                            <dd class="font-display text-heading-sm text-[#241b16]">The cave house is yours alone.</dd>
+                            <dt class="font-sans text-label-xs font-semibold uppercase tracking-[0.2em] text-[#8d6b4a]/85">Your room</dt>
+                            <dd class="font-display text-heading-sm text-[#241b16]">$350 per room per night.</dd>
                         </div>
-                        <p class="mt-3 font-sans text-body-sm text-[#5b4636]">One group at a time, no shared spaces, no strangers — just your circle and the wild quiet outside.</p>
+                        <p class="mt-3 font-sans text-body-sm text-[#5b4636]">Each room comes with full-board dining and personalized service — a quiet retreat in the heart of the wild.</p>
                     </div>
 
                     <div class="flex flex-col justify-between rounded-3xl border border-[#e3d4c4] bg-[#fffaf3]/80 p-6 backdrop-blur-sm transition duration-300 ease-soft-out hover:-translate-y-1 hover:shadow-soft">
@@ -506,9 +503,9 @@
                     {{-- Left: rates info --}}
                     <div>
                         <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.3em] text-[#f5f2ea]/50">Rates &amp; Availability</h2>
-                        <p class="mt-3 font-display text-4xl md:text-5xl text-[#f5f2ea] leading-tight">Simple, transparent,<br class="hidden md:block"> and fully private.</p>
+                        <p class="mt-3 font-display text-4xl md:text-5xl text-[#f5f2ea] leading-tight">Simple, transparent<br class="hidden md:block"> pricing.</p>
                         <p class="mt-4 font-sans text-base leading-relaxed text-[#f5f2ea]/60">
-                            One group at a time. No shared spaces, no other guests. The cave house is yours entirely.
+                            Rooms from $350 per night, full board included. No hidden fees.
                         </p>
 
                         <div class="mt-7 space-y-3">
