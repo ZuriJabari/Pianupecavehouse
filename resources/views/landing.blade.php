@@ -40,6 +40,7 @@
                     <nav class="flex items-center gap-8 font-sans text-body-sm font-medium tracking-[0.18em] uppercase text-[#3b2b21]/85">
                         <a href="#about" class="lux-nav-link hover:text-black transition">The Cave</a>
                         <a href="#experiences" class="lux-nav-link hover:text-black transition">Experiences</a>
+                        <a href="#4x4-hire" class="lux-nav-link hover:text-black transition">4×4 Hire</a>
                         <a href="#rates" class="lux-nav-link hover:text-black transition">Rates</a>
                     </nav>
 
@@ -64,6 +65,7 @@
                     <nav class="space-y-2 font-sans text-sm font-medium uppercase tracking-[0.22em]">
                         <a href="#about" class="lux-nav-link block rounded-full bg-white/0 px-4 py-2 text-[#f5f2ea]/85 hover:bg-white/10 hover:text-white transition">The Cave</a>
                         <a href="#experiences" class="lux-nav-link block rounded-full bg-white/0 px-4 py-2 text-[#f5f2ea]/85 hover:bg-white/10 hover:text-white transition">Experiences</a>
+                        <a href="#4x4-hire" class="lux-nav-link block rounded-full bg-white/0 px-4 py-2 text-[#f5f2ea]/85 hover:bg-white/10 hover:text-white transition">4×4 Hire</a>
                         <a href="#rates" class="lux-nav-link block rounded-full bg-white/0 px-4 py-2 text-[#f5f2ea]/85 hover:bg-white/10 hover:text-white transition">Rates</a>
                         <a href="#gallery" class="lux-nav-link block rounded-full bg:white/0 px-4 py-2 text-[#f5f2ea]/85 hover:bg:white/10 hover:text:white transition">Gallery</a>
                         <a href="{{ route('shop.index') }}" class="lux-nav-link block rounded-full bg:white/0 px-4 py-2 text-[#f5f2ea]/85 hover:bg:white/10 hover:text:white transition">Shop</a>
@@ -492,6 +494,118 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- 4x4 Hire -->
+        <section id="4x4-hire" class="bg-[#f7f0e6] section-fade-in">
+            <div class="mx-auto max-w-6xl px-4 py-24 lg:px-6">
+
+                {{-- Header --}}
+                <div class="max-w-3xl">
+                    <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.28em] text-[#8d6b4a]/80">
+                        Now Available
+                    </p>
+                    <h2 class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl leading-tight text-[#241b16]">
+                        4×4 Hire Service
+                    </h2>
+                    <p class="mt-4 font-sans text-body-lg leading-relaxed text-[#4b3b2f]/85">
+                        Explore Pian Upe Game Reserve and beyond at your own pace. Our safari-ready Toyota Land Cruisers are built for the wild — rugged, reliable, and equipped with pop-up roofs for game viewing.
+                    </p>
+                </div>
+
+                {{-- Pricing banner --}}
+                <div class="mt-10 rounded-2xl border border-[#e3d4c4] bg-gradient-to-r from-[#241b16] to-[#3b2b21] p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <div>
+                        <p class="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-[#f5f2ea]/50">Daily hire rate</p>
+                        <p class="mt-1 font-display text-4xl text-[#f5f2ea]">$120 <span class="text-lg font-sans font-normal text-[#f5f2ea]/50">/ day</span></p>
+                        <p class="mt-1 font-sans text-sm text-[#f5f2ea]/55">Per vehicle. Fuel not included.</p>
+                    </div>
+                    <a
+                        href="https://wa.me/256762031031?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%204x4%20hire."
+                        target="_blank"
+                        class="inline-flex items-center gap-2 rounded-full bg-[#f5f2ea] px-7 py-3 font-sans text-label-xs font-semibold tracking-[0.22em] text-[#181716] shadow-lg shadow-black/20 hover:bg-white transition"
+                    >
+                        <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.3 0-4.438-.747-6.167-2.014l-.432-.324-3.26 1.093 1.093-3.26-.324-.432A9.935 9.935 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                        Enquire on WhatsApp
+                    </a>
+                </div>
+
+                {{-- Photo gallery --}}
+                <div class="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+                    <div class="col-span-2 row-span-2 overflow-hidden rounded-2xl">
+                        <img
+                            src="{{ asset('camera/4x4-hire/4x4-exterior-01.jpg') }}"
+                            alt="Toyota Land Cruiser 4x4 — side profile with pop-up roof"
+                            class="h-full w-full object-cover transition duration-500 hover:scale-105"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="overflow-hidden rounded-2xl">
+                        <img
+                            src="{{ asset('camera/4x4-hire/4x4-exterior-02.jpg') }}"
+                            alt="Toyota Land Cruiser 4x4 — side view"
+                            class="h-full w-full object-cover transition duration-500 hover:scale-105"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="overflow-hidden rounded-2xl">
+                        <img
+                            src="{{ asset('camera/4x4-hire/4x4-exterior-03.jpg') }}"
+                            alt="Toyota Land Cruiser 4x4 — front view with bull bar"
+                            class="h-full w-full object-cover transition duration-500 hover:scale-105"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="overflow-hidden rounded-2xl">
+                        <img
+                            src="{{ asset('camera/4x4-hire/4x4-interior-01.jpg') }}"
+                            alt="4x4 interior — comfortable seating with child seat"
+                            class="h-full w-full object-cover transition duration-500 hover:scale-105"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="overflow-hidden rounded-2xl">
+                        <img
+                            src="{{ asset('camera/4x4-hire/4x4-interior-04.jpg') }}"
+                            alt="4x4 interior — spacious rear seating"
+                            class="h-full w-full object-cover transition duration-500 hover:scale-105"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
+
+                {{-- Features --}}
+                <div class="mt-14 grid gap-6 md:grid-cols-3">
+                    <div class="rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/80 p-6">
+                        <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#241b16]/10 mb-3">
+                            <svg class="h-5 w-5 text-[#241b16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-sans text-sm font-semibold uppercase tracking-wider text-[#241b16]/90">Safari-Ready</h3>
+                        <p class="mt-2 font-sans text-sm text-[#4b3b2f]/70 leading-relaxed">Pop-up roof for unobstructed game viewing. Built for rough terrain and long drives through the reserve.</p>
+                    </div>
+                    <div class="rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/80 p-6">
+                        <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#241b16]/10 mb-3">
+                            <svg class="h-5 w-5 text-[#241b16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-sans text-sm font-semibold uppercase tracking-wider text-[#241b16]/90">Family-Friendly</h3>
+                        <p class="mt-2 font-sans text-sm text-[#4b3b2f]/70 leading-relaxed">Child seats available on request. Spacious interior with comfortable seating for the whole family.</p>
+                    </div>
+                    <div class="rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/80 p-6">
+                        <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#241b16]/10 mb-3">
+                            <svg class="h-5 w-5 text-[#241b16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-sans text-sm font-semibold uppercase tracking-wider text-[#241b16]/90">Flexible Hire</h3>
+                        <p class="mt-2 font-sans text-sm text-[#4b3b2f]/70 leading-relaxed">Hire by the day, for a game drive, or for the duration of your stay. Self-drive or with an experienced local driver.</p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
