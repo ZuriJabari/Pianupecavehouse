@@ -94,76 +94,74 @@
         </a>
 
         <!-- Hero -->
-        <section id="hero" class="relative flex min-h-screen items-center overflow-hidden bg-black section-fade-in">
-            <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-black/40 to-[#050507]"></div>
-            <div class="pointer-events-none absolute inset-y-0 left-0 w-full md:w-2/3 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+        <section id="hero" class="relative flex min-h-screen items-end overflow-hidden bg-black section-fade-in">
+            {{-- Background image with slow Ken Burns --}}
             <div class="absolute inset-0">
                 <picture>
                     <source srcset="{{ asset('camera/gallery-v3/drone-0019.webp') }}" type="image/webp">
                     <img
                         src="{{ asset('camera/gallery-v3/drone-0019.jpg') }}"
-                        alt="Pian Upe landscape"
-                        class="h-full w-full object-cover"
+                        alt="Aerial view of Pianupe Cave House nestled in the Pian Upe landscape"
+                        class="h-full w-full object-cover animate-hero-drift"
                         loading="eager"
                         fetchpriority="high"
                         decoding="async"
                     />
                 </picture>
             </div>
-            <div class="relative z-10 mx-auto max-w-6xl px-4 py-32 lg:px-6">
-                <div class="grid gap-12 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-end">
-                    <div class="max-w-2xl">
-                        <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.28em] text-[#f5f2ea]/70">
-                            PIAN UPE GAME RESERVE · KARAMOJA · NEAR SIPI FALLS
-                        </p>
-                        <p
-                            role="heading"
-                            aria-level="1"
-                            class="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-tight text-white"
+
+            {{-- Gradient overlays: gentle bottom vignette --}}
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent"></div>
+
+            {{-- Content: bottom-aligned, centered --}}
+            <div class="relative z-10 w-full">
+                <div class="mx-auto max-w-5xl px-4 pb-24 pt-40 lg:px-6 text-center">
+                    <p class="font-sans text-[11px] font-semibold uppercase tracking-[0.35em] text-white/60">
+                        Pian Upe Game Reserve · Karamoja · Near Sipi Falls
+                    </p>
+                    <h1 class="mt-5 font-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.05] text-white">
+                        A cave house in the wild
+                    </h1>
+                    <p class="mx-auto mt-6 max-w-2xl font-sans text-lg md:text-xl leading-relaxed text-white/75">
+                        Luxury carved into rock. Silence, starlight, and endless savannah — in the heart of one of Uganda's last wild frontiers.
+                    </p>
+                    <div class="mt-9 flex flex-wrap items-center justify-center gap-4">
+                        <a
+                            href="#rates"
+                            class="lux-cta rounded-full bg-white px-8 py-3.5 font-sans text-[11px] font-semibold uppercase tracking-[0.22em] text-[#181716] shadow-xl shadow-black/30 hover:bg-[#f5f2ea] transition"
                         >
-                            Your private cave in the wild.
-                        </p>
-                        <p class="mt-5 max-w-xl font-sans text-xl md:text-2xl leading-relaxed text-[#f5f2ea]/80">
-                            A luxury cave house carved into the rocks of Pian Upe — where silence, starlight, and savannah winds become part of your stay. Rooms from $350 per night.
-                        </p>
-                        <div class="mt-8 flex flex-wrap items-center gap-4">
-                            <a
-                                href="#rates"
-                                class="lux-cta rounded-full bg-[#f5f2ea] px-7 py-3 font-sans text-label-xs font-semibold tracking-[0.22em] text-[#181716] shadow-lg shadow-black/40 hover:bg-white"
-                            >
-                                Check Availability
-                            </a>
-                            <a href="#about" class="lux-nav-link font-sans text-body-sm font-medium text-[#f5f2ea]/80 hover:text-white">
-                                Explore the Cave
-                            </a>
-                        </div>
+                            Check Availability
+                        </a>
+                        <a
+                            href="#about"
+                            class="rounded-full border border-white/30 px-7 py-3 font-sans text-[11px] font-semibold uppercase tracking-[0.22em] text-white/90 hover:bg-white/10 hover:border-white/50 transition"
+                        >
+                            Explore the Cave
+                        </a>
                     </div>
-                    <aside class="mt-10 w-full max-w-sm rounded-3xl border border-white/15 bg-black/55 p-7 font-sans text-body-sm text-[#f5f2ea]/85 backdrop-blur-md lg:mt-0 lg:ml-auto">
-                        <h2 class="font-sans text-label-xs font-semibold uppercase tracking-[0.24em] text-[#f5f2ea]/75">At a glance</h2>
-                        <p class="mt-2 font-sans text-body-sm text-[#f5f2ea]/70">A quiet snapshot of what every stay includes.</p>
-                        <dl class="mt-5 space-y-3">
-                            <div class="flex items-start justify-between gap-4 pb-2">
-                                <dt class="font-sans text-body-sm text-[#f5f2ea]/65">Stay</dt>
-                                <dd class="text-right font-sans text-body-sm text-[#f5f2ea]/90">Private cave house · 1 group only</dd>
-                            </div>
-                            <div class="flex items-start justify-between gap-4 border-t border-white/10 pt-2">
-                                <dt class="font-sans text-body-sm text-[#f5f2ea]/65">Rooms</dt>
-                                <dd class="text-right font-sans text-body-sm text-[#f5f2ea]/90">3 cave rooms · full board</dd>
-                            </div>
-                            <div class="flex items-start justify-between gap-4 border-t border-white/10 pt-2">
-                                <dt class="font-sans text-body-sm text-[#f5f2ea]/65">Rates</dt>
-                                <dd class="text-right font-sans text-body-sm text-[#f5f2ea]/90">
-                                    Full-board · $350 per night
-                                </dd>
-                            </div>
-                            <div class="flex items-start justify-between gap-4 border-t border-white/10 pt-2">
-                                <dt class="font-sans text-body-sm text-[#f5f2ea]/65">Access</dt>
-                                <dd class="text-right font-sans text-body-sm text-[#f5f2ea]/90">4×4 required · private transfers available</dd>
-                            </div>
-                        </dl>
-                    </aside>
+                    <p class="mt-6 font-sans text-xs text-white/45">From $350 per night · Full board · 4×4 access</p>
+                </div>
+
+                {{-- Scroll indicator --}}
+                <div class="flex justify-center pb-8">
+                    <a href="#about" class="flex flex-col items-center gap-2 text-white/40 hover:text-white/70 transition group" aria-label="Scroll down">
+                        <span class="font-sans text-[10px] uppercase tracking-[0.3em]">Scroll</span>
+                        <span class="block h-8 w-px bg-white/30 group-hover:bg-white/60 transition animate-pulse"></span>
+                    </a>
                 </div>
             </div>
+
+            <style>
+                @keyframes hero-drift {
+                    0%   { transform: scale(1)   translate(0, 0); }
+                    50%  { transform: scale(1.06) translate(-0.5%, -0.8%); }
+                    100% { transform: scale(1)   translate(0, 0); }
+                }
+                .animate-hero-drift {
+                    animation: hero-drift 25s ease-in-out infinite;
+                }
+            </style>
         </section>
 
         <!-- Key Info Strip -->
