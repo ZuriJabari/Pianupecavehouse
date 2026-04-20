@@ -544,7 +544,7 @@
                             <div class="flex-1">
                                 <h3 class="font-display text-2xl text-[#241b16]">Toyota Land Cruiser</h3>
                                 <p class="mt-2 font-sans text-sm leading-relaxed text-[#4b3b2f]/70">
-                                    The classic safari workhorse. Pop-up viewing roof, child seats on request, and seating for up to 7 passengers.
+                                    The classic safari workhorse — seats up to 7 with a pop-up viewing roof, air conditioning, cooler box, and AC power outlets. Child seats available on request.
                                 </p>
                                 <div class="mt-4 flex flex-wrap gap-2">
                                     <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Pop-up roof</span>
