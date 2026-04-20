@@ -745,6 +745,13 @@
                 })();
                 </script>
 
+                {{-- More options note --}}
+                <div class="mt-12 text-center">
+                    <p class="font-sans text-sm leading-relaxed text-[#4b3b2f]/70">
+                        More 4×4 options are available. <a href="https://wa.me/256782374230?text=Hello%2C%20I%27d%20like%20to%20explore%20other%204x4%20hire%20options." target="_blank" class="underline underline-offset-2 font-medium text-[#241b16] hover:text-[#8d6b4a] transition">Contact us</a> to explore other vehicles.
+                    </p>
+                </div>
+
             </div>
         </section>
 
