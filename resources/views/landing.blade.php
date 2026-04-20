@@ -502,187 +502,114 @@
             <div class="mx-auto max-w-6xl px-4 py-24 lg:px-6">
 
                 {{-- Header --}}
-                <div class="max-w-3xl">
+                <div class="text-center max-w-2xl mx-auto">
                     <p class="font-sans text-label-xs font-semibold uppercase tracking-[0.28em] text-[#8d6b4a]/80">
                         Now Available
                     </p>
-                    <h2 class="mt-3 font-display text-4xl md:text-5xl lg:text-6xl leading-tight text-[#241b16]">
-                        4×4 Hire Service
+                    <h2 class="mt-3 font-display text-4xl md:text-5xl leading-tight text-[#241b16]">
+                        4×4 Hire
                     </h2>
-                    <p class="mt-4 font-sans text-body-lg leading-relaxed text-[#4b3b2f]/85">
-                        Explore Pian Upe Game Reserve and beyond at your own pace. Choose from our fleet of rugged, safari-ready vehicles — self-drive or with an experienced local driver.
+                    <p class="mt-4 font-sans text-base leading-relaxed text-[#4b3b2f]/75">
+                        Explore Pian Upe Game Reserve and beyond at your own pace. Self-drive or with an experienced local driver. Fuel not included.
                     </p>
                 </div>
 
                 {{-- Vehicle cards --}}
-                <div class="mt-12 space-y-16">
+                <div class="mt-14 grid gap-8 lg:grid-cols-2">
 
                     {{-- Vehicle 1: Toyota Land Cruiser --}}
-                    <div class="rounded-3xl border border-[#e3d4c4] bg-white/60 overflow-hidden backdrop-blur-sm">
-                        <div class="grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
-                            {{-- Gallery --}}
-                            <div class="grid grid-cols-2 gap-1.5 p-3">
-                                <div class="col-span-2 overflow-hidden rounded-xl aspect-[16/10]">
-                                    <img src="{{ asset('camera/4x4-hire/4x4-exterior-01.jpg') }}" alt="Toyota Land Cruiser — side profile with pop-up roof" class="h-full w-full object-cover transition duration-500 hover:scale-105" loading="lazy" />
-                                </div>
-                                <div class="overflow-hidden rounded-xl aspect-square">
-                                    <img src="{{ asset('camera/4x4-hire/4x4-exterior-02.jpg') }}" alt="Toyota Land Cruiser — side view" class="h-full w-full object-cover transition duration-500 hover:scale-105" loading="lazy" />
-                                </div>
-                                <div class="overflow-hidden rounded-xl aspect-square">
-                                    <img src="{{ asset('camera/4x4-hire/4x4-interior-01.jpg') }}" alt="Land Cruiser interior — seating with child seat" class="h-full w-full object-cover transition duration-500 hover:scale-105" loading="lazy" />
-                                </div>
-                                <div class="overflow-hidden rounded-xl aspect-square">
-                                    <img src="{{ asset('camera/4x4-hire/4x4-exterior-03.jpg') }}" alt="Toyota Land Cruiser — front view with bull bar" class="h-full w-full object-cover transition duration-500 hover:scale-105" loading="lazy" />
-                                </div>
-                                <div class="overflow-hidden rounded-xl aspect-square">
-                                    <img src="{{ asset('camera/4x4-hire/4x4-interior-04.jpg') }}" alt="Land Cruiser interior — spacious rear seating" class="h-full w-full object-cover transition duration-500 hover:scale-105" loading="lazy" />
+                    <div class="rounded-3xl border border-[#e3d4c4] bg-white/60 overflow-hidden backdrop-blur-sm flex flex-col">
+                        {{-- Hero image --}}
+                        <div class="overflow-hidden aspect-[16/10]">
+                            <img src="{{ asset('camera/4x4-hire/4x4-exterior-01.jpg') }}" alt="Toyota Land Cruiser — side profile with pop-up roof" class="h-full w-full object-cover transition duration-500 hover:scale-105" loading="lazy" />
+                        </div>
+                        {{-- Thumbnail strip --}}
+                        <div class="grid grid-cols-3 gap-1.5 px-3 pt-1.5">
+                            <div class="overflow-hidden rounded-lg aspect-[4/3]">
+                                <img src="{{ asset('camera/4x4-hire/4x4-exterior-03.jpg') }}" alt="Toyota Land Cruiser — front view" class="h-full w-full object-cover" loading="lazy" />
+                            </div>
+                            <div class="overflow-hidden rounded-lg aspect-[4/3]">
+                                <img src="{{ asset('camera/4x4-hire/4x4-interior-01.jpg') }}" alt="Land Cruiser interior — child seat" class="h-full w-full object-cover" loading="lazy" />
+                            </div>
+                            <div class="overflow-hidden rounded-lg aspect-[4/3]">
+                                <img src="{{ asset('camera/4x4-hire/4x4-interior-04.jpg') }}" alt="Land Cruiser interior — rear seating" class="h-full w-full object-cover" loading="lazy" />
+                            </div>
+                        </div>
+                        {{-- Details --}}
+                        <div class="flex flex-col flex-1 p-6">
+                            <div class="flex-1">
+                                <h3 class="font-display text-2xl text-[#241b16]">Toyota Land Cruiser</h3>
+                                <p class="mt-2 font-sans text-sm leading-relaxed text-[#4b3b2f]/70">
+                                    The classic safari workhorse. Pop-up viewing roof, child seats on request, and seating for up to 7 passengers.
+                                </p>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Pop-up roof</span>
+                                    <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">7 seats</span>
+                                    <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Child seat</span>
+                                    <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Game drives</span>
                                 </div>
                             </div>
-                            {{-- Details --}}
-                            <div class="flex flex-col justify-between p-6 lg:p-8">
-                                <div>
-                                    <p class="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-[#8d6b4a]/70">Vehicle 1</p>
-                                    <h3 class="mt-2 font-display text-3xl text-[#241b16]">Toyota Land Cruiser</h3>
-                                    <p class="mt-3 font-sans text-sm leading-relaxed text-[#4b3b2f]/75">
-                                        The classic African safari workhorse. Equipped with a pop-up viewing roof, child seats on request, and seating for up to 7 passengers. Built to handle the roughest bush tracks with ease.
-                                    </p>
-                                    <ul class="mt-5 space-y-2.5">
-                                        <li class="flex items-center gap-2.5 font-sans text-sm text-[#4b3b2f]/80">
-                                            <svg class="h-4 w-4 shrink-0 text-[#8d6b4a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                                            Pop-up roof for game viewing
-                                        </li>
-                                        <li class="flex items-center gap-2.5 font-sans text-sm text-[#4b3b2f]/80">
-                                            <svg class="h-4 w-4 shrink-0 text-[#8d6b4a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                                            Child seats available
-                                        </li>
-                                        <li class="flex items-center gap-2.5 font-sans text-sm text-[#4b3b2f]/80">
-                                            <svg class="h-4 w-4 shrink-0 text-[#8d6b4a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                                            Up to 7 passengers
-                                        </li>
-                                        <li class="flex items-center gap-2.5 font-sans text-sm text-[#4b3b2f]/80">
-                                            <svg class="h-4 w-4 shrink-0 text-[#8d6b4a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                                            Ideal for game drives &amp; safari
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="mt-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 pt-6 border-t border-[#e3d4c4]">
-                                    <div>
-                                        <p class="font-display text-3xl text-[#241b16]">$120 <span class="text-base font-sans font-normal text-[#4b3b2f]/50">/ day</span></p>
-                                        <p class="mt-0.5 font-sans text-xs text-[#4b3b2f]/50">Fuel not included</p>
-                                    </div>
-                                    <a
-                                        href="https://wa.me/256762031031?text=Hello%2C%20I%27d%20like%20to%20hire%20the%20Toyota%20Land%20Cruiser."
-                                        target="_blank"
-                                        class="inline-flex items-center gap-2 rounded-full bg-[#241b16] px-6 py-3 font-sans text-label-xs font-semibold tracking-[0.18em] text-[#f5f2ea] shadow-lg shadow-black/20 hover:bg-[#3b2b21] transition"
-                                    >
-                                        <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.3 0-4.438-.747-6.167-2.014l-.432-.324-3.26 1.093 1.093-3.26-.324-.432A9.935 9.935 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-                                        Enquire
-                                    </a>
-                                </div>
+                            <div class="mt-6 flex items-end justify-between pt-5 border-t border-[#e3d4c4]">
+                                <p class="font-display text-3xl text-[#241b16]">$120 <span class="text-sm font-sans font-normal text-[#4b3b2f]/50">/ day</span></p>
+                                <a
+                                    href="https://wa.me/256762031031?text=Hello%2C%20I%27d%20like%20to%20hire%20the%20Toyota%20Land%20Cruiser."
+                                    target="_blank"
+                                    class="inline-flex items-center gap-2 rounded-full bg-[#241b16] px-5 py-2.5 font-sans text-[11px] font-semibold tracking-[0.18em] uppercase text-[#f5f2ea] hover:bg-[#3b2b21] transition"
+                                >
+                                    <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.3 0-4.438-.747-6.167-2.014l-.432-.324-3.26 1.093 1.093-3.26-.324-.432A9.935 9.935 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                                    Enquire
+                                </a>
                             </div>
                         </div>
                     </div>
 
                     {{-- Vehicle 2: Nissan Patrol Pickup --}}
-                    <div class="rounded-3xl border border-[#e3d4c4] bg-white/60 overflow-hidden backdrop-blur-sm">
-                        <div class="grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
-                            {{-- Gallery --}}
-                            <div class="grid grid-cols-2 gap-1.5 p-3">
-                                <div class="col-span-2 overflow-hidden rounded-xl aspect-[16/10]">
-                                    <img src="{{ asset('camera/4x4-hire/nissan-patrol-01.jpg') }}" alt="Nissan Patrol Pickup — front view" class="h-full w-full object-cover transition duration-500 hover:scale-105" loading="lazy" />
-                                </div>
-                                <div class="overflow-hidden rounded-xl aspect-square">
-                                    <img src="{{ asset('camera/4x4-hire/nissan-patrol-02.jpg') }}" alt="Nissan Patrol Pickup — front quarter with off-road tyres" class="h-full w-full object-cover transition duration-500 hover:scale-105" loading="lazy" />
-                                </div>
-                                <div class="overflow-hidden rounded-xl aspect-square">
-                                    <img src="{{ asset('camera/4x4-hire/nissan-patrol-07.jpg') }}" alt="Nissan Patrol dashboard — touchscreen infotainment" class="h-full w-full object-cover transition duration-500 hover:scale-105" loading="lazy" />
-                                </div>
-                                <div class="overflow-hidden rounded-xl aspect-square">
-                                    <img src="{{ asset('camera/4x4-hire/nissan-patrol-03.jpg') }}" alt="Nissan Patrol interior — leather seats and dashboard" class="h-full w-full object-cover transition duration-500 hover:scale-105" loading="lazy" />
-                                </div>
-                                <div class="overflow-hidden rounded-xl aspect-square">
-                                    <img src="{{ asset('camera/4x4-hire/nissan-patrol-06.jpg') }}" alt="Nissan Patrol — driver side interior" class="h-full w-full object-cover transition duration-500 hover:scale-105" loading="lazy" />
+                    <div class="rounded-3xl border border-[#e3d4c4] bg-white/60 overflow-hidden backdrop-blur-sm flex flex-col relative">
+                        <span class="absolute top-4 right-4 z-10 rounded-full bg-[#241b16] px-3 py-1 font-sans text-[10px] font-semibold uppercase tracking-wider text-[#f5f2ea]">Best Value</span>
+                        {{-- Hero image --}}
+                        <div class="overflow-hidden aspect-[16/10]">
+                            <img src="{{ asset('camera/4x4-hire/nissan-patrol-01.jpg') }}" alt="Nissan Patrol Pickup — front view" class="h-full w-full object-cover transition duration-500 hover:scale-105" loading="lazy" />
+                        </div>
+                        {{-- Thumbnail strip --}}
+                        <div class="grid grid-cols-3 gap-1.5 px-3 pt-1.5">
+                            <div class="overflow-hidden rounded-lg aspect-[4/3]">
+                                <img src="{{ asset('camera/4x4-hire/nissan-patrol-02.jpg') }}" alt="Nissan Patrol — front quarter" class="h-full w-full object-cover" loading="lazy" />
+                            </div>
+                            <div class="overflow-hidden rounded-lg aspect-[4/3]">
+                                <img src="{{ asset('camera/4x4-hire/nissan-patrol-07.jpg') }}" alt="Nissan Patrol — touchscreen dashboard" class="h-full w-full object-cover" loading="lazy" />
+                            </div>
+                            <div class="overflow-hidden rounded-lg aspect-[4/3]">
+                                <img src="{{ asset('camera/4x4-hire/nissan-patrol-06.jpg') }}" alt="Nissan Patrol — driver interior" class="h-full w-full object-cover" loading="lazy" />
+                            </div>
+                        </div>
+                        {{-- Details --}}
+                        <div class="flex flex-col flex-1 p-6">
+                            <div class="flex-1">
+                                <h3 class="font-display text-2xl text-[#241b16]">Nissan Patrol Pickup</h3>
+                                <p class="mt-2 font-sans text-sm leading-relaxed text-[#4b3b2f]/70">
+                                    Rugged and versatile with leather interior, touchscreen infotainment, and legendary Nissan Patrol reliability. Perfect for self-drive adventures.
+                                </p>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Leather seats</span>
+                                    <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Touchscreen</span>
+                                    <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Off-road tyres</span>
+                                    <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Self-drive</span>
                                 </div>
                             </div>
-                            {{-- Details --}}
-                            <div class="flex flex-col justify-between p-6 lg:p-8">
-                                <div>
-                                    <div class="flex items-center gap-3">
-                                        <p class="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-[#8d6b4a]/70">Vehicle 2</p>
-                                        <span class="rounded-full bg-[#8d6b4a]/15 px-2.5 py-0.5 font-sans text-[10px] font-semibold uppercase tracking-wider text-[#8d6b4a]">Best Value</span>
-                                    </div>
-                                    <h3 class="mt-2 font-display text-3xl text-[#241b16]">Nissan Patrol Pickup</h3>
-                                    <p class="mt-3 font-sans text-sm leading-relaxed text-[#4b3b2f]/75">
-                                        A rugged and versatile pickup built for East African roads. Leather interior, touchscreen infotainment, and the legendary Nissan Patrol reliability. Perfect for self-drive adventures and getting off the beaten path.
-                                    </p>
-                                    <ul class="mt-5 space-y-2.5">
-                                        <li class="flex items-center gap-2.5 font-sans text-sm text-[#4b3b2f]/80">
-                                            <svg class="h-4 w-4 shrink-0 text-[#8d6b4a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                                            Leather seats
-                                        </li>
-                                        <li class="flex items-center gap-2.5 font-sans text-sm text-[#4b3b2f]/80">
-                                            <svg class="h-4 w-4 shrink-0 text-[#8d6b4a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                                            Touchscreen infotainment
-                                        </li>
-                                        <li class="flex items-center gap-2.5 font-sans text-sm text-[#4b3b2f]/80">
-                                            <svg class="h-4 w-4 shrink-0 text-[#8d6b4a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                                            Off-road tyres
-                                        </li>
-                                        <li class="flex items-center gap-2.5 font-sans text-sm text-[#4b3b2f]/80">
-                                            <svg class="h-4 w-4 shrink-0 text-[#8d6b4a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                                            Ideal for self-drive &amp; transfers
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="mt-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 pt-6 border-t border-[#e3d4c4]">
-                                    <div>
-                                        <p class="font-display text-3xl text-[#241b16]">$80 <span class="text-base font-sans font-normal text-[#4b3b2f]/50">/ day</span></p>
-                                        <p class="mt-0.5 font-sans text-xs text-[#4b3b2f]/50">Fuel not included</p>
-                                    </div>
-                                    <a
-                                        href="https://wa.me/256762031031?text=Hello%2C%20I%27d%20like%20to%20hire%20the%20Nissan%20Patrol%20Pickup."
-                                        target="_blank"
-                                        class="inline-flex items-center gap-2 rounded-full bg-[#241b16] px-6 py-3 font-sans text-label-xs font-semibold tracking-[0.18em] text-[#f5f2ea] shadow-lg shadow-black/20 hover:bg-[#3b2b21] transition"
-                                    >
-                                        <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.3 0-4.438-.747-6.167-2.014l-.432-.324-3.26 1.093 1.093-3.26-.324-.432A9.935 9.935 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-                                        Enquire
-                                    </a>
-                                </div>
+                            <div class="mt-6 flex items-end justify-between pt-5 border-t border-[#e3d4c4]">
+                                <p class="font-display text-3xl text-[#241b16]">$80 <span class="text-sm font-sans font-normal text-[#4b3b2f]/50">/ day</span></p>
+                                <a
+                                    href="https://wa.me/256762031031?text=Hello%2C%20I%27d%20like%20to%20hire%20the%20Nissan%20Patrol%20Pickup."
+                                    target="_blank"
+                                    class="inline-flex items-center gap-2 rounded-full bg-[#241b16] px-5 py-2.5 font-sans text-[11px] font-semibold tracking-[0.18em] uppercase text-[#f5f2ea] hover:bg-[#3b2b21] transition"
+                                >
+                                    <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.3 0-4.438-.747-6.167-2.014l-.432-.324-3.26 1.093 1.093-3.26-.324-.432A9.935 9.935 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                                    Enquire
+                                </a>
                             </div>
                         </div>
                     </div>
 
-                </div>
-
-                {{-- Features --}}
-                <div class="mt-14 grid gap-6 md:grid-cols-3">
-                    <div class="rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/80 p-6">
-                        <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#241b16]/10 mb-3">
-                            <svg class="h-5 w-5 text-[#241b16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-sans text-sm font-semibold uppercase tracking-wider text-[#241b16]/90">Safari-Ready</h3>
-                        <p class="mt-2 font-sans text-sm text-[#4b3b2f]/70 leading-relaxed">Built for rough terrain and long drives through the reserve. Off-road tyres and high ground clearance on every vehicle.</p>
-                    </div>
-                    <div class="rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/80 p-6">
-                        <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#241b16]/10 mb-3">
-                            <svg class="h-5 w-5 text-[#241b16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-sans text-sm font-semibold uppercase tracking-wider text-[#241b16]/90">Self-Drive or Guided</h3>
-                        <p class="mt-2 font-sans text-sm text-[#4b3b2f]/70 leading-relaxed">Take the wheel yourself or hire with an experienced local driver who knows every trail in the reserve.</p>
-                    </div>
-                    <div class="rounded-2xl border border-[#e3d4c4] bg-[#fffaf3]/80 p-6">
-                        <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#241b16]/10 mb-3">
-                            <svg class="h-5 w-5 text-[#241b16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-sans text-sm font-semibold uppercase tracking-wider text-[#241b16]/90">Flexible Hire</h3>
-                        <p class="mt-2 font-sans text-sm text-[#4b3b2f]/70 leading-relaxed">Hire by the day, for a game drive, or for the duration of your stay. Fuel not included — you fill up as you go.</p>
-                    </div>
                 </div>
 
             </div>
