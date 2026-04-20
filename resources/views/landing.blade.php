@@ -609,7 +609,7 @@
                                 </p>
                                 <div class="mt-4 flex flex-wrap gap-2">
                                     <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Leather seats</span>
-                                    <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Touchscreen</span>
+                                    <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Movable touchscreen</span>
                                     <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Off-road tyres</span>
                                     <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Air conditioning</span>
                                     <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Cooler box</span>
