@@ -636,20 +636,20 @@
                 </div>
 
                 {{-- 4x4 Lightbox --}}
-                <div id="vehicle-lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm" style="display:none;">
-                    <button id="vl-close" class="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition" aria-label="Close">
+                <div id="vehicle-lightbox" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4" style="display:none;">
+                    <button id="vl-close" class="absolute top-3 right-3 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/15 text-white hover:bg-white/25 transition" aria-label="Close">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
                     </button>
-                    <button id="vl-prev" class="absolute left-3 top-1/2 -translate-y-1/2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition" aria-label="Previous">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                    <button id="vl-prev" class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 md:h-11 md:w-11 items-center justify-center rounded-full bg-white/15 text-white hover:bg-white/25 transition" aria-label="Previous">
+                        <svg class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
                     </button>
-                    <button id="vl-next" class="absolute right-3 top-1/2 -translate-y-1/2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition" aria-label="Next">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    <button id="vl-next" class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 md:h-11 md:w-11 items-center justify-center rounded-full bg-white/15 text-white hover:bg-white/25 transition" aria-label="Next">
+                        <svg class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                     </button>
-                    <div class="max-w-5xl w-full mx-4">
-                        <img id="vl-img" src="" alt="" class="w-full max-h-[85vh] object-contain rounded-xl" />
-                        <p id="vl-caption" class="mt-3 text-center font-sans text-sm text-white/70"></p>
-                        <p id="vl-counter" class="mt-1 text-center font-sans text-xs text-white/40"></p>
+                    <div class="w-full max-w-5xl flex flex-col items-center justify-center px-8 md:px-0">
+                        <img id="vl-img" src="" alt="" class="max-w-full max-h-[75vh] md:max-h-[85vh] object-contain rounded-lg md:rounded-xl" />
+                        <p id="vl-caption" class="mt-3 text-center font-sans text-xs md:text-sm text-white/70"></p>
+                        <p id="vl-counter" class="mt-1 text-center font-sans text-[10px] md:text-xs text-white/40"></p>
                     </div>
                 </div>
 
