@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Your Stay - Pian Upe Cave House</title>
-    <meta name="description" content="Book your exclusive stay at Pian Upe Cave House. Luxury wilderness retreat in Uganda's Pian Upe Wildlife Reserve.">
+    <meta name="description" content="Book your stay at Pian Upe Cave House. Luxury wilderness retreat in Uganda's Pian Upe Wildlife Reserve. Rooms from $350 per night.">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
@@ -34,7 +34,7 @@
             <div class="max-w-3xl mx-auto text-center mb-12">
                 <h1 class="font-display text-4xl md:text-5xl text-[#f5f2ea] mb-4">Book Your Stay</h1>
                 <p class="font-sans text-lg text-[#f5f2ea]/60 leading-relaxed">
-                    Experience exclusive luxury in Uganda's wilderness. Single-group hosting ensures complete privacy and personalized service.
+                    Experience luxury in Uganda's wilderness. Rooms from $350 per night with personalized service.
                 </p>
             </div>
 
@@ -63,8 +63,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
                         </svg>
                     </div>
-                    <h3 class="font-sans text-sm font-semibold uppercase tracking-wider text-[#f5f2ea]/90 mb-2">Exclusive Hosting</h3>
-                    <p class="font-sans text-sm text-[#f5f2ea]/50">Single-group bookings ensure complete privacy and personalized service</p>
+                    <h3 class="font-sans text-sm font-semibold uppercase tracking-wider text-[#f5f2ea]/90 mb-2">$350 Per Room</h3>
+                    <p class="font-sans text-sm text-[#f5f2ea]/50">Each room is $350 per night with full personalized service</p>
                 </div>
 
                 <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center">

@@ -529,7 +529,7 @@
                                         <dt>Minimum stay</dt><dd class="text-[#f5f2ea]/90">1 night</dd>
                                     </div>
                                     <div class="flex justify-between gap-4">
-                                        <dt>Rooms</dt><dd class="text-[#f5f2ea]/90">Up to 3 · exclusive use</dd>
+                                        <dt>Rooms</dt><dd class="text-[#f5f2ea]/90">Up to 3 · $350 per room per night</dd>
                                     </div>
                                     <div class="flex justify-between gap-4">
                                         <dt>Advance booking</dt><dd class="text-[#f5f2ea]/90">7 days minimum</dd>
