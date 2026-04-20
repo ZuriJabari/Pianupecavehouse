@@ -552,7 +552,7 @@
                             <div class="mt-6 flex items-end justify-between pt-5 border-t border-[#e3d4c4]">
                                 <p class="font-display text-3xl text-[#241b16]">$120 <span class="text-sm font-sans font-normal text-[#4b3b2f]/50">/ day</span></p>
                                 <a
-                                    href="https://wa.me/256762031031?text=Hello%2C%20I%27d%20like%20to%20hire%20the%20Toyota%20Land%20Cruiser."
+                                    href="https://wa.me/256782374230?text=Hello%2C%20I%27d%20like%20to%20hire%20the%20Toyota%20Land%20Cruiser."
                                     target="_blank"
                                     class="inline-flex items-center gap-2 rounded-full bg-[#241b16] px-5 py-2.5 font-sans text-[11px] font-semibold tracking-[0.18em] uppercase text-[#f5f2ea] hover:bg-[#3b2b21] transition"
                                 >
@@ -571,9 +571,12 @@
                             <img src="{{ asset('camera/4x4-hire/nissan-patrol-01.jpg') }}" alt="Nissan Patrol Pickup — front view" class="h-full w-full object-cover transition duration-500 hover:scale-105" loading="lazy" />
                         </div>
                         {{-- Thumbnail strip --}}
-                        <div class="grid grid-cols-3 gap-1.5 px-3 pt-1.5">
+                        <div class="grid grid-cols-4 gap-1.5 px-3 pt-1.5">
                             <div class="overflow-hidden rounded-lg aspect-[4/3]">
                                 <img src="{{ asset('camera/4x4-hire/nissan-patrol-02.jpg') }}" alt="Nissan Patrol — front quarter" class="h-full w-full object-cover" loading="lazy" />
+                            </div>
+                            <div class="overflow-hidden rounded-lg aspect-[4/3]">
+                                <img src="{{ asset('camera/4x4-hire/nissan-patrol-08.jpg') }}" alt="Nissan Patrol — rear pickup bed" class="h-full w-full object-cover" loading="lazy" />
                             </div>
                             <div class="overflow-hidden rounded-lg aspect-[4/3]">
                                 <img src="{{ asset('camera/4x4-hire/nissan-patrol-07.jpg') }}" alt="Nissan Patrol — touchscreen dashboard" class="h-full w-full object-cover" loading="lazy" />
@@ -599,7 +602,7 @@
                             <div class="mt-6 flex items-end justify-between pt-5 border-t border-[#e3d4c4]">
                                 <p class="font-display text-3xl text-[#241b16]">$80 <span class="text-sm font-sans font-normal text-[#4b3b2f]/50">/ day</span></p>
                                 <a
-                                    href="https://wa.me/256762031031?text=Hello%2C%20I%27d%20like%20to%20hire%20the%20Nissan%20Patrol%20Pickup."
+                                    href="https://wa.me/256782374230?text=Hello%2C%20I%27d%20like%20to%20hire%20the%20Nissan%20Patrol%20Pickup."
                                     target="_blank"
                                     class="inline-flex items-center gap-2 rounded-full bg-[#241b16] px-5 py-2.5 font-sans text-[11px] font-semibold tracking-[0.18em] uppercase text-[#f5f2ea] hover:bg-[#3b2b21] transition"
                                 >
