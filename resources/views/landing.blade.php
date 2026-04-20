@@ -606,7 +606,7 @@
                             <div class="flex-1">
                                 <h3 class="font-display text-2xl text-[#241b16]">Nissan Patrol Pickup</h3>
                                 <p class="mt-2 font-sans text-sm leading-relaxed text-[#4b3b2f]/70">
-                                    Rugged and versatile with leather interior, touchscreen infotainment, and legendary Nissan Patrol reliability. Perfect for self-drive adventures.
+                                    Rugged and versatile with air conditioning, a cooler box, and AC power outlets for charging on the go. Legendary Nissan Patrol reliability — perfect for self-drive adventures.
                                 </p>
                                 <div class="mt-4 flex flex-wrap gap-2">
                                     <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Leather seats</span>
