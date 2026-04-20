@@ -518,9 +518,9 @@
                     {{-- Vehicle 1: Toyota Land Cruiser --}}
                     <div class="rounded-3xl border border-[#e3d4c4] bg-white/60 overflow-hidden backdrop-blur-sm flex flex-col" data-vehicle-gallery>
                         {{-- Hero image --}}
-                        <div class="overflow-hidden aspect-[16/10] cursor-pointer relative group" data-hero-wrap>
-                            <img data-hero src="{{ asset('camera/4x4-hire/4x4-exterior-01.jpg') }}" alt="Toyota Land Cruiser — side profile with pop-up roof" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
-                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/20">
+                        <div class="overflow-hidden aspect-[16/10] md:cursor-pointer relative group" data-hero-wrap>
+                            <img data-hero src="{{ asset('camera/4x4-hire/4x4-exterior-01.jpg') }}" alt="Toyota Land Cruiser — side profile with pop-up roof" class="h-full w-full object-cover transition duration-500 md:group-hover:scale-105" loading="lazy" />
+                            <div class="hidden md:flex absolute inset-0 items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/20">
                                 <svg class="h-10 w-10 text-white drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
                             </div>
                         </div>
@@ -577,9 +577,9 @@
                     <div class="rounded-3xl border border-[#e3d4c4] bg-white/60 overflow-hidden backdrop-blur-sm flex flex-col relative" data-vehicle-gallery>
                         <span class="absolute top-4 right-4 z-10 rounded-full bg-[#241b16] px-3 py-1 font-sans text-[10px] font-semibold uppercase tracking-wider text-[#f5f2ea]">Best Value</span>
                         {{-- Hero image --}}
-                        <div class="overflow-hidden aspect-[16/10] cursor-pointer relative group" data-hero-wrap>
-                            <img data-hero src="{{ asset('camera/4x4-hire/nissan-patrol-01.jpg') }}" alt="Nissan Patrol Pickup — front view" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
-                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/20">
+                        <div class="overflow-hidden aspect-[16/10] md:cursor-pointer relative group" data-hero-wrap>
+                            <img data-hero src="{{ asset('camera/4x4-hire/nissan-patrol-01.jpg') }}" alt="Nissan Patrol Pickup — front view" class="h-full w-full object-cover transition duration-500 md:group-hover:scale-105" loading="lazy" />
+                            <div class="hidden md:flex absolute inset-0 items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/20">
                                 <svg class="h-10 w-10 text-white drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
                             </div>
                         </div>
@@ -743,6 +743,7 @@
 
                         if (heroWrap) {
                             heroWrap.addEventListener('click', function() {
+                                if (window.innerWidth < 768) return;
                                 var activeIdx = 0;
                                 thumbs.forEach(function(t, i) {
                                     if (t.hasAttribute('data-active')) activeIdx = i;
