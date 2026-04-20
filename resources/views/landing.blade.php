@@ -508,7 +508,7 @@
                         4×4 Hire
                     </h2>
                     <p class="mt-4 font-sans text-base leading-relaxed text-[#4b3b2f]/75">
-                        Explore Pian Upe Game Reserve and beyond at your own pace. Self-drive or with an experienced local driver. Fuel not included.
+                        Explore Pian Upe Game Reserve and beyond at your own pace. Self-drive or with an experienced local driver.
                     </p>
                 </div>
 
@@ -554,7 +554,10 @@
                                 </div>
                             </div>
                             <div class="mt-6 flex items-end justify-between pt-5 border-t border-[#e3d4c4]">
-                                <p class="font-display text-3xl text-[#241b16]">$120 <span class="text-sm font-sans font-normal text-[#4b3b2f]/50">/ day</span></p>
+                                <div>
+                                    <p class="font-display text-3xl text-[#241b16]">$120 <span class="text-sm font-sans font-normal text-[#4b3b2f]/50">/ day</span></p>
+                                    <p class="mt-0.5 font-sans text-xs text-[#4b3b2f]/50">Fuel not included</p>
+                                </div>
                                 <a
                                     href="https://wa.me/256782374230?text=Hello%2C%20I%27d%20like%20to%20hire%20the%20Toyota%20Land%20Cruiser."
                                     target="_blank"
@@ -610,7 +613,10 @@
                                 </div>
                             </div>
                             <div class="mt-6 flex items-end justify-between pt-5 border-t border-[#e3d4c4]">
-                                <p class="font-display text-3xl text-[#241b16]">$80 <span class="text-sm font-sans font-normal text-[#4b3b2f]/50">/ day</span></p>
+                                <div>
+                                    <p class="font-display text-3xl text-[#241b16]">$80 <span class="text-sm font-sans font-normal text-[#4b3b2f]/50">/ day</span></p>
+                                    <p class="mt-0.5 font-sans text-xs text-[#4b3b2f]/50">Fuel not included</p>
+                                </div>
                                 <a
                                     href="https://wa.me/256782374230?text=Hello%2C%20I%27d%20like%20to%20hire%20the%20Nissan%20Patrol%20Pickup."
                                     target="_blank"
