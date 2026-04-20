@@ -550,6 +550,8 @@
                                     <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Pop-up roof</span>
                                     <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">7 seats</span>
                                     <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Child seat</span>
+                                    <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Air conditioning</span>
+                                    <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Cooler box</span>
                                     <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Game drives</span>
                                 </div>
                             </div>
@@ -609,6 +611,8 @@
                                     <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Leather seats</span>
                                     <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Touchscreen</span>
                                     <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Off-road tyres</span>
+                                    <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Air conditioning</span>
+                                    <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Cooler box</span>
                                     <span class="rounded-full border border-[#e3d4c4] bg-[#fffaf3] px-3 py-1 font-sans text-xs text-[#4b3b2f]/70">Self-drive</span>
                                 </div>
                             </div>
