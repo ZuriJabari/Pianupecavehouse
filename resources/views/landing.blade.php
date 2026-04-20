@@ -518,20 +518,26 @@
                 <div class="mt-14 grid gap-8 lg:grid-cols-2">
 
                     {{-- Vehicle 1: Toyota Land Cruiser --}}
-                    <div class="rounded-3xl border border-[#e3d4c4] bg-white/60 overflow-hidden backdrop-blur-sm flex flex-col">
+                    <div class="rounded-3xl border border-[#e3d4c4] bg-white/60 overflow-hidden backdrop-blur-sm flex flex-col" data-vehicle-gallery>
                         {{-- Hero image --}}
-                        <div class="overflow-hidden aspect-[16/10]">
-                            <img src="{{ asset('camera/4x4-hire/4x4-exterior-01.jpg') }}" alt="Toyota Land Cruiser — side profile with pop-up roof" class="h-full w-full object-cover transition duration-500 hover:scale-105" loading="lazy" />
+                        <div class="overflow-hidden aspect-[16/10] cursor-pointer relative group" data-hero-wrap>
+                            <img data-hero src="{{ asset('camera/4x4-hire/4x4-exterior-01.jpg') }}" alt="Toyota Land Cruiser — side profile with pop-up roof" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/20">
+                                <svg class="h-10 w-10 text-white drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+                            </div>
                         </div>
                         {{-- Thumbnail strip --}}
-                        <div class="grid grid-cols-3 gap-1.5 px-3 pt-1.5">
-                            <div class="overflow-hidden rounded-lg aspect-[4/3]">
+                        <div class="grid grid-cols-4 gap-1.5 px-3 pt-1.5" data-thumbs>
+                            <div class="overflow-hidden rounded-lg aspect-[4/3] cursor-pointer ring-2 ring-[#241b16] ring-offset-1" data-thumb data-active>
+                                <img src="{{ asset('camera/4x4-hire/4x4-exterior-01.jpg') }}" alt="Toyota Land Cruiser — side profile" class="h-full w-full object-cover" loading="lazy" />
+                            </div>
+                            <div class="overflow-hidden rounded-lg aspect-[4/3] cursor-pointer ring-2 ring-transparent hover:ring-[#241b16]/40 transition-all ring-offset-1" data-thumb>
                                 <img src="{{ asset('camera/4x4-hire/4x4-exterior-03.jpg') }}" alt="Toyota Land Cruiser — front view" class="h-full w-full object-cover" loading="lazy" />
                             </div>
-                            <div class="overflow-hidden rounded-lg aspect-[4/3]">
+                            <div class="overflow-hidden rounded-lg aspect-[4/3] cursor-pointer ring-2 ring-transparent hover:ring-[#241b16]/40 transition-all ring-offset-1" data-thumb>
                                 <img src="{{ asset('camera/4x4-hire/4x4-interior-01.jpg') }}" alt="Land Cruiser interior — child seat" class="h-full w-full object-cover" loading="lazy" />
                             </div>
-                            <div class="overflow-hidden rounded-lg aspect-[4/3]">
+                            <div class="overflow-hidden rounded-lg aspect-[4/3] cursor-pointer ring-2 ring-transparent hover:ring-[#241b16]/40 transition-all ring-offset-1" data-thumb>
                                 <img src="{{ asset('camera/4x4-hire/4x4-interior-04.jpg') }}" alt="Land Cruiser interior — rear seating" class="h-full w-full object-cover" loading="lazy" />
                             </div>
                         </div>
@@ -564,24 +570,30 @@
                     </div>
 
                     {{-- Vehicle 2: Nissan Patrol Pickup --}}
-                    <div class="rounded-3xl border border-[#e3d4c4] bg-white/60 overflow-hidden backdrop-blur-sm flex flex-col relative">
+                    <div class="rounded-3xl border border-[#e3d4c4] bg-white/60 overflow-hidden backdrop-blur-sm flex flex-col relative" data-vehicle-gallery>
                         <span class="absolute top-4 right-4 z-10 rounded-full bg-[#241b16] px-3 py-1 font-sans text-[10px] font-semibold uppercase tracking-wider text-[#f5f2ea]">Best Value</span>
                         {{-- Hero image --}}
-                        <div class="overflow-hidden aspect-[16/10]">
-                            <img src="{{ asset('camera/4x4-hire/nissan-patrol-01.jpg') }}" alt="Nissan Patrol Pickup — front view" class="h-full w-full object-cover transition duration-500 hover:scale-105" loading="lazy" />
+                        <div class="overflow-hidden aspect-[16/10] cursor-pointer relative group" data-hero-wrap>
+                            <img data-hero src="{{ asset('camera/4x4-hire/nissan-patrol-01.jpg') }}" alt="Nissan Patrol Pickup — front view" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/20">
+                                <svg class="h-10 w-10 text-white drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+                            </div>
                         </div>
                         {{-- Thumbnail strip --}}
-                        <div class="grid grid-cols-4 gap-1.5 px-3 pt-1.5">
-                            <div class="overflow-hidden rounded-lg aspect-[4/3]">
+                        <div class="grid grid-cols-5 gap-1.5 px-3 pt-1.5" data-thumbs>
+                            <div class="overflow-hidden rounded-lg aspect-[4/3] cursor-pointer ring-2 ring-[#241b16] ring-offset-1" data-thumb data-active>
+                                <img src="{{ asset('camera/4x4-hire/nissan-patrol-01.jpg') }}" alt="Nissan Patrol — front view" class="h-full w-full object-cover" loading="lazy" />
+                            </div>
+                            <div class="overflow-hidden rounded-lg aspect-[4/3] cursor-pointer ring-2 ring-transparent hover:ring-[#241b16]/40 transition-all ring-offset-1" data-thumb>
                                 <img src="{{ asset('camera/4x4-hire/nissan-patrol-02.jpg') }}" alt="Nissan Patrol — front quarter" class="h-full w-full object-cover" loading="lazy" />
                             </div>
-                            <div class="overflow-hidden rounded-lg aspect-[4/3]">
+                            <div class="overflow-hidden rounded-lg aspect-[4/3] cursor-pointer ring-2 ring-transparent hover:ring-[#241b16]/40 transition-all ring-offset-1" data-thumb>
                                 <img src="{{ asset('camera/4x4-hire/nissan-patrol-08.jpg') }}" alt="Nissan Patrol — rear pickup bed" class="h-full w-full object-cover" loading="lazy" />
                             </div>
-                            <div class="overflow-hidden rounded-lg aspect-[4/3]">
+                            <div class="overflow-hidden rounded-lg aspect-[4/3] cursor-pointer ring-2 ring-transparent hover:ring-[#241b16]/40 transition-all ring-offset-1" data-thumb>
                                 <img src="{{ asset('camera/4x4-hire/nissan-patrol-07.jpg') }}" alt="Nissan Patrol — touchscreen dashboard" class="h-full w-full object-cover" loading="lazy" />
                             </div>
-                            <div class="overflow-hidden rounded-lg aspect-[4/3]">
+                            <div class="overflow-hidden rounded-lg aspect-[4/3] cursor-pointer ring-2 ring-transparent hover:ring-[#241b16]/40 transition-all ring-offset-1" data-thumb>
                                 <img src="{{ asset('camera/4x4-hire/nissan-patrol-06.jpg') }}" alt="Nissan Patrol — driver interior" class="h-full w-full object-cover" loading="lazy" />
                             </div>
                         </div>
@@ -614,6 +626,124 @@
                     </div>
 
                 </div>
+
+                {{-- 4x4 Lightbox --}}
+                <div id="vehicle-lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm" style="display:none;">
+                    <button id="vl-close" class="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition" aria-label="Close">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                    <button id="vl-prev" class="absolute left-3 top-1/2 -translate-y-1/2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition" aria-label="Previous">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                    <button id="vl-next" class="absolute right-3 top-1/2 -translate-y-1/2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition" aria-label="Next">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+                    <div class="max-w-5xl w-full mx-4">
+                        <img id="vl-img" src="" alt="" class="w-full max-h-[85vh] object-contain rounded-xl" />
+                        <p id="vl-caption" class="mt-3 text-center font-sans text-sm text-white/70"></p>
+                        <p id="vl-counter" class="mt-1 text-center font-sans text-xs text-white/40"></p>
+                    </div>
+                </div>
+
+                <script>
+                (function() {
+                    var galleries = document.querySelectorAll('[data-vehicle-gallery]');
+                    var lb = document.getElementById('vehicle-lightbox');
+                    var lbImg = document.getElementById('vl-img');
+                    var lbCaption = document.getElementById('vl-caption');
+                    var lbCounter = document.getElementById('vl-counter');
+                    var lbClose = document.getElementById('vl-close');
+                    var lbPrev = document.getElementById('vl-prev');
+                    var lbNext = document.getElementById('vl-next');
+                    var currentImages = [];
+                    var currentIdx = 0;
+
+                    function openLightbox(images, idx) {
+                        currentImages = images;
+                        currentIdx = idx;
+                        showSlide();
+                        lb.style.display = 'flex';
+                        document.body.style.overflow = 'hidden';
+                    }
+
+                    function closeLightbox() {
+                        lb.style.display = 'none';
+                        document.body.style.overflow = '';
+                        currentImages = [];
+                    }
+
+                    function showSlide() {
+                        if (!currentImages.length) return;
+                        var item = currentImages[currentIdx];
+                        lbImg.src = item.src;
+                        lbImg.alt = item.alt;
+                        lbCaption.textContent = item.alt;
+                        lbCounter.textContent = (currentIdx + 1) + ' / ' + currentImages.length;
+                    }
+
+                    function prevSlide() {
+                        currentIdx = (currentIdx - 1 + currentImages.length) % currentImages.length;
+                        showSlide();
+                    }
+
+                    function nextSlide() {
+                        currentIdx = (currentIdx + 1) % currentImages.length;
+                        showSlide();
+                    }
+
+                    if (lbClose) lbClose.addEventListener('click', closeLightbox);
+                    if (lbPrev) lbPrev.addEventListener('click', prevSlide);
+                    if (lbNext) lbNext.addEventListener('click', nextSlide);
+                    if (lb) lb.addEventListener('click', function(e) { if (e.target === lb) closeLightbox(); });
+
+                    document.addEventListener('keydown', function(e) {
+                        if (lb.style.display !== 'flex') return;
+                        if (e.key === 'Escape') closeLightbox();
+                        else if (e.key === 'ArrowLeft') prevSlide();
+                        else if (e.key === 'ArrowRight') nextSlide();
+                    });
+
+                    galleries.forEach(function(card) {
+                        var hero = card.querySelector('[data-hero]');
+                        var heroWrap = card.querySelector('[data-hero-wrap]');
+                        var thumbs = card.querySelectorAll('[data-thumb]');
+                        var allImages = [];
+
+                        thumbs.forEach(function(t) {
+                            var img = t.querySelector('img');
+                            if (img) allImages.push({ src: img.src, alt: img.alt });
+                        });
+
+                        thumbs.forEach(function(t, i) {
+                            t.addEventListener('click', function() {
+                                var img = t.querySelector('img');
+                                if (img && hero) {
+                                    hero.src = img.src;
+                                    hero.alt = img.alt;
+                                }
+                                thumbs.forEach(function(th) {
+                                    th.classList.remove('ring-[#241b16]');
+                                    th.classList.add('ring-transparent');
+                                    th.removeAttribute('data-active');
+                                });
+                                t.classList.add('ring-[#241b16]');
+                                t.classList.remove('ring-transparent');
+                                t.setAttribute('data-active', '');
+                            });
+                        });
+
+                        if (heroWrap) {
+                            heroWrap.addEventListener('click', function() {
+                                var activeIdx = 0;
+                                thumbs.forEach(function(t, i) {
+                                    if (t.hasAttribute('data-active')) activeIdx = i;
+                                });
+                                openLightbox(allImages, activeIdx);
+                            });
+                        }
+                    });
+                })();
+                </script>
 
             </div>
         </section>
