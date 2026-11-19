@@ -7,6 +7,7 @@ use App\Http\Controllers\PaymentPageController;
 use App\Http\Controllers\NewsletterSubscriptionController;
 use App\Http\Controllers\IcalController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\Admin\InvoiceController;
 
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 Route::get('/booking', [BookingPageController::class, 'index'])->name('booking');
@@ -19,3 +20,8 @@ Route::post('/shop/add/{product}', [ShopController::class, 'add'])->name('shop.a
 Route::post('/shop/remove/{product}', [ShopController::class, 'remove'])->name('shop.remove');
 Route::get('/shop/checkout', [ShopController::class, 'checkout'])->name('shop.checkout');
 Route::post('/shop/checkout', [ShopController::class, 'placeOrder'])->name('shop.place-order');
+
+// Admin-only booking invoice (PDF). Uses the same login session as the Filament admin.
+Route::get('/admin/bookings/{booking}/invoice', [InvoiceController::class, 'show'])
+    ->middleware(['web', \Filament\Http\Middleware\Authenticate::class])
+    ->name('admin.bookings.invoice');

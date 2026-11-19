@@ -6,16 +6,18 @@
 </head>
 <body style="margin:0;padding:0;background-color:#f3f4f6;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#111827;">
 @php
-	$pricing = $booking->rate_snapshot ?? [];
-	$nights = $pricing['nights'] ?? $booking->nights;
-	$baseNightly = $pricing['base_nightly'] ?? null;
-	$baseTotal = $pricing['base_total'] ?? $booking->total_amount;
-	$addOnBreakdown = $pricing['add_on_breakdown'] ?? [];
-	$addOnTotal = $pricing['add_on_total'] ?? 0;
-	$subtotal = $pricing['subtotal'] ?? $baseTotal;
-	$discount = $pricing['discount'] ?? 0;
-	$total = $pricing['total'] ?? $booking->total_amount;
-	$coupon = $pricing['coupon'] ?? null;
+	$invoice = app(\App\Services\InvoiceService::class)->breakdown($booking);
+	$nights = $invoice['nights'];
+	$baseTotal = $invoice['base_total'];
+	$addOnBreakdown = $invoice['add_on_breakdown'];
+	$addOnTotal = $invoice['pricing']['add_on_total'] ?? 0;
+	$subtotal = $invoice['subtotal'];
+	$couponDiscount = $invoice['coupon_discount'];
+	$discount = $invoice['discount'];
+	$adjustment = $invoice['adjustment'];
+	$adjustmentLabel = $invoice['label'];
+	$total = $invoice['total'];
+	$coupon = $invoice['coupon'];
 	$currency = $booking->currency;
 @endphp
 <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
@@ -70,8 +72,14 @@
 								<td align="right" style="vertical-align:top;">
 									<div style="font-size:26px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#111827;">INVOICE</div>
 									<div style="margin-top:8px;font-size:12px;color:#4b5563;">
-										<div>Invoice #: <span style="font-family:ui-monospace,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;">{{ $booking->reference }}</span></div>
-										<div>Issue date: {{ optional($booking->created_at)->format('M j, Y') }}</div>
+										<div style="white-space:nowrap;">Invoice #: <span style="font-family:ui-monospace,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;">{{ $booking->invoice_number ?: $booking->reference }}</span></div>
+										@if($booking->invoice_number)
+											<div>Booking ref: <span style="font-family:ui-monospace,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;">{{ $booking->reference }}</span></div>
+										@endif
+										<div>Issue date: {{ optional($booking->invoice_issued_at ?? $booking->created_at)->format('M j, Y') }}</div>
+										@if($booking->invoice_due_at)
+											<div>Due date: {{ $booking->invoice_due_at->format('M j, Y') }}</div>
+										@endif
 										<div>Currency: {{ $currency }}</div>
 									</div>
 								</td>
@@ -171,12 +179,24 @@
 								<td align="right" style="padding:4px 8px;color:#4b5563;">Subtotal</td>
 								<td align="right" style="padding:4px 8px;color:#111827;">{{ number_format($subtotal) }} {{ $currency }}</td>
 							</tr>
-							@if($discount > 0)
+							@if($couponDiscount > 0)
 								<tr>
 									<td align="right" style="padding:4px 8px;color:#4b5563;">
 										Discount @if($coupon && !empty($coupon['code'])) ({{ $coupon['code'] }}) @endif
 									</td>
+									<td align="right" style="padding:4px 8px;color:#16a34a;">-{{ number_format($couponDiscount) }} {{ $currency }}</td>
+								</tr>
+							@endif
+							@if($discount > 0)
+								<tr>
+									<td align="right" style="padding:4px 8px;color:#4b5563;">{{ $adjustmentLabel }}</td>
 									<td align="right" style="padding:4px 8px;color:#16a34a;">-{{ number_format($discount) }} {{ $currency }}</td>
+								</tr>
+							@endif
+							@if($adjustment !== 0)
+								<tr>
+									<td align="right" style="padding:4px 8px;color:#4b5563;">{{ $adjustmentLabel }}</td>
+									<td align="right" style="padding:4px 8px;color:{{ $adjustment < 0 ? '#16a34a' : '#111827' }};">{{ $adjustment < 0 ? '-' : '+' }}{{ number_format(abs($adjustment)) }} {{ $currency }}</td>
 								</tr>
 							@endif
 							<tr>
@@ -186,6 +206,13 @@
 						</table>
 					</td>
 				</tr>
+				@if($booking->invoice_note)
+					<tr>
+						<td style="padding:4px 24px 12px 24px;">
+							<div style="padding:10px 12px;border-radius:8px;border:1px solid #e5e7eb;background-color:#f9fafb;font-size:13px;color:#374151;line-height:1.6;">{!! nl2br(e($booking->invoice_note)) !!}</div>
+						</td>
+					</tr>
+				@endif
 				<tr>
 					<td style="padding:8px 24px 16px 24px;border-top:1px solid #e5e7eb;">
 						<div style="font-size:12px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Payment instructions</div>

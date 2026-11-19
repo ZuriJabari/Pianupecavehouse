@@ -3,9 +3,11 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\BookingResource\Pages;
+use App\Mail\BookingInvoiceMail;
 use App\Mail\PaymentConfirmationMail;
 use App\Models\AvailabilityLock;
 use App\Models\Booking;
+use App\Services\InvoiceService;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;
@@ -13,6 +15,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\HtmlString;
 
 class BookingResource extends Resource
 {
@@ -123,7 +126,17 @@ class BookingResource extends Resource
                 Tables\Columns\TextColumn::make('total_amount')
                     ->label('Total')
                     ->formatStateUsing(fn ($state, Booking $record) => '$' . number_format($state) . ' ' . $record->currency)
+                    ->description(fn (Booking $record): ?string => $record->hasPriceAdjustment() && $record->calculated_amount !== null
+                        ? ($record->pricing_mode === 'custom_total' ? 'Custom total' : 'Discounted') . ' · was $' . number_format($record->calculated_amount)
+                        : null)
                     ->sortable(),
+
+                Tables\Columns\TextColumn::make('invoice_number')
+                    ->label('Invoice')
+                    ->fontFamily('mono')
+                    ->placeholder('Not issued')
+                    ->searchable()
+                    ->toggleable(),
 
                 Tables\Columns\BadgeColumn::make('status')
                     ->colors([
@@ -283,6 +296,188 @@ class BookingResource extends Resource
                             ->warning()
                             ->send();
                     }),
+
+                Tables\Actions\ActionGroup::make([
+                Tables\Actions\Action::make('invoice')
+                    ->label(fn (Booking $record) => $record->invoice_number ? 'Invoice' : 'Generate invoice')
+                    ->icon('heroicon-o-document-text')
+                    ->color('primary')
+                    ->modalHeading(fn (Booking $record) => ($record->invoice_number ? 'Update invoice ' . $record->invoice_number : 'Generate invoice') . ' · ' . $record->guest_name)
+                    ->modalSubmitActionLabel('Save invoice')
+                    ->modalWidth('2xl')
+                    ->fillForm(fn (Booking $record): array => [
+                        'pricing_mode' => $record->pricing_mode ?: 'standard',
+                        'discount_type' => $record->discount_type ?: 'percent',
+                        'discount_value' => $record->discount_value,
+                        'manual_total' => $record->manual_total,
+                        'adjustment_label' => $record->adjustment_label,
+                        'adjustment_reason' => $record->adjustment_reason,
+                        'invoice_due_at' => $record->invoice_due_at ?? now()->addDays(7),
+                        'invoice_note' => $record->invoice_note,
+                        'send_email' => false,
+                    ])
+                    ->form([
+                        Forms\Components\Radio::make('pricing_mode')
+                            ->label('Pricing')
+                            ->options(InvoiceService::MODES)
+                            ->descriptions([
+                                'standard' => 'Use the price the system calculates from dates, guests and add-ons.',
+                                'discount' => 'Give this client a percentage or fixed-amount discount.',
+                                'custom_total' => 'Type the final amount yourself, whatever the system calculates.',
+                            ])
+                            ->required()
+                            ->live(),
+
+                        Forms\Components\Grid::make(2)
+                            ->visible(fn (Forms\Get $get) => $get('pricing_mode') === 'discount')
+                            ->schema([
+                                Forms\Components\Select::make('discount_type')
+                                    ->label('Discount type')
+                                    ->options(['percent' => 'Percentage (%)', 'fixed' => 'Fixed amount ($)'])
+                                    ->native(false)
+                                    ->required()
+                                    ->live(),
+                                Forms\Components\TextInput::make('discount_value')
+                                    ->label(fn (Forms\Get $get) => $get('discount_type') === 'fixed' ? 'Discount amount ($)' : 'Discount (%)')
+                                    ->numeric()
+                                    ->minValue(0)
+                                    ->maxValue(fn (Forms\Get $get) => $get('discount_type') === 'percent' ? 100 : null)
+                                    ->required()
+                                    ->live(debounce: 400),
+                            ]),
+
+                        Forms\Components\TextInput::make('manual_total')
+                            ->label('Final total ($)')
+                            ->helperText('This becomes the amount the guest pays.')
+                            ->numeric()
+                            ->minValue(0)
+                            ->required()
+                            ->visible(fn (Forms\Get $get) => $get('pricing_mode') === 'custom_total')
+                            ->live(debounce: 400),
+
+                        Forms\Components\Placeholder::make('preview')
+                            ->label('Invoice preview')
+                            ->content(function (Forms\Get $get, Booking $record) {
+                                $service = app(InvoiceService::class);
+                                $pricing = $service->systemPricing($record);
+                                $f = $service->applyAdjustment(
+                                    $pricing,
+                                    $get('pricing_mode') ?: 'standard',
+                                    $get('discount_type'),
+                                    $get('discount_value'),
+                                    $get('manual_total'),
+                                    $get('adjustment_label'),
+                                );
+                                $cur = $record->currency;
+                                $money = fn ($v) => '$' . number_format($v) . ' ' . $cur;
+                                $row = fn ($label, $value, $style = '') => '<div style="display:flex;justify-content:space-between;gap:1rem;padding:2px 0;' . $style . '"><span>' . e($label) . '</span><span>' . e($value) . '</span></div>';
+
+                                $html = $row('Accommodation (' . ($pricing['nights'] ?? $record->nights) . ' nights)', $money($pricing['base_total'] ?? 0));
+                                foreach (($pricing['add_on_breakdown'] ?? []) as $key => $amount) {
+                                    $html .= $row(ucwords(str_replace('_', ' ', $key)), $amount > 0 ? $money($amount) : 'To be confirmed');
+                                }
+                                $html .= $row('Subtotal', $money($f['subtotal']), 'border-top:1px solid rgba(128,128,128,.3);margin-top:4px;padding-top:4px;');
+                                if ($f['coupon_discount'] > 0) {
+                                    $html .= $row('Coupon ' . ($pricing['coupon']['code'] ?? ''), '-' . $money($f['coupon_discount']));
+                                }
+                                if ($f['discount'] > 0) {
+                                    $html .= $row($f['label'], '-' . $money($f['discount']), 'color:#16a34a;');
+                                }
+                                if ($f['adjustment'] !== 0) {
+                                    $html .= $row($f['label'], ($f['adjustment'] < 0 ? '-' : '+') . $money(abs($f['adjustment'])), $f['adjustment'] < 0 ? 'color:#16a34a;' : '');
+                                }
+                                $html .= $row('Total due', $money($f['total']), 'font-weight:700;border-top:1px solid rgba(128,128,128,.3);margin-top:4px;padding-top:4px;');
+
+                                if ($f['total'] !== $f['calculated']) {
+                                    $diff = $f['calculated'] - $f['total'];
+                                    $pct = $f['calculated'] > 0 ? round(abs($diff) / $f['calculated'] * 100) : 0;
+                                    $html .= '<div style="margin-top:6px;font-size:12px;opacity:.75;">System price ' . e($money($f['calculated'])) . ' · ' . ($diff > 0 ? 'guest saves ' : 'guest pays ') . e($money(abs($diff))) . ($diff > 0 ? '' : ' more') . ' (' . $pct . '%)</div>';
+                                }
+                                if ((int) $record->total_amount !== $f['total'] && $record->invoice_number) {
+                                    $html .= '<div style="margin-top:2px;font-size:12px;opacity:.75;">Currently invoiced: ' . e($money($record->total_amount)) . '</div>';
+                                }
+
+                                return new HtmlString('<div style="font-size:14px;">' . $html . '</div>');
+                            }),
+
+                        Forms\Components\Grid::make(2)
+                            ->visible(fn (Forms\Get $get) => in_array($get('pricing_mode'), ['discount', 'custom_total']))
+                            ->schema([
+                                Forms\Components\TextInput::make('adjustment_label')
+                                    ->label('Label shown on invoice')
+                                    ->placeholder(fn (Forms\Get $get) => $get('pricing_mode') === 'discount' ? 'e.g. Returning guest discount' : 'e.g. Special rate adjustment')
+                                    ->maxLength(80)
+                                    ->live(debounce: 400),
+                                Forms\Components\TextInput::make('adjustment_reason')
+                                    ->label('Reason (internal only)')
+                                    ->placeholder('e.g. Repeat client, agreed by phone')
+                                    ->helperText('Never shown to the guest.')
+                                    ->required()
+                                    ->maxLength(500),
+                            ]),
+
+                        Forms\Components\Grid::make(2)->schema([
+                            Forms\Components\DatePicker::make('invoice_due_at')
+                                ->label('Payment due')
+                                ->native(false)
+                                ->displayFormat('M j, Y')
+                                ->required(),
+                            Forms\Components\Toggle::make('send_email')
+                                ->label(fn (Booking $record) => 'Email invoice to ' . $record->guest_email)
+                                ->inline(false),
+                        ]),
+
+                        Forms\Components\Textarea::make('invoice_note')
+                            ->label('Note to guest (optional)')
+                            ->placeholder('Shown on the invoice, e.g. "Thank you for returning to Pian Upe."')
+                            ->rows(2),
+                    ])
+                    ->action(function (Booking $record, array $data): void {
+                        $booking = app(InvoiceService::class)->issue($record, $data, auth()->id());
+
+                        $pdfUrl = route('admin.bookings.invoice', $booking);
+                        $body = 'Total due: $' . number_format($booking->total_amount) . ' ' . $booking->currency . '.';
+
+                        if (! empty($data['send_email'])) {
+                            try {
+                                Mail::to($booking->guest_email)->send(new BookingInvoiceMail($booking));
+                                $body .= ' Emailed to ' . $booking->guest_email . '.';
+                            } catch (\Throwable $e) {
+                                report($e);
+                                $body .= ' Email failed to send: ' . $e->getMessage();
+                            }
+                        }
+
+                        Notification::make()
+                            ->title('Invoice ' . $booking->invoice_number . ' saved')
+                            ->body($body)
+                            ->success()
+                            ->persistent()
+                            ->actions([
+                                \Filament\Notifications\Actions\Action::make('open')
+                                    ->label('Open PDF')
+                                    ->url($pdfUrl, shouldOpenInNewTab: true)
+                                    ->button(),
+                                \Filament\Notifications\Actions\Action::make('download')
+                                    ->label('Download')
+                                    ->url($pdfUrl . '?download=1')
+                                    ->link(),
+                            ])
+                            ->send();
+                    }),
+
+                Tables\Actions\Action::make('view_invoice')
+                    ->label('Open PDF')
+                    ->icon('heroicon-o-arrow-down-tray')
+                    ->color('gray')
+                    ->visible(fn (Booking $record) => filled($record->invoice_number))
+                    ->url(fn (Booking $record) => route('admin.bookings.invoice', $record), shouldOpenInNewTab: true),
+                ])
+                    ->label('Invoice')
+                    ->icon('heroicon-o-document-text')
+                    ->color('primary')
+                    ->button()
+                    ->size('xs'),
 
                 Tables\Actions\Action::make('admin_note')
                     ->label('Add note')

@@ -3,8 +3,6 @@
 namespace App\Mail;
 
 use App\Models\Booking;
-use Dompdf\Dompdf;
-use Dompdf\Options;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -26,20 +24,12 @@ class BookingInvoiceMail extends Mailable
             'booking' => $this->booking,
         ])->render();
 
-        $options = new Options();
-        $options->set('isRemoteEnabled', true);
-
-        $dompdf = new Dompdf($options);
-        $dompdf->loadHtml($html);
-        $dompdf->setPaper('A4', 'portrait');
-        $dompdf->render();
-
-        $fileName = 'Pian-Upe-Invoice-'.$this->booking->reference.'.pdf';
+        $number = $this->booking->invoice_number ?: $this->booking->reference;
 
         return $this
-            ->subject('Your Pian Upe Cave House Booking Invoice '.$this->booking->reference)
+            ->subject('Your Pian Upe Cave House Booking Invoice ' . $number)
             ->html($html)
-            ->attachData($dompdf->output(), $fileName, [
+            ->attachData($this->booking->invoicePdf(), $this->booking->invoiceFileName(), [
                 'mime' => 'application/pdf',
             ]);
     }
