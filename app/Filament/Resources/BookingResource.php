@@ -278,7 +278,72 @@ class BookingResource extends Resource
                     }),
 
                 Tables\Actions\ActionGroup::make([
-                Tables\Actions\Action::make('invoice')
+                static::invoiceAction(),
+                static::invoicePdfAction(),
+                ])
+                    ->label('Invoice')
+                    ->icon('heroicon-o-document-text')
+                    ->color('primary')
+                    ->button()
+                    ->size('xs'),
+                Tables\Actions\ActionGroup::make([
+                Tables\Actions\Action::make('reject')
+                    ->label('Reject')
+                    ->icon('heroicon-o-x-circle')
+                    ->color('danger')
+                    ->requiresConfirmation()
+                    ->modalHeading('Reject this booking?')
+                    ->modalDescription('The guest will need to be notified separately. Dates will be released.')
+                    ->visible(fn (Booking $record): bool => ! in_array($record->status, ['rejected', 'cancelled']))
+                    ->action(function (Booking $record): void {
+                        $record->update(['status' => 'rejected']);
+
+                        // Remove any pending lock for this booking
+                        AvailabilityLock::where('booking_id', $record->id)->delete();
+
+                        Notification::make()
+                            ->title('Booking rejected')
+                            ->body('Dates have been released.')
+                            ->warning()
+                            ->send();
+                    }),
+
+
+                Tables\Actions\Action::make('admin_note')
+                    ->label('Add note')
+                    ->icon('heroicon-o-pencil-square')
+                    ->color('gray')
+                    ->form([
+                        Forms\Components\Textarea::make('admin_notes')
+                            ->label('Admin notes (internal)')
+                            ->default(fn (Booking $record) => $record->admin_notes)
+                            ->rows(4)
+                            ->required(),
+                    ])
+                    ->action(function (Booking $record, array $data): void {
+                        $record->update(['admin_notes' => $data['admin_notes']]);
+                        Notification::make()->title('Note saved')->success()->send();
+                    }),
+
+                Tables\Actions\EditAction::make()->label('Edit'),
+                Tables\Actions\DeleteAction::make(),
+                ])
+                    ->label('More')
+                    ->icon('heroicon-m-ellipsis-vertical')
+                    ->color('gray'),
+            ])
+            ->bulkActions([
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
+            ])
+            // Keep row actions (Invoice, Confirm, etc.) visible without scrolling the table sideways.
+            ->actionsPosition(ActionsPosition::BeforeColumns);
+    }
+
+    public static function invoiceAction(): Tables\Actions\Action
+    {
+        return Tables\Actions\Action::make('invoice')
                     ->label(fn (Booking $record) => $record->invoice_number ? 'Edit invoice' : 'Generate invoice')
                     ->icon('heroicon-o-document-text')
                     ->color('primary')
@@ -444,73 +509,17 @@ class BookingResource extends Resource
                                     ->link(),
                             ])
                             ->send();
-                    }),
+                    });
+    }
 
-                Tables\Actions\Action::make('view_invoice')
+    public static function invoicePdfAction(): Tables\Actions\Action
+    {
+        return Tables\Actions\Action::make('view_invoice')
                     ->label('Open PDF')
                     ->icon('heroicon-o-arrow-down-tray')
                     ->color('gray')
                     ->visible(fn (Booking $record) => filled($record->invoice_number))
-                    ->url(fn (Booking $record) => route('admin.bookings.invoice', $record), shouldOpenInNewTab: true),
-                ])
-                    ->label('Invoice')
-                    ->icon('heroicon-o-document-text')
-                    ->color('primary')
-                    ->button()
-                    ->size('xs'),
-                Tables\Actions\ActionGroup::make([
-                Tables\Actions\Action::make('reject')
-                    ->label('Reject')
-                    ->icon('heroicon-o-x-circle')
-                    ->color('danger')
-                    ->requiresConfirmation()
-                    ->modalHeading('Reject this booking?')
-                    ->modalDescription('The guest will need to be notified separately. Dates will be released.')
-                    ->visible(fn (Booking $record): bool => ! in_array($record->status, ['rejected', 'cancelled']))
-                    ->action(function (Booking $record): void {
-                        $record->update(['status' => 'rejected']);
-
-                        // Remove any pending lock for this booking
-                        AvailabilityLock::where('booking_id', $record->id)->delete();
-
-                        Notification::make()
-                            ->title('Booking rejected')
-                            ->body('Dates have been released.')
-                            ->warning()
-                            ->send();
-                    }),
-
-
-                Tables\Actions\Action::make('admin_note')
-                    ->label('Add note')
-                    ->icon('heroicon-o-pencil-square')
-                    ->color('gray')
-                    ->form([
-                        Forms\Components\Textarea::make('admin_notes')
-                            ->label('Admin notes (internal)')
-                            ->default(fn (Booking $record) => $record->admin_notes)
-                            ->rows(4)
-                            ->required(),
-                    ])
-                    ->action(function (Booking $record, array $data): void {
-                        $record->update(['admin_notes' => $data['admin_notes']]);
-                        Notification::make()->title('Note saved')->success()->send();
-                    }),
-
-                Tables\Actions\EditAction::make()->label('Edit'),
-                Tables\Actions\DeleteAction::make(),
-                ])
-                    ->label('More')
-                    ->icon('heroicon-m-ellipsis-vertical')
-                    ->color('gray'),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
-            ])
-            // Keep row actions (Invoice, Confirm, etc.) visible without scrolling the table sideways.
-            ->actionsPosition(ActionsPosition::BeforeColumns);
+                    ->url(fn (Booking $record) => route('admin.bookings.invoice', $record), shouldOpenInNewTab: true);
     }
 
     public static function getPages(): array

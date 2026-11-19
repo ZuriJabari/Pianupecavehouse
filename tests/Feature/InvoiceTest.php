@@ -149,4 +149,25 @@ class InvoiceTest extends TestCase
             ->assertOk()
             ->assertHeader('Content-Type', 'application/pdf');
     }
+
+    public function test_invoices_page_lists_bookings_and_issues_invoice(): void
+    {
+        $booking = $this->makeBooking();
+        $admin = User::factory()->create();
+
+        $this->actingAs($admin)->get('/admin/invoices')->assertOk()->assertSee('Amina Test');
+
+        Livewire::actingAs($admin)
+            ->test(\App\Filament\Resources\InvoiceResource\Pages\ManageInvoices::class)
+            ->callTableAction('invoice', $booking, data: [
+                'pricing_mode' => 'discount',
+                'discount_type' => 'fixed',
+                'discount_value' => 100,
+                'adjustment_reason' => 'Loyal client',
+                'invoice_due_at' => now()->addDays(5)->toDateString(),
+            ])
+            ->assertHasNoTableActionErrors();
+
+        $this->assertNotNull($booking->fresh()->invoice_number);
+    }
 }
