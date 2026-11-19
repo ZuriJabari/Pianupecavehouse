@@ -13,6 +13,7 @@ use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\HtmlString;
@@ -276,30 +277,9 @@ class BookingResource extends Resource
                         }
                     }),
 
-                Tables\Actions\Action::make('reject')
-                    ->label('Reject')
-                    ->icon('heroicon-o-x-circle')
-                    ->color('danger')
-                    ->requiresConfirmation()
-                    ->modalHeading('Reject this booking?')
-                    ->modalDescription('The guest will need to be notified separately. Dates will be released.')
-                    ->visible(fn (Booking $record): bool => ! in_array($record->status, ['rejected', 'cancelled']))
-                    ->action(function (Booking $record): void {
-                        $record->update(['status' => 'rejected']);
-
-                        // Remove any pending lock for this booking
-                        AvailabilityLock::where('booking_id', $record->id)->delete();
-
-                        Notification::make()
-                            ->title('Booking rejected')
-                            ->body('Dates have been released.')
-                            ->warning()
-                            ->send();
-                    }),
-
                 Tables\Actions\ActionGroup::make([
                 Tables\Actions\Action::make('invoice')
-                    ->label(fn (Booking $record) => $record->invoice_number ? 'Invoice' : 'Generate invoice')
+                    ->label(fn (Booking $record) => $record->invoice_number ? 'Edit invoice' : 'Generate invoice')
                     ->icon('heroicon-o-document-text')
                     ->color('primary')
                     ->modalHeading(fn (Booking $record) => ($record->invoice_number ? 'Update invoice ' . $record->invoice_number : 'Generate invoice') . ' · ' . $record->guest_name)
@@ -478,6 +458,28 @@ class BookingResource extends Resource
                     ->color('primary')
                     ->button()
                     ->size('xs'),
+                Tables\Actions\ActionGroup::make([
+                Tables\Actions\Action::make('reject')
+                    ->label('Reject')
+                    ->icon('heroicon-o-x-circle')
+                    ->color('danger')
+                    ->requiresConfirmation()
+                    ->modalHeading('Reject this booking?')
+                    ->modalDescription('The guest will need to be notified separately. Dates will be released.')
+                    ->visible(fn (Booking $record): bool => ! in_array($record->status, ['rejected', 'cancelled']))
+                    ->action(function (Booking $record): void {
+                        $record->update(['status' => 'rejected']);
+
+                        // Remove any pending lock for this booking
+                        AvailabilityLock::where('booking_id', $record->id)->delete();
+
+                        Notification::make()
+                            ->title('Booking rejected')
+                            ->body('Dates have been released.')
+                            ->warning()
+                            ->send();
+                    }),
+
 
                 Tables\Actions\Action::make('admin_note')
                     ->label('Add note')
@@ -497,12 +499,18 @@ class BookingResource extends Resource
 
                 Tables\Actions\EditAction::make()->label('Edit'),
                 Tables\Actions\DeleteAction::make(),
+                ])
+                    ->label('More')
+                    ->icon('heroicon-m-ellipsis-vertical')
+                    ->color('gray'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            // Keep row actions (Invoice, Confirm, etc.) visible without scrolling the table sideways.
+            ->actionsPosition(ActionsPosition::BeforeColumns);
     }
 
     public static function getPages(): array
