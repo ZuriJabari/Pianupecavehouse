@@ -1,0 +1,171 @@
+name: Deploy to production
+
+# Same setup as the RefugeeBank deploy (GreenGeek cPanel server):
+# every push to main runs the tests, then deploys over SSH.
+#
+# Required repository secrets (Settings > Secrets and variables > Actions):
+#   GREENGEEK_SSH_HOST    server hostname or IP
+#   GREENGEEK_SSH_USER    cPanel username
+#   GREENGEEK_SSH_KEY     private SSH key authorised in cPanel > SSH Access
+#   GREENGEEK_SSH_PORT    SSH port (optional, defaults to 22)
+#   GREENGEEK_DEPLOY_PATH absolute path of the Laravel app on the server
+#                         (the folder that contains `artisan`)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, sqlite3, pdo_sqlite, gd, intl, zip
+          coverage: none
+
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Prepare Laravel
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+          touch database/database.sqlite
+          php artisan migrate --force
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Build frontend assets
+        run: npm ci && npm run build
+
+      - name: Run tests
+        run: php artisan test
+
+      - name: Upload frontend build
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build
+          path: public/build/
+          retention-days: 1
+
+  deploy:
+    needs: test
+    if: github.ref_name == 'main'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Check deploy secrets
+        id: check
+        env:
+          HOST: ${{ secrets.GREENGEEK_SSH_HOST }}
+          USER: ${{ secrets.GREENGEEK_SSH_USER }}
+          KEY: ${{ secrets.GREENGEEK_SSH_KEY }}
+          DEPLOY_PATH: ${{ secrets.GREENGEEK_DEPLOY_PATH }}
+        run: |
+          if [ -z "$HOST" ] || [ -z "$USER" ] || [ -z "$KEY" ] || [ -z "$DEPLOY_PATH" ]; then
+            echo "::warning::Deploy skipped: add the GREENGEEK_* secrets to this repository to enable auto-deploy."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.check.outputs.ok == 'true'
+
+      - name: Download frontend build
+        if: steps.check.outputs.ok == 'true'
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-build
+          path: public/build/
+
+      - name: Deploy via SSH
+        if: steps.check.outputs.ok == 'true'
+        uses: appleboy/ssh-action@v1.2.0
+        env:
+          DEPLOY_PATH: ${{ secrets.GREENGEEK_DEPLOY_PATH }}
+          DEPLOY_BRANCH: ${{ github.ref_name }}
+          REPO_URL: https://github.com/${{ github.repository }}.git
+        with:
+          host: ${{ secrets.GREENGEEK_SSH_HOST }}
+          username: ${{ secrets.GREENGEEK_SSH_USER }}
+          key: ${{ secrets.GREENGEEK_SSH_KEY }}
+          port: ${{ secrets.GREENGEEK_SSH_PORT || 22 }}
+          envs: DEPLOY_PATH,DEPLOY_BRANCH,REPO_URL
+          script: |
+            set -euo pipefail
+            cd "$DEPLOY_PATH"
+            if [ ! -f artisan ] || [ ! -f .env ]; then
+              echo "::error::$DEPLOY_PATH does not look like the live Laravel app (no artisan or .env). Check GREENGEEK_DEPLOY_PATH."
+              exit 1
+            fi
+
+            # First deploy: the server copy may have been uploaded by hand rather than cloned.
+            # Turn it into a git checkout. Untracked files (.env, storage, uploads) are kept.
+            if [ ! -d .git ]; then
+              echo "No git checkout found, connecting $DEPLOY_PATH to $REPO_URL"
+              git init -q
+              git remote add origin "$REPO_URL"
+            fi
+
+            php artisan down --retry=60 --secret="${{ github.sha }}" || true
+            git fetch origin "$DEPLOY_BRANCH"
+            git reset --hard "origin/$DEPLOY_BRANCH"
+            git checkout -B "$DEPLOY_BRANCH" "origin/$DEPLOY_BRANCH"
+            if command -v composer >/dev/null 2>&1; then
+              COMPOSER_CMD="composer"
+            else
+              if [ ! -f composer.phar ]; then
+                php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+                php composer-setup.php --quiet
+                rm -f composer-setup.php
+              fi
+              COMPOSER_CMD="php composer.phar"
+            fi
+            $COMPOSER_CMD install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+            php artisan migrate --force
+            php artisan storage:link || true
+            php artisan optimize:clear
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
+            php artisan filament:optimize || true
+            php artisan up || true
+
+      - name: Sync built assets
+        if: steps.check.outputs.ok == 'true'
+        env:
+          SSH_HOST: ${{ secrets.GREENGEEK_SSH_HOST }}
+          SSH_USER: ${{ secrets.GREENGEEK_SSH_USER }}
+          SSH_KEY: ${{ secrets.GREENGEEK_SSH_KEY }}
+          SSH_PORT: ${{ secrets.GREENGEEK_SSH_PORT || 22 }}
+          DEPLOY_PATH: ${{ secrets.GREENGEEK_DEPLOY_PATH }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+          tar -C public -czf /tmp/frontend-build.tgz build
+          sftp -i ~/.ssh/deploy_key -P "$SSH_PORT" "$SSH_USER@$SSH_HOST" <<EOF
+          put /tmp/frontend-build.tgz $DEPLOY_PATH/frontend-build.tgz
+          EOF
+          ssh -i ~/.ssh/deploy_key -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" \
+            "mkdir -p '$DEPLOY_PATH/public' && tar -xzf '$DEPLOY_PATH/frontend-build.tgz' -C '$DEPLOY_PATH/public' && rm -f '$DEPLOY_PATH/frontend-build.tgz'"
