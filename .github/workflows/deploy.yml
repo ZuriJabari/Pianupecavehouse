@@ -19,7 +19,8 @@ on:
 
 concurrency:
   group: deploy-${{ github.ref_name }}
-  cancel-in-progress: true
+  # Never cancel a deploy half-way (e.g. mid-migration); queue the next one instead.
+  cancel-in-progress: false
 
 jobs:
   test:
