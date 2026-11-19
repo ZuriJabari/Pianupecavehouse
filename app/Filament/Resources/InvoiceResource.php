@@ -6,6 +6,7 @@ use App\Filament\Resources\InvoiceResource\Pages;
 use App\Models\Booking;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Table;
 
 /**
@@ -80,7 +81,7 @@ class InvoiceResource extends Resource
             ->actions([
                 BookingResource::invoiceAction()->button(),
                 BookingResource::invoicePdfAction(),
-            ]);
+            ], position: ActionsPosition::BeforeColumns);
     }
 
     public static function canCreate(): bool
